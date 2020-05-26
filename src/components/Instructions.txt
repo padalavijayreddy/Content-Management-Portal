@@ -1,0 +1,93 @@
+Step:1 : 
+     - Divide into React Components
+     
+     - Content Management Portal
+          - AuthenticationModule.
+          - ContentManagementPortalPage
+            - ContentManagement
+                - Header 
+                    - iBHubsLogo
+                    - UserIcon
+                - NavigationComponent(Links)
+                    - NavigationProps.
+                        - observable SelectedField
+                    - NavigationBar.
+                        - 
+                    - Statement.
+                        - StatementStore
+                            -
+                            -
+                    - RoughSolutionFolder.
+                        - RoughSolutionStore
+                            - AddRoughSolution
+                            - RemoveRoughSolution
+                        - RoughSolutionModel
+                            - id,language,editor,edit,delete for every Rough Solution environment
+                            - UpdateTheCoding(Function will be called when the Edit button triggered)
+                        - RoughSolution(Component)
+                            - RenderRoughSolutionList.
+                    - Test Cases.
+                        - TestCasesStore
+                            - AddNewTestCase.
+                            - DeleteTestCase.
+                        - TestCasesModel.
+                            - id,input,output,score,isHidden.
+                        - TestCases(Component)
+                            - RenderTestcasesList.
+                    - PreFilledCodeFolder.
+                        - PreFilledCodeStore
+                            - AddPreFilledCode
+                            - RemovePreFilledCode
+                        - PreFilledCodeModel
+                            - id,language,editor,edit,delete for every PreFilledCode environment
+                            - UpdateTheCoding(Function will be called when the Edit button triggered)
+                        - PreFilledCode(Component)
+                            - PreFilledCodeList.
+                    - SolutionApproachFolder.
+                        -
+                    - CleanSolutionFolder
+                    - HintsFolder
+          
+          
+    ----------------------------------------------
+    
+    Step:2 :
+      - Props - Show data using minimum UI
+      
+    ----------------------------------------------  
+    
+    Step:3 : 
+    
+    Application State 
+        - userInput 
+        - >>>>activeTodosCount = listOfActiveTodos.length
+        - >>>>showClearCompletedButton = listOfCompletedTodos.length>0
+        - selectedFilterButton
+        - eachTodoCheckedState
+        - eachTodoContent
+        - eachTodoFocusedState
+        - listOfAllTodos
+        - >>>>listOfActiveTodos = listOfCompletedTodos.filter(isChecked == false)
+        - >>>>listOfCompletedTodos = listOfCompletedTodos.filter(isChecked == true)
+        - >>>>showFooter = listOfAllTodos.length > 0
+        
+        - Minimum Application State 
+           - userInput > UserInput
+           - selectedFilterButton > TodoApp
+           - eachTodoCheckedState
+           - eachTodoContent
+           - eachTodoFocusedState
+           
+           - To which component state should be given 
+    
+    Step:4 :
+       
+       -RestOfTheFunctionality
+       - RestOfTheMethodsForTheComponent
+       - RestOfTheFeatures
+       
+    Step:5 :
+        
+       Clean Code & Optimised Component
+      
+*/

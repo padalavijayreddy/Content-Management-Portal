@@ -1,24 +1,35 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { observer, Provider } from 'mobx-react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+}
+from "react-router-dom";
 
-import HomePage from "./components/HomePage";
-import Page1 from "./components/Page1";
+import stores from './stores';
+import Home from './components/Home';
+import { AuthRoutes } from './SignInPage/routes';
+import { CodingQuestionsListRoutes } from './ContentManagementPortal/routes';
+// import { ProductRoutes } from './ProductPage/routes';// import { commonRoutes } from './common/routes';
 
-import "./App.css";
+@observer
+class App extends React.Component {
+  render() {
+    return (
+      <Provider {...stores} >
+      <Router basename={process.env.PUBLIC_URL}>
+        <Switch>
+          {AuthRoutes}
+          {CodingQuestionsListRoutes}
+          <Route path='/'>
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </Provider>
+    );
+  }
+}
 
-const App = () => {
-  return (
-    <Router basename={process.env.PUBLIC_URL}>
-      <Switch>
-        <Route exact path="/page-1">
-          <Page1 />
-        </Route>
-        <Route path="/">
-          <HomePage />
-        </Route>
-      </Switch>
-    </Router>
-  );
-};
-
-export default App;
+export default (App);
