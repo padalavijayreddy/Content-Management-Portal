@@ -1,1 +1,1 @@
-export { SIGN_IN_PATH } from './RouteConstants';
+export { SIGN_IN_PATH } from './RouteConstants'

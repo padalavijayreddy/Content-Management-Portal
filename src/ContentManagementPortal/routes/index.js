@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-import { Route } from 'react-router-dom';
+import { Route } from 'react-router-dom'
 
-import { ProtectedRoute } from '../../components/ProtectedRoute';
+import { ProtectedRoute } from '../../components/ProtectedRoute'
 
-import { Coding_Questions_List_Path } from '../../constants/RouteConstants';
+import { Coding_Questions_List_Path } from '../../constants/RouteConstants'
 
-import { CodingQuestionsListRoute } from './CodingQuestionsListRoute';
+import { CodingQuestionsListRoute } from './CodingQuestionsListRoute'
 
 export const CodingQuestionsListRoutes = [
-    <ProtectedRoute
-        key={ Coding_Questions_List_Path }
-        path={ Coding_Questions_List_Path }
-        component={ CodingQuestionsListRoute }
-    />
-];
+   <ProtectedRoute
+      key={Coding_Questions_List_Path}
+      path={Coding_Questions_List_Path}
+      component={CodingQuestionsListRoute}
+   />
+]

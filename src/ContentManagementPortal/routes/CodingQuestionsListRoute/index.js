@@ -1,1 +1,1 @@
-export { CodingQuestionsListRoute } from './CodingQuestionsListRoute';
+export { CodingQuestionsListRoute } from './CodingQuestionsListRoute'

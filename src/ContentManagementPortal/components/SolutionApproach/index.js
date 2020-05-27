@@ -1,1 +1,1 @@
-export { SolutionApproach } from './SolutionApproach';
+export { SolutionApproach } from './SolutionApproach'

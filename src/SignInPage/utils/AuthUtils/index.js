@@ -1,1 +1,1 @@
-export { isLoggedIn } from './AuthUtils';
+export { isLoggedIn } from './AuthUtils'
