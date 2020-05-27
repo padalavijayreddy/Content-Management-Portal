@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import { GoBackView, BackToListDiv, BackToListP, SelectedTaskDiv } from './GoBackStyle';
 
 @observer
 class GoBack extends React.Component {
@@ -8,8 +9,7 @@ class GoBack extends React.Component {
         return (
             <div className="font-bold text-xl">
                 <div>
-                    <img></img>
-                    <p>Back To List</p>
+                    <BackToListP>Back To List</BackToListP>
                 </div>
                 <div>
                     {selectedTask}

@@ -1,0 +1,35 @@
+{
+    "signup": {
+        "ibhubsLogo": "ibhubs-logo",
+        "logoImgSrc": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/d1119fe1-4f3a-40fd-860b-3adee7ca7915.svg",
+        "errorIconSrc": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6157cd12-2279-47dc-b3a6-68f6793f2c2b.svg",
+        "hiTherePleaseSignUp": "Hi there, please sign up",
+        "username": "USER NAME",
+        "password": "PASSWORD",
+        "weak": "Weak",
+        "strong": "Strong",
+        "confirmPassword": "CONFIRM PASSWORD",
+        "signup": "SIGNUP",
+        "usernameAlreadyExits": "username already exits",
+        "invalidUsername": "Invalid Username",
+        "incorrectPassword": "Incorrect password",
+        "passwordDoesntMatch": "Password doesn't Match",
+        "alreadyHaveAnAccount": "Already have an account?",
+        "login": "Log in"
+    },
+    "login": {
+        "ibhubsLogo": "ibhubs-logo",
+        "logoImgSrc": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/d1119fe1-4f3a-40fd-860b-3adee7ca7915.svg",
+        "errorIconSrc": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/6157cd12-2279-47dc-b3a6-68f6793f2c2b.svg",
+        "hiTherePleaseSignUp": "Hi there,\nplease sign up",
+        "username": "USER NAME",
+        "password": "PASSWORD",
+        "usernameAlreadyExits": "username already exits",
+        "invalidUsername": "Invalid Username",
+        "invalidPassword": "Invalid password",
+        "passwordDoesntMatch": "Password doesn't Match",
+        "dontHaveAnAccount": "Don’t have an account?",
+        "signup": "Signup",
+        "login": "LOGIN"
+    }
+}

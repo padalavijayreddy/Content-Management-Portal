@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, createRef } from 'react';
 import { Redirect } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 import { observable, action } from 'mobx';
@@ -6,6 +6,7 @@ import { API_FETCHING } from '@ib/api-constants';
 import { SignInPage } from '../../components/SignInPage';
 import { isLoggedIn } from '../../utils/AuthUtils';
 import { Coding_Questions_List_Path } from '../../../constants/RouteConstants';
+import { login } from '../../../i18n/strings';
 
 
 @inject('authStore')
@@ -15,6 +16,7 @@ class SignInRoute extends React.Component {
         @observable username;
         @observable password;
         @observable errorMessage;
+        @observable errorType;
         signInPageRef
 
         constructor(props) {
@@ -28,6 +30,7 @@ class SignInRoute extends React.Component {
             this.password = '';
             this.username = '';
             this.errorMessage = '';
+            this.errorType = '';
         }
 
         componentDidMount() {
@@ -39,11 +42,13 @@ class SignInRoute extends React.Component {
         @action.bound
         onChangeUsername(event) {
             this.username = event.target.value;
+            this.errorType = (this.username.length > 1) ? '' : this.errorType;
         }
 
         @action.bound
         onChangePassword(event) {
             this.password = event.target.value;
+            this.errorType = (this.password.length > 1) ? '' : this.errorType;
         }
 
         @action.bound
@@ -60,17 +65,17 @@ class SignInRoute extends React.Component {
             }
         }
 
-
         @action.bound
         async onSubmit(event) {
-            event.preventDefault();
             const { username, password } = this;
             if (username.trim().length === 0) {
-                this.errorMessage = 'Please enter username';
+                this.errorMessage = [login.invalidUsername];
+                this.errorType = [login.username];
                 this.signInPageRef.current.userNameRef.current.focus();
             }
             else if (password.trim().length === 0) {
-                this.errorMessage = 'Please enter password';
+                this.errorMessage = [login.invalidPassword];
+                this.errorType = [login.password];
                 this.signInPageRef.current.passwordRef.current.focus();
             }
             else {
@@ -99,7 +104,8 @@ class SignInRoute extends React.Component {
                 password,
                 onSubmit,
                 errorMessage,
-                signInPageRef
+                signInPageRef,
+                errorType
             } = this, isLoading = (authStore.getUserSignInAPIStatus === API_FETCHING);
             return ( < SignInPage ref = { signInPageRef } { ...{
                         onChangeUsername,
@@ -110,6 +116,7 @@ class SignInRoute extends React.Component {
                         onSubmit,
                         isLoading,
                         errorMessage,
+                        errorType
                     }
                 }
                 />);

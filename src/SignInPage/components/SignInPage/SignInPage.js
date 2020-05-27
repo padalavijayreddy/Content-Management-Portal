@@ -1,16 +1,32 @@
 import React from 'react';
-import { observer, inject } from 'mobx-react';
-import { observable, action } from 'mobx';
-import { MainDiv, SubDiv, Image, Logo, SignUp, Form, UserInputDiv, UserInputLabel, UserInput, PasswordInputDiv, PasswordLabel, PasswordInput, SubmitButton, Button, ErrorMessage, Forgot, Footer, NoAccount, AnchorTag } from './signInPageStyle';
+import { observer } from 'mobx-react';
+import {
+    MainDiv,
+    SubDiv,
+    Logo,
+    SignUp,
+    FieldsDiv,
+    UsernameFieldContainerDiv,
+    InputLabelField,
+    InputField,
+    ErrorImageIcon,
+    PasswordFieldContainerDiv,
+    SubmitButton,
+    Button,
+    Footer,
+    NoAccount,
+    AnchorTag
+}
+from './signInPageStyle';
 import { API_FETCHING } from '../../../utils/APIUtils';
-import { getAccessToken } from '../../../utils/StorageUtils';
 import Loader from "../../../components/common/Icons/Loader";
+import { login } from '../../../i18n/strings';
 
 export const SignInButton = ({ isLoading, onSubmit, onEnterKeyPress, SignIntext }) => {
     return (
         <Button disabled={isLoading} data-testid='sign-in-button' onClick={onSubmit} type="button" onKeyPress={onEnterKeyPress}>{(isLoading)?
         <Loader
-            fill="black"
+            fill="white"
             height={25}
             width={25}
             />
@@ -34,38 +50,35 @@ class SignInPage extends React.Component {
             username,
             password,
             onSubmit,
-            errorMessage,
             isLoading,
+            errorType,
         } = this.props;
         return (
             <MainDiv>    
                 <SubDiv>
-                    <Form>
-                        <Image>
-                            <Logo src="https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/d1119fe1-4f3a-40fd-860b-3adee7ca7915.svg" alt="iBHubs Logo"></Logo>
-                            <SignUp>Hi There, Please SignUp</SignUp>
-                        </Image>
-                        <UserInputDiv>
-                            <UserInputLabel>USER NAME</UserInputLabel>
-                            <UserInput ref={this.userNameRef} onChange={onChangeUsername} value = {username} id="username" type="text"/>
-                        </UserInputDiv>
-                        <PasswordInputDiv>
-                            <PasswordLabel>PASSWORD</PasswordLabel>
-                            <PasswordInput ref={this.passwordRef} onChange={onChangePassword} value={ password } id="password" type="password"  onKeyPress={onEnterKeyPress}/>
-                        </PasswordInputDiv>
-                        <SubmitButton>
-                           <div>
-                                <SignInButton {...{isLoading, onEnterKeyPress, onSubmit}}/>
-                                <ErrorMessage>{errorMessage }</ErrorMessage>
-                           </div>    
-                        </SubmitButton>
-                        <Footer>
-                            <NoAccount>Don't have an account?</NoAccount> 
-                            <AnchorTag href="">Signup</AnchorTag>
-                        </Footer>
-                    </Form>
+                    <Logo src={login.logoImgSrc} alt={login.ibhubsLogo}></Logo>
+                    <SignUp>Hi There, Please SignUp</SignUp>
+                    <FieldsDiv>
+                        <UsernameFieldContainerDiv>
+                            <InputLabelField>{login.username}</InputLabelField>
+                            <InputField isErrorPresent={errorType == login.username} ref={this.userNameRef} onChange={onChangeUsername} value = {username} id={login.username} type="text" placeholder={login.username}/>
+                            {(errorType == login.username)?<ErrorImageIcon src={login.errorIconSrc}/>:''}
+                        </UsernameFieldContainerDiv>
+                        <PasswordFieldContainerDiv>
+                            <InputLabelField >{login.password}</InputLabelField>
+                            <InputField isErrorPresent={errorType == login.password} ref={this.passwordRef} onChange={onChangePassword} value={password} id={login.password} type="password" placeholder={login.password} onKeyPress={onEnterKeyPress}/>
+                            {(errorType == login.password)? <ErrorImageIcon src={login.errorIconSrc}/>:''}
+                        </PasswordFieldContainerDiv>
+                    </FieldsDiv>
+                    <SubmitButton>
+                            <SignInButton {...{isLoading, onEnterKeyPress, onSubmit}}/>
+                    </SubmitButton>
+                    <Footer>
+                        <NoAccount>Don't have an account?</NoAccount> 
+                        <AnchorTag href="">Signup</AnchorTag>
+                    </Footer>
                 </SubDiv>
-        </MainDiv>
+            </MainDiv>
         );
     }
 }
