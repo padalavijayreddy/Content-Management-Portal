@@ -1,5 +1,5 @@
-import React from 'react'
-import { observer } from 'mobx-react'
+import React from 'react';
+import { observer } from 'mobx-react';
 import {
    MainDiv,
    SubDiv,
@@ -16,10 +16,11 @@ import {
    Footer,
    NoAccount,
    AnchorTag
-} from './signInPageStyle'
-import { API_FETCHING } from '../../../utils/APIUtils'
-import Loader from '../../../components/common/Icons/Loader'
-import { login } from '../../../i18n/strings'
+}
+from './signInPageStyle';
+import { API_FETCHING } from '../../../utils/APIUtils';
+import Loader from '../../../components/common/Icons/Loader';
+import { login } from '../../../i18n/strings';
 
 export const SignInButton = ({
    isLoading,
@@ -41,12 +42,12 @@ export const SignInButton = ({
             SignIntext
          )}
       </Button>
-   )
-}
+   );
+};
 
 SignInButton.defaultProps = {
    SignIntext: 'LOGIN'
-}
+};
 
 @observer
 class SignInPage extends React.Component {
@@ -62,7 +63,7 @@ class SignInPage extends React.Component {
          onSubmit,
          isLoading,
          errorType
-      } = this.props
+      } = this.props;
       return (
          <MainDiv>
             <SubDiv>
@@ -114,7 +115,7 @@ class SignInPage extends React.Component {
                </Footer>
             </SubDiv>
          </MainDiv>
-      )
+      );
    }
 }
-export { SignInPage }
+export { SignInPage };

@@ -1,9 +1,9 @@
 import CounterStore from './CounterStore'
-import AuthStores from '../SignInPage/stores';
+import AuthStores from '../SignInPage/stores'
 
-const counterStore = new CounterStore();
+const counterStore = new CounterStore()
 
 export default {
-    ...AuthStores,
-    counterStore,
-};
+   ...AuthStores,
+   counterStore
+}

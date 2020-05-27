@@ -17,6 +17,23 @@
         "alreadyHaveAnAccount": "Already have an account?",
         "login": "Log in"
     },
+
+    "save": {
+        "saveButton": "Save"
+    },
+
+    "goBack": {
+        "backArrowImg": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/eeab89d1-4929-482b-84ba-406ffdb282e6.svg",
+        "goBack": "GoBack"
+    },
+
+    "problemStatement": {
+        "shortText": "SHORT TEXT",
+        "problemDescription": "PROBLEM DESCRIPTION",
+        "shortTextPlaceholder": "Control loops and Nested loops",
+        "problemDescriptionPlaceHolder": "create a new conversation by writing your message here nested loops"
+    },
+
     "login": {
         "ibhubsLogo": "ibhubs-logo",
         "logoImgSrc": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/d1119fe1-4f3a-40fd-860b-3adee7ca7915.svg",

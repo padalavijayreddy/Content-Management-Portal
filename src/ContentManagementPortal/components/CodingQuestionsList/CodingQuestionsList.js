@@ -1,19 +1,20 @@
-import React from 'react'
-import { observer } from 'mobx-react'
-import { Header } from '../Header'
-import { GoBack } from '../GoBack'
-import { TabBar } from '../TabBar'
-import { ProblemStatement } from '../ProblemStatement'
-import { RoughSolution } from '../RoughSolution'
-import { TestCases } from '../TestCases'
-import { PrefilledCode } from '../PrefilledCode'
-import { SolutionApproach } from '../SolutionApproach'
-import { CodingQuestionsListView } from './CodingQuestionsListStyle'
+import React from 'react';
+import { observer } from 'mobx-react';
+import { Header } from '../Header';
+import { GoBack } from '../GoBack';
+import { TabBar } from '../TabBar';
+import { ProblemStatement } from '../ProblemStatement';
+import { RoughSolution } from '../RoughSolution';
+import { TestCases } from '../TestCases';
+import { PrefilledCode } from '../PrefilledCode';
+import { SolutionApproach } from '../SolutionApproach';
+import { CodingQuestionsListView } from './CodingQuestionsListStyle';
+import { Hints } from '../Hints';
 
 @observer
 class CodingQuestionsList extends React.Component {
    render() {
-      const { signOut, selectedTask, changeSelectedTask } = this.props
+      const { signOut, selectedTask, changeSelectedTask } = this.props;
       return (
          <CodingQuestionsListView>
             <Header signOut={signOut} />
@@ -30,12 +31,18 @@ class CodingQuestionsList extends React.Component {
                <TestCases />
             ) : selectedTask === 'Prefilled Code' ? (
                <PrefilledCode />
-            ) : (
-               ''
-            )}
+            ) : selectedTask === 'Solution Approach' ? (
+               <SolutionApproach/>
+            ) : selectedTask === 'Clean Solution' ? (
+               <CleanSolution/>
+            ) : selectedTask === 'Hints' ? (
+               <Hints/>
+            ) : ''
+            }
+            
          </CodingQuestionsListView>
-      )
+      );
    }
 }
 
-export { CodingQuestionsList }
+export { CodingQuestionsList };

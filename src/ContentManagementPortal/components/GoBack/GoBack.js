@@ -1,25 +1,29 @@
-import React from 'react'
-import { observer } from 'mobx-react'
+import React from 'react';
+import { observer } from 'mobx-react';
 import {
    GoBackView,
    BackToListDiv,
+   BackArrow,
    BackToListP,
    SelectedTaskDiv
-} from './GoBackStyle'
+}
+from './GoBackStyle';
+import { goBack } from '../../../i18n/strings';
 
 @observer
 class GoBack extends React.Component {
    render() {
-      const { selectedTask } = this.props
+      const { selectedTask } = this.props;
       return (
-         <div className='font-bold text-xl'>
-            <div>
+         <GoBackView>
+            <BackToListDiv>
+               <BackArrow src={goBack.backArrowImg} alt={goBack.goBack}></BackArrow>
                <BackToListP>Back To List</BackToListP>
-            </div>
-            <div>{selectedTask}</div>
-         </div>
-      )
+            </BackToListDiv>
+            <SelectedTaskDiv>{selectedTask}</SelectedTaskDiv>
+         </GoBackView>
+      );
    }
 }
 
-export { GoBack }
+export { GoBack };
