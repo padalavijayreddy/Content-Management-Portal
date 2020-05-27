@@ -1,9 +1,11 @@
 import React from "react";
 import { render } from "react-dom";
-import AceEditor from "react-ace-builds";
-import "react-ace-builds/webpack-resolver-min";
 import { observer } from 'mobx-react';
 import { observable, action } from 'mobx';
+import AceEditor from "react-ace";
+
+import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/theme-github";
 
 @observer
 class Editor extends React.Component {
