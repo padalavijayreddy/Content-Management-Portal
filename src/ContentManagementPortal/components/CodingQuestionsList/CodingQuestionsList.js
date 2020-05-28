@@ -10,6 +10,8 @@ import { PrefilledCode } from '../PrefilledCode';
 import { SolutionApproach } from '../SolutionApproach';
 import { CodingQuestionsListView } from './CodingQuestionsListStyle';
 import { Hints } from '../Hints';
+import { CleanSolution } from '../CleanSolution';
+
 
 @observer
 class CodingQuestionsList extends React.Component {

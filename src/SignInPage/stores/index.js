@@ -1,7 +1,7 @@
-import { AuthAPI } from '../services/AuthenticationService'
-import { AuthStore } from './AuthStore'
+import AuthAPI from '../services/AuthenticationService/index.fixture';
+import { AuthStore } from './AuthStore';
 
-const authAPI = new AuthAPI()
-const authStore = new AuthStore(authAPI)
+const authAPI = new AuthAPI();
+const authStore = new AuthStore(authAPI);
 
-export default { authStore }
+export default { authStore };

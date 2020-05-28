@@ -1,18 +1,3 @@
 [
     { "access_token": "f5af9f51-07e6-4332-8f1a-c0c11c1e3434" }
 ]
-
-
-// [{
-        //     "auth_tokens": {
-        //         "access_token": "dfiuvhnqe238r",
-        //         "refresh_token": "knvso834r5nmvg"
-        //     },
-        //     "is_admin": true
-        // }, {
-        //     "auth_tokens": {
-        //         "access_token": "dfiuvhnqe238r",
-        //         "refresh_token": "knvso834r5nmvg"
-        //     },
-        //     "is_admin": false
-        // }]

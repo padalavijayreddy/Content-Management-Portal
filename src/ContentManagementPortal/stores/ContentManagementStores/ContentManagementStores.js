@@ -3,36 +3,32 @@ import { API_INITIAL } from '@ib/api-constants';
 import { bindPromiseWithOnSuccess } from '@ib/mobx-promise';
 
 class ContentManagementStores {
+    @observable problemDescription;
+    @observable shortText;
 
-    constructor(AuthAPI) {
+    constructor() {
         this.init();
     }
 
-    @action.bound
     init() {
-        this.shortText = '';
-        this.problemDescription = '';
+        this.problemDescription = "";
+        this.shortText = "";
     }
 
-    @action.bound
-    changeShortText(event) {
+
+    onChangeTextArea = (event) => {
+        console.log(event.target);
+        this.problemDescription = event.target.value;
+    }
+
+    onChangeShortText = (event) => {
         console.log(event.target);
         this.shortText = event.target.value;
     }
 
     @action.bound
-    userSignIn(requestObject, onSuccess, onFailure) {
-        this.userData = requestObject;
-        const signInPromise = this.AuthAPI.signInAPI();
-        return bindPromiseWithOnSuccess(signInPromise)
-            .to(this.setGetUserSignInAPIStatus, response => {
-                this.setUserSignInAPIResponse(response);
-                onSuccess();
-            })
-            .catch(error => {
-                this.setGetUserSignInAPIError(error);
-                onFailure();
-            });
+    saveTheProblem(requestObject) {
+
     }
 
     @action.bound
@@ -42,3 +38,52 @@ class ContentManagementStores {
 }
 
 export { ContentManagementStores };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// @action.bound
+//     userSignIn(requestObject, onSuccess, onFailure) {
+//         this.userData = requestObject;
+//         const signInPromise = this.AuthAPI.signInAPI();
+//         return bindPromiseWithOnSuccess(signInPromise)
+//             .to(this.setGetUserSignInAPIStatus, response => {
+//                 this.setUserSignInAPIResponse(response);
+//                 onSuccess();
+//             })
+//             .catch(error => {
+//                 this.setGetUserSignInAPIError(error);
+//                 onFailure();
+//             });
+//     }

@@ -6,13 +6,6 @@ import { ProblemDescriptionView, ProblemDescriptionLabel, ProblemDescriptionText
 
 @observer
 class ProblemDescription extends React.Component {
-    @observable problemDescription
-
-    @action.bound
-    onChangeTextArea(event) {
-        this.problemDescription = event.target.value;
-    }
-
     render() {
         return (
             <ProblemDescriptionView>

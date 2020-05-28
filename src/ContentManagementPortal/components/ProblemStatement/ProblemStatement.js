@@ -1,13 +1,15 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { ProblemDescription } from './ProblemDescription';
-import { ProblemStatementView, ProblemStatementMode, CreateProblemStatement, CreatePreviewProblemStatement } from './ProblemStatementStyle';
+import { ProblemStatementView, ProblemStatementMode, CreateProblemStatement, CreatePreviewProblemStatement, SaveButtonField } from './ProblemStatementStyle';
 import { ShortText } from './ShortText';
 import { SaveButton } from './SaveButton';
+
 
 @observer
 class ProblemStatement extends React.Component {
    render() {
+      const { saveTheProblem } = this.props;
       return (
          <ProblemStatementView>
             <ProblemStatementMode>
@@ -19,7 +21,9 @@ class ProblemStatement extends React.Component {
                   Preview Mode Here
                </CreatePreviewProblemStatement>
             </ProblemStatementMode>  
-            <SaveButton/>
+            <SaveButtonField>
+               <SaveButton saveTheFields={saveTheProblem}/>
+            </SaveButtonField>
          </ProblemStatementView>
       );
    }

@@ -25,4 +25,10 @@ export const ProblemStatementView = styled.div `
     height: 670px;
     border: solid 1px ${colors.lightBlueGrey};
     background-color: ${colors.lightBlueGrey};
+`,
+    SaveButtonField = styled.div `
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    height:100px;
 `;

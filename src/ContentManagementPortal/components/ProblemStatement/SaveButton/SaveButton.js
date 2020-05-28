@@ -4,6 +4,7 @@ import { save } from '../../../../i18n/strings';
 
 class SaveButton extends React.Component {
     render() {
+        //const { saveTheFields } = this.props;
         return (
             <Save>
                 <Button>{save.saveButton}</Button>

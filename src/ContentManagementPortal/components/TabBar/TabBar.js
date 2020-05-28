@@ -8,25 +8,25 @@ class TabBar extends React.Component {
       const { selectedTask, changeSelectedTask } = this.props;
       return (
          <TabBarView>
-            <Tab onClick={changeSelectedTask} id='Problem Statement'>
+            <Tab border={selectedTask==="Problem Statement"} onClick={changeSelectedTask} id='Problem Statement'>
                Statement
             </Tab>
-            <Tab onClick={changeSelectedTask} id='Rough Solution'>
+            <Tab border={selectedTask==="Rough Solution"} onClick={changeSelectedTask} id='Rough Solution'>
                Rough Solution
             </Tab>
-            <Tab onClick={changeSelectedTask} id='Test Cases'>
+            <Tab border={selectedTask==="Test Cases"} onClick={changeSelectedTask} id='Test Cases'>
                Test Cases
             </Tab>
-            <Tab onClick={changeSelectedTask} id='Prefilled Code'>
+            <Tab border={selectedTask==="Prefilled Code"} onClick={changeSelectedTask} id='Prefilled Code'>
                Prefilled Code
             </Tab>
-            <Tab onClick={changeSelectedTask} id='Solution Approach'>
+            <Tab border={selectedTask==="Solution Approach"} onClick={changeSelectedTask} id='Solution Approach'>
                Solution Approach
             </Tab>
-            <Tab onClick={changeSelectedTask} id='clean Solution'>
-               clean Solution
+            <Tab border={selectedTask==="Clean Solution"}  onClick={changeSelectedTask} id='Clean Solution'>
+               Clean Solution
             </Tab>
-            <Tab onClick={changeSelectedTask} id='Hints'>
+            <Tab border={selectedTask==="Hints"} onClick={changeSelectedTask} id='Hints'>
                Hints
             </Tab>
          </TabBarView>

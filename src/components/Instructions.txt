@@ -1,3 +1,5 @@
+ELP -
+
 Step:1 : 
      - Divide into React Components
      
@@ -59,26 +61,6 @@ Step:1 :
     Step:3 : 
     
     Application State 
-        - userInput 
-        - >>>>activeTodosCount = listOfActiveTodos.length
-        - >>>>showClearCompletedButton = listOfCompletedTodos.length>0
-        - selectedFilterButton
-        - eachTodoCheckedState
-        - eachTodoContent
-        - eachTodoFocusedState
-        - listOfAllTodos
-        - >>>>listOfActiveTodos = listOfCompletedTodos.filter(isChecked == false)
-        - >>>>listOfCompletedTodos = listOfCompletedTodos.filter(isChecked == true)
-        - >>>>showFooter = listOfAllTodos.length > 0
-        
-        - Minimum Application State 
-           - userInput > UserInput
-           - selectedFilterButton > TodoApp
-           - eachTodoCheckedState
-           - eachTodoContent
-           - eachTodoFocusedState
-           
-           - To which component state should be given 
     
     Step:4 :
        
@@ -89,5 +71,62 @@ Step:1 :
     Step:5 :
         
        Clean Code & Optimised Component
-      
-*/
+
+----------------------------------------------------------------------------------
+
+SignInPage
+        ---> components
+                  ---> SignInPage
+        ---> fixtures
+                  ---> GetResponse
+        ---> Routes
+                  ---> SignInRoute
+                             ---> Route(Functionality)
+                  ---> index.js(ProtectedRoute,Imported in App.js)
+        ---> Services
+                  ---> API
+                  ---> Fixtures
+        ---> AuthStores
+                  ---> AuthStores(NetworkCalls)                    |
+        ---> index.js(conecting with API)                          |
+                                                                   |---> CommonStore 
+                                                                   |        ---> Index.js(ImportingAllTheStores)
+                                                                   |---> App.js -> Provider(...Stores)
+ContentManagementPortal                                            |
+        ---> components                                            |---> UsesInRespectiveRoutes
+                  ---> CodingQuestionsList                         |
+                  ---> Header                                      |
+                  ---> GoBack
+                  ---> TabBar
+                  ---> ProblemStatement
+                              ---> ProblemDescription
+                              ---> SaveButton
+                              ---> ShortText
+                              ProblemStatement
+                  ---> RoughSolution
+                              ---> AddButton
+                              ---> EditorBox
+                              ---> Editor
+                              ---> Header
+                              RoughSolution
+        
+        ---> Routes
+                  ---> CodingQuestionsListRoute (Functionality)
+                  index.js (ProtectedRoute)
+        
+        ---> services
+                  ---> ProblemStatement
+                              ---> Fixtures
+        ---> Stores
+                  ---> ContentManagementStores
+                              ---> index.js(networkCalls)
+                  ---> index.js(connectingWithApi)
+ 
+
+
+
+
+Doubts -> 
+ 1. If we add in the Rough solution it should be same when we changed the tab also or not.
+ 2. If we click edit button in the Rough Solution it should edit or it already have the Edit feature in the editor.
+ 3.I need to write all the observable variables in the Stores.
