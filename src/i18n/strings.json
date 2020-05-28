@@ -22,6 +22,19 @@
         "saveButton": "Save"
     },
 
+    "roughSolution": {
+        "deleteIconURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/481da5e6-de1f-436e-a6c3-e30e28d220a3.svg",
+        "deleteIconAlt": "DeleteIcon",
+        "text": "Text",
+        "fileNameIncludeExtension": "File Name Include Extension",
+        "editorIconURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/84eb5be8-75cf-4c8f-8bd7-1162229b42f6.svg",
+        "editorIconAlt": "EditorIcon"
+    },
+
+    "Addbutton": {
+        "Addbutton": "Add"
+    },
+
     "goBack": {
         "backArrowImg": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/eeab89d1-4929-482b-84ba-406ffdb282e6.svg",
         "goBack": "GoBack"

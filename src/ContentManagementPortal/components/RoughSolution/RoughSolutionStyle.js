@@ -8,5 +8,8 @@ export const RoughSolutionView = styled.div `
      width:1440px;
      height:1195px;
      background-color:${colors.white};
-     padding-top:50px;
+     padding:50px;
+`,
+     Buttons = styled.div `
+     display:flex;
 `;

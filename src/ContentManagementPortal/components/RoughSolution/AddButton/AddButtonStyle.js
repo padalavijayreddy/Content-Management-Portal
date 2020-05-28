@@ -7,12 +7,13 @@ import { Typo14WhiteHKGroteskSemiBold } from '../../../../components/common/styl
 export const Button = styled(Typo14WhiteHKGroteskSemiBold)
 `
 `,
-Save = styled.div `
+Add = styled.div `
   display:flex;
   justify-content:center;
   align-items:center;
-  width: 70px;
+  width: 90px;
   height: 40px;
-  border-radius: 2px;
-  background-color:#0b69ff;
+  border-radius: 4px;
+  background-color: ${colors.greenishTeal};
+  margin-right:5px;
 `;

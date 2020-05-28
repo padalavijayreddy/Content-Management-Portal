@@ -2,10 +2,7 @@ import { observable, action } from 'mobx';
 import { API_INITIAL } from '@ib/api-constants';
 import { bindPromiseWithOnSuccess } from '@ib/mobx-promise';
 
-class ProblemStatementStore {
-
-    @observable shortText;
-    @observable problemDescription;
+class ContentManagementStores {
 
     constructor(AuthAPI) {
         this.init();
@@ -44,4 +41,4 @@ class ProblemStatementStore {
     }
 }
 
-export { ProblemStatementStore };
+export { ContentManagementStores };
