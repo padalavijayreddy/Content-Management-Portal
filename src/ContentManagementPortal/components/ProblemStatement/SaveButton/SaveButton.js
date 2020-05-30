@@ -1,12 +1,12 @@
 import React from 'react';
 import { Save, Button } from './SaveButtonStyle';
-import { save } from '../../../../i18n/strings';
+import { save } from '../../../../CommonModule/i18n/strings';
 
 class SaveButton extends React.Component {
     render() {
-        //const { saveTheFields } = this.props;
+        const { saveTheProblem } = this.props;
         return (
-            <Save>
+            <Save onClick={saveTheProblem}>
                 <Button>{save.saveButton}</Button>
             </Save>
         );

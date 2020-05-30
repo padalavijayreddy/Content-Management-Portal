@@ -2,9 +2,9 @@ import React from 'react'
 import { observer, Provider } from 'mobx-react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import stores from './stores'
-import Home from './components/Home'
-import { AuthRoutes } from './SignInPage/routes'
+import stores from './CommonModule/stores'
+import Home from './CommonModule/components/Home'
+import { AuthRoutes } from './AuthModule/routes'
 import { CodingQuestionsListRoutes } from './ContentManagementPortal/routes'
 
 @observer

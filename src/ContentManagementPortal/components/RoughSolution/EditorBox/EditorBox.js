@@ -7,13 +7,16 @@ import { Editor } from '../Editor';
 
 @observer
 class EditorBox extends React.Component {
-
     render() {
-        const { onRemoveEditorBox, id } = this.props;
+        const { onRemoveEditorBox, editorBox, onChangeLanguageType, onChangeFileName, onChangeContent } = this.props;
         return (
             <RoughSolutionComponent>
-                 <Header id={id} onRemoveEditorBox={onRemoveEditorBox} />
-                 <Editor/>
+                 <Header 
+                 id={editorBox.id} 
+                 onChangeFileName={onChangeFileName} 
+                 onRemoveEditorBox={onRemoveEditorBox} 
+                 onChangeLanguageType={onChangeLanguageType}/>
+                 <Editor id={editorBox.id} mode={editorBox.languageType} onChangeContent={onChangeContent}/>
             </RoughSolutionComponent>
         );
     }

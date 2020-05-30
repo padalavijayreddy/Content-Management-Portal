@@ -2,42 +2,48 @@ import React from 'react';
 import { observable, action } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import { CodingQuestionsList } from '../../components/CodingQuestionsList';
-import { SIGN_IN_PATH } from '../../../SignInPage/constants/RouteConstants';
+import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigation';
 
 @inject('authStore', 'contentManagementStore')
 @observer
 class CodingQuestionsListRoute extends React.Component {
    @observable selectedTask;
 
+   componentDidMount() {
+      this.doNetworkCalls();
+   }
+
+   doNetworkCalls = () => {
+      const { contentManagementStore } = this.props;
+      contentManagementStore.getCodingQuestionsList();
+   }
+
    constructor(props) {
       super(props);
       this.selectedTask = 'Problem Statement';
    }
 
-   @action.bound
-   changeSelectedTask(event) {
-      console.log(event.target);
-      this.selectedTask = event.target.id;
+   changeSelectedTask = (selectedTask) => {
+      this.selectedTask = selectedTask;
    }
 
    signOut = () => {
       const { authStore } = this.props;
       authStore.userSignOut();
-      this.props.history.replace(SIGN_IN_PATH);
+      this.props.history.replace(LOGIN_PATH);
    }
 
    render() {
       const { contentManagementStore } = this.props;
       const {
-         problemDescription,
-         shortText,
-         onChangeTextArea,
-
-      } = contentManagementStore
+         saveUserData,
+         postUserDataAPIError,
+         codingQuestionsList,
+      } = contentManagementStore;
       const { signOut, selectedTask, changeSelectedTask } = this;
       return (
          <CodingQuestionsList
-            {...{ signOut, selectedTask, changeSelectedTask }}
+            {...{ signOut,saveUserData,codingQuestionsList,selectedTask, changeSelectedTask,postUserDataAPIError }}
          />
       );
    }

@@ -1,6 +1,6 @@
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-import { colors } from '../../../components/common/themes/colors';
+import { colors } from '../../../CommonModule/components/common/themes/colors';
 const {
     darkBlueGrey,
     steel
@@ -9,14 +9,16 @@ const {
 export const TabBarView = styled.ul `
      display:flex;
      justify-content:space-around;
-     align-items:center;
-     width:1440px;
+     align-items:flex-end;
+     width:1250px;
      height:50px;
      background-color:${colors.white};
-     padding: 50px;
+     border-bottom:1px solid lightgrey;
+     margin:40px
+     
 `,
     Tab = styled.li `
-    width: 150px;
+    width:120px;
     height: 20px;
     text-align:center;
     padding-bottom:30px;

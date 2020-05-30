@@ -1,7 +1,7 @@
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-import { colors } from '../../../../components/common/themes/colors';
-import { Typo12HKGroteskSemiBoldSteel } from '../../../../components/common/styleGuide/Typos';
+import { colors } from '../../../../CommonModule/components/common/themes/colors';
+import { Typo12HKGroteskSemiBoldSteel } from '../../../../CommonModule/components/common/styleGuide/Typos';
 
 export const ShortTextLabel = styled(Typo12HKGroteskSemiBoldSteel)
 `
@@ -17,7 +17,7 @@ ShortTextView = styled.div `
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid black;
+    border: 1px solid grey;
     border-radius: 4px;
     box-sizing: border-box;
 `;

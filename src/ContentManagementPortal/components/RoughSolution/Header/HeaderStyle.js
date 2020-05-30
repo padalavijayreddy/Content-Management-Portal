@@ -1,6 +1,6 @@
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-import { colors } from '../../../../components/common/themes/colors';
+import { colors } from '../../../../CommonModule/components/common/themes/colors';
 
 export const HeaderView = styled.div `
     display:flex;
@@ -17,7 +17,7 @@ export const HeaderView = styled.div `
     border: solid 1px ${colors.lightBlueGrey};
     background-color: rgba(126, 133, 142, 0.04);
 `,
-    FileName = styled.div `
+    FileName = styled.input `
     width: 149px;
     height: 16px;
     font-family: HKGrotesk;

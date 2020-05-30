@@ -1,50 +1,39 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import { observable } from 'mobx';
 import { Header } from '../Header';
+import { CreateCodingQuestions } from '../CreateCodingQuestions';
+import { CodingQuestionsListView, RenderQuestions } from './CodingQuestionsListStyle';
 import { GoBack } from '../GoBack';
-import { TabBar } from '../TabBar';
-import { ProblemStatement } from '../ProblemStatement';
-import { RoughSolution } from '../RoughSolution';
-import { TestCases } from '../TestCases';
-import { PrefilledCode } from '../PrefilledCode';
-import { SolutionApproach } from '../SolutionApproach';
-import { CodingQuestionsListView } from './CodingQuestionsListStyle';
-import { Hints } from '../Hints';
-import { CleanSolution } from '../CleanSolution';
-
+import { CodingQuestions } from '../CodingQuestions';
 
 @observer
 class CodingQuestionsList extends React.Component {
-   render() {
-      const { signOut, selectedTask, changeSelectedTask } = this.props;
-      return (
-         <CodingQuestionsListView>
-            <Header signOut={signOut} />
-            <GoBack selectedTask={selectedTask} />
-            <TabBar
-               selectedTask={selectedTask}
-               changeSelectedTask={changeSelectedTask}
-            />
-            {selectedTask === 'Problem Statement' ? (
-               <ProblemStatement />
-            ) : selectedTask === 'Rough Solution' ? (
-               <RoughSolution />
-            ) : selectedTask === 'Test Cases' ? (
-               <TestCases />
-            ) : selectedTask === 'Prefilled Code' ? (
-               <PrefilledCode />
-            ) : selectedTask === 'Solution Approach' ? (
-               <SolutionApproach/>
-            ) : selectedTask === 'Clean Solution' ? (
-               <CleanSolution/>
-            ) : selectedTask === 'Hints' ? (
-               <Hints/>
-            ) : ''
-            }
-            
-         </CodingQuestionsListView>
-      );
-   }
+
+    @observable addButton = false;
+
+    CreateCodingQuestionList = (isCreate) => {
+        const { selectedTask, codingQuestionsList, changeSelectedTask, saveUserData, postUserDataAPIError } = this.props;
+        const { AddCodingQuestion } = this;
+        return isCreate ?
+            <CreateCodingQuestions postUserDataAPIError={postUserDataAPIError} saveUserData={saveUserData} selectedTask={selectedTask} changeSelectedTask={changeSelectedTask} /> :
+            <CodingQuestions codingQuestionsList={codingQuestionsList} AddCodingQuestions = {AddCodingQuestion}/>;
+    }
+
+    AddCodingQuestion = () => {
+        this.addButton = (this.addButton) ? false : true;
+    }
+
+    render() {
+        const { signOut } = this.props;
+        const { CreateCodingQuestionList, addButton } = this;
+        return (
+            <CodingQuestionsListView>
+                <Header signOut={signOut} />
+                <RenderQuestions>{CreateCodingQuestionList(addButton)}</RenderQuestions>
+           </CodingQuestionsListView>
+        );
+    }
 }
 
 export { CodingQuestionsList };

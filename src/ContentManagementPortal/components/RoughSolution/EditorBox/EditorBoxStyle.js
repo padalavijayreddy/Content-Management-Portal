@@ -7,7 +7,6 @@
      flex-direction:column;
      width: 764px;
      height: 320px;
-     border-radius: 4px;
      background-color: #ffffff;
      margin:10px;
 `;

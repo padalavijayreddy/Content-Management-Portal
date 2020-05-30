@@ -2,9 +2,9 @@ import React from 'react'
 
 import { Route } from 'react-router-dom'
 
-import { ProtectedRoute } from '../../components/ProtectedRoute'
+import { ProtectedRoute } from '../../CommonModule/components/ProtectedRoute'
 
-import { Coding_Questions_List_Path } from '../../constants/RouteConstants'
+import { Coding_Questions_List_Path } from '../../CommonModule/constants/RouteConstants'
 
 import { CodingQuestionsListRoute } from './CodingQuestionsListRoute'
 

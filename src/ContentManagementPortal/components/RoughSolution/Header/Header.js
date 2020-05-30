@@ -2,29 +2,38 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { HeaderView, LanguageSelect, FileName, FileNameBox, DeleteIcon, SelectFields, EditorIcon } from './HeaderStyle';
 import { observable, action } from 'mobx';
-import { typos } from '../../../../components/common/styleGuide/Typos';
-import { roughSolution } from '../../../../i18n/strings';
+import { typos } from '../../../../CommonModule/components/common/styleGuide/Typos';
+import { roughSolution } from '../../../../CommonModule/i18n/strings';
 
 @observer
 class Header extends React.Component {
-    @observable selectedMode = ''
 
-    @action.bound
-    handleChangeState(event) {
-        console.log(event.target);
-        this.selectedMode = event.target.value;
+    @observable fileName = '';
+    @observable selectLanguage = '';
+
+    onChangeValue = (event) => {
+        const { onChangeFileName } = this.props;
+        const id = event.target.id;
+        this.fileName = event.target.value;
+        onChangeFileName(this.fileName, id);
+    }
+
+    onChangeLanguageValue = (event) => {
+        const { onChangeLanguageType } = this.props;
+        const id = event.target.id;
+        this.selectLanguage = event.target.value;
+        onChangeLanguageType(this.selectLanguage, id);
     }
 
     render() {
-        const { onRemoveEditorBox, id } = this.props;
-        console.log(this.props);
+        const { onRemoveEditorBox, id, onChangeLanguageType } = this.props;
         return (
             <HeaderView>
                 <FileNameBox>
-                    <FileName>{roughSolution.fileNameIncludeExtension}</FileName>
+                    <FileName id={id} value={this.fileName} onChange={this.onChangeValue} placeholder={roughSolution.fileNameIncludeExtension}/>
                 </FileNameBox>
                 <SelectFields>
-                    <LanguageSelect onChange={this.handleChangeState}>
+                    <LanguageSelect data-testid='select-language' id={id} value={this.selectLanguage} onChange={this.onChangeLanguageValue}>
                         <option>Language</option>
                         <option>HTML</option>
                         <option>MarkDown</option>

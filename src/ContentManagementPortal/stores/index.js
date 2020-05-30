@@ -1,24 +1,10 @@
 import { ContentManagementStores } from './ContentManagementStores';
+import { ContentManagementAPI } from '../services/ContentManagementServices';
+import ContentManagementFixture from '../services/ContentManagementServices/index.fixture';
 
-const contentManagementStore = new ContentManagementStores();
+
+const contentManagementAPI = new ContentManagementAPI();
+const contentManagementFixture = new ContentManagementFixture();
+const contentManagementStore = new ContentManagementStores(contentManagementFixture);
 
 export default { contentManagementStore };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//import ProblemStatementAPI from '../services/ProblemStatementServices/index.fixture';
-//const problemStatementAPI = new ProblemStatementAPI();

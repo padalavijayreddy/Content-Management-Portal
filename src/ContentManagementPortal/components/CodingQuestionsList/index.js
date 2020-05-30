@@ -1,1 +1,1 @@
-export { CodingQuestionsList } from './CodingQuestionsList'
+export { CodingQuestionsList } from './CodingQuestionsList';

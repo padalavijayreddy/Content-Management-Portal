@@ -8,7 +8,7 @@ import {
    SelectedTaskDiv
 }
 from './GoBackStyle';
-import { goBack } from '../../../i18n/strings';
+import { goBack } from '../../../CommonModule/i18n/strings';
 
 @observer
 class GoBack extends React.Component {
