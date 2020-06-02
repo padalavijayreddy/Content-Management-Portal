@@ -12,11 +12,12 @@ class EditorBox extends React.Component {
         return (
             <RoughSolutionComponent>
                  <Header 
-                 id={editorBox.id} 
+                 id={editorBox.id}
+                 editorBox = {editorBox}
                  onChangeFileName={onChangeFileName} 
                  onRemoveEditorBox={onRemoveEditorBox} 
                  onChangeLanguageType={onChangeLanguageType}/>
-                 <Editor id={editorBox.id} mode={editorBox.languageType} onChangeContent={onChangeContent}/>
+                 <Editor editorBox={editorBox} id={editorBox.id} mode={editorBox.languageType} onChangeContent={onChangeContent}/>
             </RoughSolutionComponent>
         );
     }

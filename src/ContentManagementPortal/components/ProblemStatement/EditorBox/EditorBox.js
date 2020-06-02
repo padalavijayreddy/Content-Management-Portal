@@ -8,11 +8,11 @@ import { Editor } from '../Editor';
 @observer
 class EditorBox extends React.Component {
     render() {
-        const { onRemoveEditorBox, selectedMode, handleChangeState, onChangeEditor } = this.props;
+        const { onRemoveEditorBox, problemDescription, selectedMode, handleChangeState, onChangeEditor } = this.props;
         return (
             <RoughSolutionComponent>
-                 <Header selectedMod={selectedMode} handleChangeState={handleChangeState} onRemoveEditorBox={onRemoveEditorBox} />
-                 <Editor onChangeEditor={onChangeEditor}/>
+                 <Header selectedMode={selectedMode} handleChangeState={handleChangeState} onRemoveEditorBox={onRemoveEditorBox} />
+                 <Editor problemDescription={problemDescription} onChangeEditor={onChangeEditor}/>
             </RoughSolutionComponent>
         );
     }

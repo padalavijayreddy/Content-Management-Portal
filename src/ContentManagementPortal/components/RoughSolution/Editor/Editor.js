@@ -10,6 +10,18 @@ import "ace-builds/src-noconflict/theme-github";
 
 @observer
 class Editor extends React.Component {
+    @observable content;
+
+    componentDidMount() {
+        const { editorBox } = this.props;
+        console.log("editorBoxInEditor", editorBox);
+        if (editorBox) {
+            this.content = editorBox.content;
+        }
+        else {
+            this.content = '';
+        }
+    }
 
     onChangeEditor = (newValue) => {
         const { onChangeContent, id } = this.props;
@@ -17,7 +29,7 @@ class Editor extends React.Component {
     }
 
     render() {
-        const { id, mode } = this.props;
+        const { mode } = this.props;
         const mystyle = {
             color: "black",
             width: "100%",
@@ -28,6 +40,7 @@ class Editor extends React.Component {
         return (
             <EditorView>    
                 <AceEditor
+                    value={this.content}
                     style ={mystyle}
                     mode={mode}
                     theme="github"

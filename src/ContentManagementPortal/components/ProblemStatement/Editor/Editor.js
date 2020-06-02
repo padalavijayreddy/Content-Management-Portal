@@ -11,7 +11,7 @@ import "ace-builds/src-noconflict/theme-github";
 @observer
 class Editor extends React.Component {
     render() {
-        const { onChangeEditor } = this.props;
+        const { onChangeEditor, problemDescription } = this.props;
         const mystyle = {
             width: "630px",
             height: "100%",
@@ -22,6 +22,7 @@ class Editor extends React.Component {
         return (
             <EditorView>    
                 <AceEditor
+                    value={problemDescription}
                     data-testid='Editor'
                     style ={mystyle}
                     mode="java"

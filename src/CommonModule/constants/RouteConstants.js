@@ -1,1 +1,1 @@
-export const Coding_Questions_List_Path = '/coding-questions-list-path'
+export const Coding_Questions_List_Path = '/Content-Management-Portal/coding-questions-list-path/'

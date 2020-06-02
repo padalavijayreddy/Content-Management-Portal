@@ -1,1 +1,2 @@
-export { CreateCodingQuestions } from './CreateCodingQuestions'
+import CreateCodingQuestions from './CreateCodingQuestions';
+export { CreateCodingQuestions };

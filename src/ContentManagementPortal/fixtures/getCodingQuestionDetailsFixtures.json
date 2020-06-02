@@ -1,0 +1,51 @@
+{
+    "problemStatement": {
+        "short_title": "Write",
+        "problem_description": {
+            "content_type": "HTML",
+            "content": "<h1>vijay</h1>"
+        }
+    },
+    "roughSolutionList": [{
+            "roughsolution_id": "1",
+            "code_type": "HTML",
+            "code": "<h2>hjfh</h2>",
+            "filename": "kjhjg"
+        },
+        {
+            "roughsolution_id": "2",
+            "code_type": "HTML",
+            "code": "<h2>hjfnbh</h2>",
+            "filename": "kjhjgjbgvc"
+        }
+    ],
+    "testCasesList": [{
+        "input": [1, 2],
+        "output": 3,
+        "score": 66,
+        "isHidden": true
+    }],
+    "prefilledCodeList": [{
+        "prefilledcode_id": "1",
+        "code_type": "HTML",
+        "code": "hjfh",
+        "filename": "kjhjg"
+    }],
+    "solutionApproach": {
+        "title": "Write SOlutionApproach",
+        "description": {
+            "content_type": "HTML",
+            "content": "jhgjhgf"
+        },
+        "complexityAnalysis": {
+            "content_type": "MarkDown",
+            "content": "khjgfd"
+        }
+    },
+    "cleanSolution": [{
+        "cleansolution_id": "1",
+        "code_type": "HTML",
+        "code": "hjfh",
+        "filename": "kjhjg"
+    }]
+}

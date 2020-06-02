@@ -48,6 +48,17 @@ export const Typo32DarkBlueGreyRubikRegular = styled.p `
       letter-spacing: normal;
       color: #171f46;
    `,
+   TextStyle9 = styled.span `
+      font-family: HKGrotesk;
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.71;
+      letter-spacing: normal;
+      color: var(--black);
+  `,
+
    Typo14SteelHKGroteskRegular = styled.span `
       font-family: HKGrotesk;
       font-size: 14px;

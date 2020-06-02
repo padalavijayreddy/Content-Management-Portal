@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigation'
+import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigation';
 //import './HomePage.css';
 
 class Home extends React.Component {

@@ -12,4 +12,14 @@ export const RoughSolutionView = styled.div `
 `,
      Buttons = styled.div `
      display:flex;
+`,
+     SaveButtonField = styled.div `
+     display:flex;
+     flex-direction:column;
+     justify-content:flex-end;
+     align-items:flex-end;
+     height:100px;
+`,
+     ErrorMessage = styled.div `
+     ${tw` text-red-800 text-xs italic`}
 `;

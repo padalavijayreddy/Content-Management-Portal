@@ -8,11 +8,11 @@ import { EditorBox } from '../EditorBox';
 @observer
 class ProblemDescription extends React.Component {
     render() {
-        const { handleChangeState, selectedMode, onRemoveEditorBox, onChangeEditor } = this.props;
+        const { handleChangeState, problemDescription, selectedMode, onRemoveEditorBox, onChangeEditor } = this.props;
         return (
             <ProblemDescriptionView>
                 <ProblemDescriptionLabel>{problemStatement.problemDescription}</ProblemDescriptionLabel>
-                <EditorBox selectedMode={selectedMode} handleChangeState={handleChangeState} onRemoveEditorBox={onRemoveEditorBox} onChangeEditor={onChangeEditor} />
+                <EditorBox selectedMode={selectedMode} problemDescription={problemDescription} handleChangeState={handleChangeState} onRemoveEditorBox={onRemoveEditorBox} onChangeEditor={onChangeEditor} />
             </ProblemDescriptionView>
         );
     }

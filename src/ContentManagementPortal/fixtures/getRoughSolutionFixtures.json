@@ -1,0 +1,21 @@
+{
+    "roughSolution": [{
+            "roughsolution_id": 1,
+            "code_type": "C",
+            "code": "string",
+            "filename": "string"
+        },
+        {
+            "roughsolution_id": 2,
+            "code_type": "C",
+            "code": "string",
+            "filename": "string"
+        },
+        {
+            "roughsolution_id": 3,
+            "code_type": "C",
+            "code": "string",
+            "filename": "string"
+        }
+    ]
+}

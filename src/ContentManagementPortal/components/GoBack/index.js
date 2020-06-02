@@ -1,1 +1,2 @@
-export { GoBack } from './GoBack'
+import GoBack from './GoBack';
+export { GoBack };

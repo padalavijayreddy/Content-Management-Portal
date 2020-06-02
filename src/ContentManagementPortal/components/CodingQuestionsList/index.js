@@ -1,1 +1,2 @@
-export { CodingQuestionsList } from './CodingQuestionsList';
+import CodingQuestionsList from './CodingQuestionsList';
+export { CodingQuestionsList };

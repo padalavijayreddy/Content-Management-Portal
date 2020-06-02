@@ -11,10 +11,25 @@ import "github-markdown-css";
 
 @observer
 class ProblemStatement extends React.Component {
-   @observable problemDescription = '';
-   @observable shortText = '';
-   @observable selectedMode = '';
-   @observable errorMessage = '';
+   @observable problemDescription;
+   @observable shortText;
+   @observable selectedMode;
+   @observable errorMessage;
+
+   componentDidMount() {
+      const { statement } = this.props;
+      console.log("statement", statement);
+      if (statement) {
+         this.shortText = statement.shortTitle;
+         this.selectedMode = statement.contentType;
+         this.problemDescription = statement.problemDescription;
+      }
+      else {
+         this.shortText = '';
+         this.problemDescription = '';
+         this.selectedMode = '';
+      }
+   }
 
    handleChangeState = (event) => {
       this.selectedMode = event.target.value;
@@ -70,20 +85,19 @@ class ProblemStatement extends React.Component {
       }
    }
 
-
    render() {
-      const { handleChangeState, selectedMode, shortText, onChangeEditor, onChangeShortText, onRemoveEditorBox, saveTheProblem, errorMessage } = this;
-      console.log(selectedMode);
+      const { handleChangeState, problemDescription, selectedMode, shortText, onChangeEditor, onChangeShortText, onRemoveEditorBox, saveTheProblem, errorMessage } = this;
+      console.log("shortText", shortText);
       return (
          <ProblemStatementView>
             <ProblemStatementMode>
                <CreateProblemStatement>
                   <ShortText  shortText={shortText} onChangeShortText={onChangeShortText}/>
-                  <ProblemDescription selectedMode={selectedMode} onRemoveEditorBox={onRemoveEditorBox} handleChangeState={handleChangeState} onChangeEditor={onChangeEditor}/>
+                  <ProblemDescription problemDescription={problemDescription} selectedMode={selectedMode} onRemoveEditorBox={onRemoveEditorBox} handleChangeState={handleChangeState} onChangeEditor={onChangeEditor}/>
                </CreateProblemStatement>
                <CreatePreviewProblemStatement>
                   {(selectedMode === 'HTML') ?
-                  <iframe srcdoc={this.problemDescription} src="demo_iframe_srcdoc.htm">
+                  <iframe srcDoc={this.problemDescription} src="demo_iframe_srcdoc.htm">
                         <p>Your browser does not support iframes.</p>
                   </iframe> :
                   <ReactWrap className="markdown-body">

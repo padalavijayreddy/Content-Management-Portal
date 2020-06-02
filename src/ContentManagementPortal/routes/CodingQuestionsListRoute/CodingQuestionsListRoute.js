@@ -7,7 +7,6 @@ import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigat
 @inject('authStore', 'contentManagementStore')
 @observer
 class CodingQuestionsListRoute extends React.Component {
-   @observable selectedTask;
 
    componentDidMount() {
       this.doNetworkCalls();
@@ -20,11 +19,6 @@ class CodingQuestionsListRoute extends React.Component {
 
    constructor(props) {
       super(props);
-      this.selectedTask = 'Problem Statement';
-   }
-
-   changeSelectedTask = (selectedTask) => {
-      this.selectedTask = selectedTask;
    }
 
    signOut = () => {
@@ -38,12 +32,21 @@ class CodingQuestionsListRoute extends React.Component {
       const {
          saveUserData,
          postUserDataAPIError,
-         codingQuestionsList,
+         questions, //codingQuestionsList
+         onChangeSearchText,
+         saveRoughSolutionList,
+         savePreFilledList,
+         saveUserSolution,
+         saveCleanSolutionList,
+         selectedTask,
+         changeSelectedTask,
+         addButton,
+         addCodingQuestion,
       } = contentManagementStore;
-      const { signOut, selectedTask, changeSelectedTask } = this;
+      const { signOut } = this;
       return (
          <CodingQuestionsList
-            {...{ signOut,saveUserData,codingQuestionsList,selectedTask, changeSelectedTask,postUserDataAPIError }}
+            {...{ signOut,addCodingQuestion,addButton,saveUserSolution,saveCleanSolutionList,saveRoughSolutionList,savePreFilledList,saveUserData,questions,onChangeSearchText,selectedTask, changeSelectedTask,postUserDataAPIError }}
          />
       );
    }

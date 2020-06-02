@@ -20,7 +20,10 @@
 
     "header": {
         "profileImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/b0e3ee79-76c8-4c1f-b1da-58dcca58c70e.png",
-        "profileImageAlt": "ProfilePicture"
+        "profileImageAlt": "ProfilePicture",
+        "notificationURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/1086c23d-9df5-40a3-a596-55bcd07b5cdd.svg",
+        "ibhubsLogoURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/b6ab9b82-4da7-42e9-805e-84b4527607fd.svg",
+        "dataTextid": "sign-out-button"
     },
 
     "save": {
@@ -36,8 +39,28 @@
         "editorIconAlt": "EditorIcon"
     },
 
+    "SolutionApproach": {
+        "title": "Title",
+        "titlePlaceholder": "Ex.luke S",
+        "complexityAnalysis": "ComplexityAnalysis",
+        "description": "Description"
+    },
+
     "Addbutton": {
         "Addbutton": "Add"
+    },
+
+    "codingQuestions": {
+        "questionArrowImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/45ea1bd7-4b08-4994-850e-3e0110cb9201.svg",
+        "questionArrowImageAlt": "questionArrowImage",
+        "questionsTickURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/dbf631d4-8ce5-4738-838e-58cf219de2e2.svg",
+        "questionTrueImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/66f08b9c-c7ab-4f89-927c-92b923fa0995.svg",
+        "questionTrueImageAlt": "questionTrueImageLogo",
+        "questionFalseImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/218ca15f-ff4d-415d-b8b8-051c24a0c3ca.svg",
+        "questionFalseImageAlt": "questionFalseImageLogo",
+        "searchImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/825647ee-122d-4dbf-b131-e29f63474bb2.svg",
+        "sortImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/3a385d25-f481-4fbe-a112-9b7e13d5ff95.svg",
+        "filterImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/58938ef2-9539-43f7-93bc-b96b3906fb72.svg"
     },
 
     "goBack": {

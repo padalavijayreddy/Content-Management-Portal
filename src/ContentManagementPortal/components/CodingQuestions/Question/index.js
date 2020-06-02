@@ -1,1 +1,2 @@
-export { Question } from './Question';
+import Question from './Question';
+export { Question };

@@ -9,12 +9,12 @@ import { RenderCodingQuestionsList } from '../RenderCodingQuestionsList';
 class MCQCodingQuestionListButtons extends React.Component {
 
     renderCodingQuestionList = () => {
-        const { codingQuestions } = this.props;
+        const { codingQuestions, addCodingQuestion, onChangeSearchText } = this.props;
         if (codingQuestions.length === 0) {
             return <NoDataView/>;
         }
         else {
-            return <RenderCodingQuestionsList codingQuestions={codingQuestions} />;
+            return <RenderCodingQuestionsList addCodingQuestion={addCodingQuestion} onChangeSearchText={onChangeSearchText} codingQuestions={codingQuestions} />;
         }
     };
 

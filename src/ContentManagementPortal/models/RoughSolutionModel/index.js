@@ -1,17 +1,17 @@
 import { observable, action } from 'mobx';
 
-class EditorModel {
+class RoughSolutionModel {
     @observable id;
     @observable fileName;
     @observable languageType;
     @observable content;
 
     constructor(data) {
-        this.id = data.id;
-        this.fileName = data.fileName;
-        this.languageType = data.languageType;
-        this.content = data.languageType;
+        this.id = data.roughsolution_id;
+        this.languageType = data.code_type;
+        this.content = data.code;
+        this.fileName = data.filename;
     }
 }
 
-export default EditorModel;
+export default RoughSolutionModel;
