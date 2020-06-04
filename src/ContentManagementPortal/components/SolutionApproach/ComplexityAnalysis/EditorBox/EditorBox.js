@@ -13,7 +13,7 @@ class EditorBox extends React.Component {
         return (
             <RoughSolutionComponent>
                 <Header complexitySelectedMode={complexitySelectedMode} handleChangeAnalysisState={handleChangeAnalysisState} />
-                <Editor complexityAnalysis={complexityAnalysis} onChangeAnalysisEditor={onChangeAnalysisEditor}/>
+                <Editor complexitySelectedMode={complexitySelectedMode} complexityAnalysis={complexityAnalysis} onChangeAnalysisEditor={onChangeAnalysisEditor}/>
             </RoughSolutionComponent>
         );
     }

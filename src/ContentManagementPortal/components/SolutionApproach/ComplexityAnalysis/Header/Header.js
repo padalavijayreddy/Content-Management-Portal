@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { HeaderView, LanguageSelect, FileName, FileNameBox, DeleteIcon, SelectFields, EditorIcon } from './HeaderStyle';
 import { observable, action } from 'mobx';
-import { typos } from '../../../../../CommonModule/components/common/styleGuide/Typos';
+import { typos } from '../../../../../CommonModule/components/styleGuide/Typos';
 import { roughSolution } from '../../../../../CommonModule/i18n/strings';
 
 @observer

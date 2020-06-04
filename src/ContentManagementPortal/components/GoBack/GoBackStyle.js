@@ -1,7 +1,7 @@
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-import { colors } from '../../../CommonModule/components/common/themes/colors';
-import { Typo14SteelHKGroteskRegular } from '../../../CommonModule/components/common/styleGuide/Typos';
+import { colors } from '../../../CommonModule/components/themes/colors';
+import { Typo14SteelHKGroteskRegular } from '../../../CommonModule/components/styleGuide/Typos';
 
 export const BackToListP = styled(Typo14SteelHKGroteskRegular)
 `
@@ -9,7 +9,7 @@ export const BackToListP = styled(Typo14SteelHKGroteskRegular)
 GoBackView = styled.div `
     padding:30px;
     padding-left:105px;
-    width:1270px;
+    ${tw`w-screen`}
     background-color: ${colors.white};
 `,
     BackToListDiv = styled.div `

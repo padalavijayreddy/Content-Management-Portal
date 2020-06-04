@@ -32,8 +32,8 @@ class CleanSolution extends React.Component {
             });
         }
         else {
-            this.AddCodeEditor();
-            this.AddCodeEditor();
+            this.addCodeEditor();
+            this.addCodeEditor();
         }
     }
 
@@ -43,7 +43,7 @@ class CleanSolution extends React.Component {
         this.errorMessage = '';
     }
 
-    AddCodeEditor = () => {
+    addCodeEditor = () => {
         console.log("Added");
         const editorObject = {
             cleansolution_id: Math.random().toString(),
@@ -97,7 +97,7 @@ class CleanSolution extends React.Component {
         this.cleanSolutionList.delete(event.target.id);
     }
 
-    RenderCodeEditors = () => {
+    renderCodeEditors = () => {
         const { cleanSolutionList, onChangeFileName, onChangeLanguageType, onChangeContent, onRemoveEditorBox, } = this;
         const cleanSolutionListOfArray = [...cleanSolutionList.values()];
         return cleanSolutionListOfArray.map(eachEditorBox => {
@@ -154,14 +154,14 @@ class CleanSolution extends React.Component {
 
 
     render() {
-        const { saveTheCleanSolution, AddCodeEditor, RenderCodeEditors, errorMessage } = this;
+        const { saveTheCleanSolution, addCodeEditor, renderCodeEditors, errorMessage } = this;
         return (
             <CleanSolutionView>
                 <div>
-                    {RenderCodeEditors()}
+                    {renderCodeEditors()}
                 </div>
                 <Buttons>
-                   <AddButton AddCodeEditor = {AddCodeEditor}/>
+                   <AddButton addCodeEditor = {addCodeEditor}/>
                    <SaveButton saveTheCleanSolution={saveTheCleanSolution}/>
                 </Buttons>
             </CleanSolutionView>

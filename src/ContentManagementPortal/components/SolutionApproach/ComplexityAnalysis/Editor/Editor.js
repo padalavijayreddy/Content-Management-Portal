@@ -16,7 +16,7 @@ class Editor extends React.Component {
     }
 
     render() {
-        const { onChangeAnalysisEditor, complexityAnalysis } = this.props;
+        const { onChangeAnalysisEditor, complexitySelectedMode, complexityAnalysis } = this.props;
         const mystyle = {
             width: "630px",
             height: "100%",
@@ -27,15 +27,22 @@ class Editor extends React.Component {
         return (
             <EditorView>    
                 <AceEditor
-                    value={complexityAnalysis}
-                    data-testid='Editor'
                     style ={mystyle}
-                    mode="java"
-                    theme="github"
-                    highlightActiveLine={true}
+                    placeholder="Lets Code Here..."
+                    mode={complexitySelectedMode}
+                    theme="textmate"
+                    name="blah2"
+                    data-testid='Editor'
                     onChange={onChangeAnalysisEditor}
-                    name="UNIQUE_ID_OF_DIV"
-                    editorProps={{ $blockScrolling: true }}/>
+                    fontSize={16}
+                    showPrintMargin={true}
+                    showGutter={true}
+                    highlightActiveLine={true}
+                    value={complexityAnalysis}
+                    setOptions={{
+                        showLineNumbers: true,
+                        tabSize: 2,
+                    }}/>
             </EditorView>
         );
     }

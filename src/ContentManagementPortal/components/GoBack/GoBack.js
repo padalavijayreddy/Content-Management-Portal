@@ -9,7 +9,7 @@ import {
 }
 from './GoBackStyle';
 import { goBack } from '../../../CommonModule/i18n/strings';
-import { Coding_Questions_List_Path } from '../../../CommonModule/constants/RouteConstants';
+import { CODING_QUESTIONS_LIST_PATH } from '../../constants/RouteConstants/Navigation';
 import { withRouter } from 'react-router-dom';
 
 @observer
@@ -17,7 +17,7 @@ class GoBack extends React.Component {
 
    navigateToCodingQuestionsList = () => {
       const { history } = this.props;
-      history.goBack('/Content-Management-Portal/coding-questions-list-path/');
+      history.goBack(CODING_QUESTIONS_LIST_PATH);
    }
 
    render() {
@@ -26,7 +26,7 @@ class GoBack extends React.Component {
          <GoBackView>
             <BackToListDiv>
                <BackArrow onClick={this.navigateToCodingQuestionsList} src={goBack.backArrowImg} alt={goBack.goBack}></BackArrow>
-               <BackToListP>Back To List</BackToListP>
+               <BackToListP>{goBack.BackToList}</BackToListP>
             </BackToListDiv>
             <SelectedTaskDiv>{selectedTask}</SelectedTaskDiv>
          </GoBackView>

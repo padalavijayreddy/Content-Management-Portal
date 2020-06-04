@@ -12,7 +12,7 @@ class EditorBox extends React.Component {
         return (
             <RoughSolutionComponent>
                  <Header selectedMode={selectedMode} handleChangeState={handleChangeState} onRemoveEditorBox={onRemoveEditorBox} />
-                 <Editor description={description} onChangeEditor={onChangeEditor}/>
+                 <Editor selectedMode={selectedMode} description={description} onChangeEditor={onChangeEditor}/>
             </RoughSolutionComponent>
         );
     }

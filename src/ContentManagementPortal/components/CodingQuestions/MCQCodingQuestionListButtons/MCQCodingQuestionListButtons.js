@@ -2,28 +2,23 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import { ButtonsList, McqButton, CodingButton, QuestionsList } from './MCQCodingQuestionListButtonsStyle';
-import NoDataView from '../../../../CommonModule/components/common/NoDataView';
 import { RenderCodingQuestionsList } from '../RenderCodingQuestionsList';
+import { McqCodingButton } from '../../../../CommonModule/i18n/strings';
 
 @observer
 class MCQCodingQuestionListButtons extends React.Component {
 
     renderCodingQuestionList = () => {
-        const { codingQuestions, addCodingQuestion, onChangeSearchText } = this.props;
-        if (codingQuestions.length === 0) {
-            return <NoDataView/>;
-        }
-        else {
-            return <RenderCodingQuestionsList addCodingQuestion={addCodingQuestion} onChangeSearchText={onChangeSearchText} codingQuestions={codingQuestions} />;
-        }
+        const { codingQuestions, doNetworkCalls, getCodingQuestionsListAPIStatus, getCodingQuestionsListAPIError, onChangeSortBy, addCodingQuestion, onChangeSearchText } = this.props;
+        return <RenderCodingQuestionsList doNetworkCalls={doNetworkCalls} getCodingQuestionsListAPIStatus={getCodingQuestionsListAPIStatus} getCodingQuestionsListAPIError={getCodingQuestionsListAPIError} onChangeSortBy={onChangeSortBy} addCodingQuestion={addCodingQuestion} onChangeSearchText={onChangeSearchText} codingQuestions={codingQuestions} />;
     };
 
     render() {
         return (
             <div>
                 <ButtonsList>
-                    <McqButton>MCQs List</McqButton>
-                    <CodingButton>Coding Questions List</CodingButton>
+                    <McqButton>{McqCodingButton.MCQ}</McqButton>
+                    <CodingButton>{McqCodingButton.Coding}</CodingButton>
                 </ButtonsList>
                 <div>{this.renderCodingQuestionList()}</div>
             </div>

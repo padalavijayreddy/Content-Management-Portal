@@ -32,7 +32,7 @@ class RoughSolution extends React.Component {
          });
       }
       else {
-         this.AddCodeEditor();
+         this.addCodeEditor();
       }
    }
 
@@ -42,7 +42,7 @@ class RoughSolution extends React.Component {
       this.errorMessage = '';
    }
 
-   AddCodeEditor = () => {
+   addCodeEditor = () => {
       console.log("Added");
       const editorObject = {
          roughsolution_id: Math.random().toString(),
@@ -98,7 +98,7 @@ class RoughSolution extends React.Component {
       console.log(this.roughSolutionList);
    }
 
-   RenderCodeEditors = () => {
+   renderCodeEditors = () => {
       console.log("roughSolutionList", [...this.roughSolutionList.values()]);
       const { roughSolutionList, onChangeFileName, onChangeLanguageType, onChangeContent, onRemoveEditorBox, } = this;
       const roughSolutionListOfArray = [...roughSolutionList.values()];
@@ -158,14 +158,14 @@ class RoughSolution extends React.Component {
 
    render() {
       console.log('delete');
-      const { saveTheRoughSolution, AddCodeEditor, RenderCodeEditors } = this;
+      const { saveTheRoughSolution, addCodeEditor, renderCodeEditors } = this;
       return (
          <RoughSolutionView>
             <div>
-               {RenderCodeEditors()}
+               {renderCodeEditors()}
             </div>
             <Buttons>
-               <AddButton AddCodeEditor = {AddCodeEditor}/>
+               <AddButton addCodeEditor = {addCodeEditor}/>
                <SaveButton saveTheRoughSolution={saveTheRoughSolution}/>
             </Buttons>
          </RoughSolutionView>
@@ -174,106 +174,3 @@ class RoughSolution extends React.Component {
 }
 
 export { RoughSolution };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// @observer
-// class RoughSolution extends React.Component {
-//    @observable editorBoxIds = [1, 2];
-
-//    @action.bound
-//    renderEditorBoxList(editorBoxIds) {
-//       return editorBoxIds.map(eachEditorBoxId => {
-//          return <EditorBox key={eachEditorBoxId} id={eachEditorBoxId}
-//          onRemoveEditorBox={this.onRemoveEditorBox}
-//          />;
-//       });
-//    }
-
-//    onAddEditorBox = () => {
-//       const prevStateEditorBoxIds = this.editorBoxIds.slice();
-//       const lengthOfEditorBoxIds = prevStateEditorBoxIds.length;
-//       const lastEditorBoxId = prevStateEditorBoxIds[lengthOfEditorBoxIds - 1];
-//       const newEditorBoxId = lastEditorBoxId + 1;
-//       prevStateEditorBoxIds.push(newEditorBoxId);
-//       if (isNaN(prevStateEditorBoxIds[0])) {
-//          prevStateEditorBoxIds[0] = 1;
-//       }
-//       this.editorBoxIds = prevStateEditorBoxIds;
-
-//    }
-
-//    onRemoveEditorBox = (event) => {
-//       const Index = this.editorBoxIds.findIndex(item =>
-//          item === Number(event.target.id)
-//       );
-//       let remainingEditorBox = this.editorBoxIds.filter((item, index) =>
-//          index !== Index,
-//       );
-//       this.editorBoxIds = remainingEditorBox;
-//    }
-
-//    saveTheRoughSolution = () => {
-
-//    }
-
-//    render() {
-//       const { saveTheRoughSolution, renderEditorBoxList, editorBoxIds, onAddEditorBox } = this;
-//       return (
-//          <RoughSolutionView>
-//             <div>
-//                {renderEditorBoxList(editorBoxIds)}
-//             </div>
-//             <Buttons>
-//                <AddButton onAddEditorBox = {onAddEditorBox}/>
-//                <SaveButton saveTheRoughSolution={saveTheRoughSolution}/>
-//             </Buttons>
-//          </RoughSolutionView>
-//       );
-//    }
-// }

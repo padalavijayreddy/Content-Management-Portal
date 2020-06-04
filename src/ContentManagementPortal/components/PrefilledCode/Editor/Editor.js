@@ -29,7 +29,7 @@ class Editor extends React.Component {
     }
 
     render() {
-        const {id, mode } = this.props;
+        const { id, mode } = this.props;
         const mystyle = {
             color: "black",
             width: "100%",

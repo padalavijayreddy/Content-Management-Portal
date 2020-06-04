@@ -2,8 +2,9 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { HeaderView, LanguageSelect, FileName, FileNameBox, DeleteIcon, SelectFields, EditorIcon } from './HeaderStyle';
 import { observable, action } from 'mobx';
-import { typos } from '../../../../CommonModule/components/common/styleGuide/Typos';
+import { typos } from '../../../../CommonModule/components/styleGuide/Typos';
 import { roughSolution } from '../../../../CommonModule/i18n/strings';
+import { cleanSolution } from '../../../../CommonModule/i18n/strings';
 
 @observer
 class Header extends React.Component {
@@ -13,7 +14,6 @@ class Header extends React.Component {
 
     componentDidMount() {
         const { editorBox } = this.props;
-        console.log("editorboxInHeader", editorBox);
         if (editorBox) {
             this.fileName = editorBox.fileName;
             this.selectLanguage = editorBox.languageType;
@@ -46,10 +46,10 @@ class Header extends React.Component {
                     <FileName id={id} value={this.fileName} onChange={this.onChangeValue} placeholder={roughSolution.fileNameIncludeExtension}/>
                 </FileNameBox>
                 <SelectFields>
-                    <LanguageSelect data-testid='select-language' id={id} value={this.selectLanguage} onChange={this.onChangeLanguageValue}>
-                        <option>Language</option>
-                        <option>HTML</option>
-                        <option>MarkDown</option>
+                    <LanguageSelect data-testid={cleanSolution.Headertestid} id={id} value={this.selectLanguage} onChange={this.onChangeLanguageValue}>
+                        <option>{roughSolution.Language}</option>
+                        <option>{roughSolution.C}</option>
+                        <option>{roughSolution.Python}</option>
                     </LanguageSelect>
                     <DeleteIcon onClick={onRemoveEditorBox} id={id} src={roughSolution.deleteIconURL} alt={roughSolution.deleteIconAlt}></DeleteIcon>
                     <EditorIcon src={roughSolution.editorIconURL} alt={roughSolution.editorIconAlt}></EditorIcon>

@@ -1,7 +1,7 @@
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-import { colors } from '../../../../CommonModule/components/common/themes/colors';
-import { Typo12HKGroteskSemiBoldSteel } from '../../../../CommonModule/components/common/styleGuide/Typos';
+import { colors } from '../../../../CommonModule/components/themes/colors';
+import { Typo12HKGroteskSemiBoldSteel } from '../../../../CommonModule/components/styleGuide/Typos';
 
 export const ProblemDescriptionView = styled.div `
      display:flex;

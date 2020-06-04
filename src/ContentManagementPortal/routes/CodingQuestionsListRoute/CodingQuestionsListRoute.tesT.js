@@ -12,6 +12,7 @@ import {
 }
 from "@ib/api-constants";
 
+
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import { Router, Route, withRouter } from "react-router-dom";
@@ -22,19 +23,11 @@ import { ContentManagementStores } from '../../stores/ContentManagementStores';
 import CodingQuestionsListRoute from ".";
 
 
+import { CODING_QUESTIONS_LIST_PATH } from '../../constants/RouteConstants/Navigation';
+import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigation';
+import { header } from '../../../CommonModule/i18n/strings';
 
-// const LocationDisplay = withRouter(({ location }) => (
-//     <div data-testid="location-display">{location.pathname}</div>
-// ));
 
-describe("LoginRoute Tests", () => {
-    it('should render typed ShortText', () => {
-        const selectedTask = 'Rough Solution';
-        const { getByTestId, debug } = render(
-            <CodingQuestionsListRoute selectedTask={selectedTask} changeSelectedTask={() => {}} />
-        );
-        const ChangeMode = getByTestId("Rough-solution");
-        fireEvent.click(ChangeMode);
-        expect(selectedTask).toBe('Rough Solution');
-    });
-});
+const LocationDisplay = withRouter(({ location }) => (
+    <div data-testid="location-display">{location.pathname}</div>
+));

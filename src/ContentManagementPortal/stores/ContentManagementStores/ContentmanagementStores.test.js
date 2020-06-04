@@ -76,6 +76,12 @@ describe("ContentManagementStores Tests", () => {
         expect(contentManagementStores.getCodingQuestionsListAPIStatus).toBe(API_FAILED);
     });
 
+    it("Should test onChangeSearchText Function", () => {
+        const searchText = "cat";
+        contentManagementStores.onChangeSearchText(searchText);
+        expect(contentManagementStores.searchText).toBe(searchText);
+    });
+
 
 
     //ProblemStatementTextCases//
@@ -249,6 +255,8 @@ describe("ContentManagementStores Tests", () => {
         expect(onFailure).toBeCalled();
     });
 
+    //Test cases
+
     //PrefilledCode
 
 
@@ -263,7 +271,7 @@ describe("ContentManagementStores Tests", () => {
 
         const postObject = {
             "prefilledData": [{
-                "roughsolution_id": 0,
+                "prefilledCode_id": 0,
                 "code_type": "C",
                 "code": "string",
                 "filename": "string"
@@ -286,8 +294,8 @@ describe("ContentManagementStores Tests", () => {
         const onFailure = jest.fn();
 
         const postObject = {
-            "roughsolution": [{
-                "roughsolution_id": 0,
+            "prefilledCode": [{
+                "prefilledCode_id": 0,
                 "code_type": "C",
                 "code": "string",
                 "filename": "string"
@@ -332,6 +340,187 @@ describe("ContentManagementStores Tests", () => {
 
         expect(contentManagementStores.postPrefilledDataAPIStatus).toBe(API_FAILED);
         expect(contentManagementStores.postPrefilledDataAPIError).toBe("error");
+        expect(onFailure).toBeCalled();
+    });
+
+    //SolutionApproach
+
+    it("should test initialising ContentManagement store", () => {
+        expect(contentManagementStores.postSolutionApproachDataAPIStatus).toBe(API_INITIAL);
+        expect(contentManagementStores.postSolutionApproachDataAPIError).toBe(null);
+    });
+
+    it("should test contentManagementAPI data fetching state", () => {
+        const onSuccess = jest.fn();
+        const onFailure = jest.fn();
+
+        const requestObject = {
+            "short_title": "string",
+            "description": {
+                "content_type": "HTML",
+                "content": "string"
+            },
+            "complexity": {
+                "content_type": "HTML",
+                "content": "string"
+            }
+        };
+
+        const mockLoadingPromise = new Promise(function(resolve, reject) {});
+        const mockAPI = jest.fn();
+        mockAPI.mockReturnValue(mockLoadingPromise);
+        contentManagementAPI.postSolutionApproachApi = mockAPI;
+
+        contentManagementStores.saveUserSolution(requestObject, onSuccess, onFailure);
+        expect(contentManagementStores.postSolutionApproachDataAPIStatus).toBe(API_FETCHING);
+        expect(onSuccess).not.toBeCalled();
+        expect(onFailure).not.toBeCalled();
+    });
+
+    it("should test contentManagementAPI success state", async() => {
+        const onSuccess = jest.fn();
+        const onFailure = jest.fn();
+
+        const requestObject = {
+            "short_title": "string",
+            "description": {
+                "content_type": "HTML",
+                "content": "string"
+            },
+            "complexity": {
+                "content_type": "HTML",
+                "content": "string"
+            }
+        };
+
+        const mockSuccessPromise = new Promise(function(resolve, reject) {
+            resolve(getProblemStatementFixtures);
+        });
+        const mockAPI = jest.fn();
+        mockAPI.mockReturnValue(mockSuccessPromise);
+        contentManagementAPI.postSolutionApproachApi = mockAPI;
+
+        await contentManagementStores.saveUserSolution(requestObject, onSuccess, onFailure);
+        expect(contentManagementStores.postSolutionApproachDataAPIStatus).toBe(API_SUCCESS);
+        expect(onSuccess).toBeCalled();
+    });
+
+    it("should test contentManagementAPI failure state", async() => {
+        const onSuccess = jest.fn();
+        const onFailure = jest.fn();
+
+        const requestObject = {
+            "short_title": "string",
+            "description": {
+                "content_type": "HTML",
+                "content": "string"
+            },
+            "complexity": {
+                "content_type": "HTML",
+                "content": "string"
+            }
+        };
+
+        const mockFailurePromise = new Promise(function(resolve, reject) {
+            reject(new Error("error"));
+        });
+
+        const mockAPI = jest.fn();
+        mockAPI.mockReturnValue(mockFailurePromise);
+        contentManagementAPI.postSolutionApproachApi = mockAPI;
+
+        contentManagementStores = new ContentManagementStores(contentManagementAPI);
+        await contentManagementStores.saveUserSolution(requestObject, onSuccess, onFailure);
+
+        expect(contentManagementStores.postSolutionApproachDataAPIStatus).toBe(API_FAILED);
+        expect(contentManagementStores.postSolutionApproachDataAPIError).toBe("error");
+        expect(onFailure).toBeCalled();
+    });
+
+
+    //Clean Solution
+
+
+    it("should test initialising ContentManagement store", () => {
+        expect(contentManagementStores.postCleanSolutionDataAPIStatus).toBe(API_INITIAL);
+        expect(contentManagementStores.postCleanSolutionDataAPIError).toBe(null);
+    });
+
+    it("should test contentManagementAPI data fetching state", () => {
+        const onSuccess = jest.fn();
+        const onFailure = jest.fn();
+
+        const postObject = {
+            "cleanSolution": [{
+                "cleanSolution_id": 0,
+                "code_type": "C",
+                "code": "string",
+                "filename": "string"
+            }]
+        };
+
+        const mockLoadingPromise = new Promise(function(resolve, reject) {});
+        const mockAPI = jest.fn();
+        mockAPI.mockReturnValue(mockLoadingPromise);
+        contentManagementAPI.postCleanSolutionApi = mockAPI;
+
+        contentManagementStores.saveCleanSolutionList(postObject, onSuccess, onFailure);
+        expect(contentManagementStores.postCleanSolutionDataAPIStatus).toBe(API_FETCHING);
+        expect(onSuccess).not.toBeCalled();
+        expect(onFailure).not.toBeCalled();
+    });
+
+    it("should test contentManagementAPI success state", async() => {
+        const onSuccess = jest.fn();
+        const onFailure = jest.fn();
+
+        const postObject = {
+            "cleanSolution": [{
+                "cleanSolution_id": 0,
+                "code_type": "C",
+                "code": "string",
+                "filename": "string"
+            }]
+        };
+
+        const mockSuccessPromise = new Promise(function(resolve, reject) {
+            resolve(getRoughSolutionFixtures);
+        });
+        const mockAPI = jest.fn();
+        mockAPI.mockReturnValue(mockSuccessPromise);
+        contentManagementAPI.postCleanSolutionApi = mockAPI;
+
+        await contentManagementStores.saveCleanSolutionList(postObject, onSuccess, onFailure);
+        expect(contentManagementStores.postCleanSolutionDataAPIStatus).toBe(API_SUCCESS);
+        expect(onSuccess).toBeCalled();
+    });
+
+    it("should test contentManagementAPI failure state", async() => {
+        const onSuccess = jest.fn();
+        const onFailure = jest.fn();
+
+        const postObject = {
+            "cleanSolution": [{
+                "cleanSolution_id": 0,
+                "code_type": "C",
+                "code": "string",
+                "filename": "string"
+            }]
+        };
+
+        const mockFailurePromise = new Promise(function(resolve, reject) {
+            reject(new Error("error"));
+        });
+
+        const mockAPI = jest.fn();
+        mockAPI.mockReturnValue(mockFailurePromise);
+        contentManagementAPI.postCleanSolutionApi = mockAPI;
+
+        contentManagementStores = new ContentManagementStores(contentManagementAPI);
+        await contentManagementStores.saveCleanSolutionList(postObject, onSuccess, onFailure);
+
+        expect(contentManagementStores.postCleanSolutionDataAPIStatus).toBe(API_FAILED);
+        expect(contentManagementStores.postCleanSolutionDataAPIError).toBe("error");
         expect(onFailure).toBeCalled();
     });
 

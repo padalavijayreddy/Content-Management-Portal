@@ -1,11 +1,11 @@
 import tw from 'tailwind.macro'
 import styled from '@emotion/styled'
-import { colors } from '../../../CommonModule/components/common/themes/colors'
+import { colors } from '../../../CommonModule/components/themes/colors'
 
 export const TopBar = styled.div `
       ${tw`flex justify-between`}
       border-bottom: 1px solid lightgrey;
-      width:1270px;
+      ${tw`w-screen`}
       height:72px;
       background-color: ${colors.white};
 `,
@@ -14,9 +14,8 @@ export const TopBar = styled.div `
       border-radius:50%;
 `,
    Notification = styled.img `
-   width: 30px;
-   height: 30px;
-   background-color: var(--dark-blue-grey);
+   width: 25px;
+   height: 25px;
 `,
    HeaderNotify = styled.div `
    display:flex;

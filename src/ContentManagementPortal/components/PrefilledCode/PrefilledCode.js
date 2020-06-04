@@ -32,8 +32,8 @@ class PrefilledCode extends React.Component {
          });
       }
       else {
-         this.AddCodeEditor();
-         this.AddCodeEditor();
+         this.addCodeEditor();
+         this.addCodeEditor();
       }
    }
 
@@ -43,7 +43,7 @@ class PrefilledCode extends React.Component {
       this.errorMessage = '';
    }
 
-   AddCodeEditor = () => {
+   addCodeEditor = () => {
       console.log("Added");
       const editorObject = {
          prefilledcode_id: Math.random().toString(),
@@ -97,7 +97,7 @@ class PrefilledCode extends React.Component {
       this.PrefilledCodeList.delete(event.target.id);
    }
 
-   RenderCodeEditors = () => {
+   renderCodeEditors = () => {
       const { PrefilledCodeList, onChangeFileName, onChangeLanguageType, onChangeContent, onRemoveEditorBox, } = this;
       const PrefilledCodeListOfArray = [...PrefilledCodeList.values()];
       return PrefilledCodeListOfArray.map(eachEditorBox => {
@@ -154,14 +154,14 @@ class PrefilledCode extends React.Component {
 
 
    render() {
-      const { saveThePrefilledCode, AddCodeEditor, RenderCodeEditors, errorMessage } = this;
+      const { saveThePrefilledCode, addCodeEditor, renderCodeEditors, errorMessage } = this;
       return (
          <PrefilledCodeView>
             <div>
-               {RenderCodeEditors()}
+               {renderCodeEditors()}
             </div>
             <Buttons>
-               <AddButton AddCodeEditor = {AddCodeEditor}/>
+               <AddButton addCodeEditor = {addCodeEditor}/>
                <SaveButton saveThePrefilledCode={saveThePrefilledCode}/>
             </Buttons>
          </PrefilledCodeView>

@@ -1,6 +1,6 @@
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-import { colors } from '../../../../../CommonModule/components/common/themes/colors';
+import { colors } from '../../../../../CommonModule/components/themes/colors';
 
 export const EditorView = styled.div `
     width: 630px;

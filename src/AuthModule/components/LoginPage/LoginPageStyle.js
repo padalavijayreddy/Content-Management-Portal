@@ -1,16 +1,14 @@
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-import { colors } from '../../../CommonModule/components/common/themes/colors';
+import { colors } from '../../../CommonModule/components/themes/colors';
 const { steel, white, neonRed, neonRed5 } = colors;
 
 export const MainDiv = styled.div `
+      ${tw`w-screen h-screen`}
       display:flex;
       justify-content:center;
       align-items:center;
-      width: 1270px;
-      height: 1024px;
       background-color: ${colors.iceBlue};
-      border:1px solid black;
 `,
    SubDiv = styled.div `
       display: flex;
@@ -26,9 +24,6 @@ export const MainDiv = styled.div `
    FieldsDiv = styled.div `
     & label{
         margin-top:24px;
-    }
-    & input{
-        margin-bottom:24px;
     }
 `,
    Image = styled.div `
@@ -53,17 +48,6 @@ export const MainDiv = styled.div `
       text-align: center;
       color: ${colors.darkBlueGrey};
 `,
-   InputField = styled.input `
-      ${tw``}
-      display:flex;
-      align-self:center;
-      padding:8px 16px;
-      width: 270px;
-      height: 40px;
-      border-radius: 2px;
-      border: solid 1px ${props => (props.isErrorPresent ? neonRed : steel)};
-      background-color: ${props => (props.isErrorPresent ? neonRed5 : white)};
-`,
    InputLabelField = styled.label `
       ${tw``}
       height: 16px;
@@ -87,8 +71,21 @@ export const MainDiv = styled.div `
 `,
    InputDiv = styled.div `
       display:flex;
+      justify-content:space-between;
       align-items:center; 
-      height:4rem;
+      border-radius: 2px;
+      width: 270px;
+      height: 30px;
+      border: solid 1px ${props => (props.isErrorPresent ? neonRed : steel)};
+      background-color: ${props => (props.isErrorPresent ? neonRed5 : white)};
+`,
+   InputField = styled.input `
+      width:90%;
+      height:90%;
+      font-size:12px;
+      padding:5px;
+      background-color:transparent;
+      outline:none;
 `,
    ErrorMessageSpan = styled.span `
       height: 16px;
@@ -108,11 +105,14 @@ export const MainDiv = styled.div `
    PasswordFieldContainerDiv = styled.div `
       display: flex;
       flex-direction: column;
+`,
+   ErrorMessage = styled.div `
+   ${tw` text-red-500 text-xs italic`}
 `;
 
 
 const SubmitButton = styled.div `
-   ${tw` flex items-center justify-center mb-2`}
+   ${tw` flex flex-col items-center justify-center mb-2`}
 `;
 
 const Button = styled.button `
@@ -123,10 +123,6 @@ const Button = styled.button `
       width: 270px;
       height: 40px;
    }
-`;
-
-const ErrorMessage = styled.div `
-   ${tw` text-red-500 text-xs italic`}
 `;
 
 const Footer = styled.div `
@@ -144,4 +140,4 @@ const AnchorTag = styled.a `
 `;
 
 
-export { SubmitButton, Button, ErrorMessage, Footer, NoAccount, AnchorTag };
+export { SubmitButton, Button, Footer, NoAccount, AnchorTag };

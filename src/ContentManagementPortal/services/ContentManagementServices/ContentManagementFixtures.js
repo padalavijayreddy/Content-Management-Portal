@@ -16,13 +16,13 @@ class contentManagementFixtureService {
 
     codingQuestionsListApi = () => {
         return new Promise((resolve, reject) => {
-            resolve(getCodingQuestionsFixture);
+            setTimeout(() => resolve(getCodingQuestionsFixture), 4000);
         });
     }
 
     getCodingQuestionDetailsApi = () => {
         return new Promise((resolve, reject) => {
-            resolve(getCodingQuestionDetailsFixtures);
+            setTimeout(() => resolve(getCodingQuestionDetailsFixtures), 2000);
         });
     }
 

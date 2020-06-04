@@ -14,11 +14,11 @@ import { Redirect } from 'react-router-dom';
 class CodingQuestionsList extends React.Component {
 
     render() {
-        const { signOut, codingQuestionsList, onChangeSearchText, questions } = this.props;
+        const { signOut, doNetworkCalls, getCodingQuestionsListAPIStatus, getCodingQuestionsListAPIError, codingQuestionsList, onChangeSearchText, onChangeSortBy, questions } = this.props;
         return (
             <CodingQuestionsListView>
                 <Header signOut={signOut} />
-                <CodingQuestions onChangeSearchText={onChangeSearchText} codingQuestionsList={questions} />
+                <CodingQuestions doNetworkCalls={doNetworkCalls} getCodingQuestionsListAPIStatus={getCodingQuestionsListAPIStatus} getCodingQuestionsListAPIError={getCodingQuestionsListAPIError} onChangeSortBy={onChangeSortBy} onChangeSearchText={onChangeSearchText} codingQuestionsList={questions} />
             </CodingQuestionsListView>
         );
     }

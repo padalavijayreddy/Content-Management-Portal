@@ -36,7 +36,14 @@
         "text": "Text",
         "fileNameIncludeExtension": "File Name Include Extension",
         "editorIconURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/84eb5be8-75cf-4c8f-8bd7-1162229b42f6.svg",
-        "editorIconAlt": "EditorIcon"
+        "editorIconAlt": "EditorIcon",
+        "Text": "Text",
+        "HTML": "HTML",
+        "MarkDown": "MarkDown",
+        "Headertestid": "select-language",
+        "C": "C",
+        "Python": "Python",
+        "Language": "Language"
     },
 
     "SolutionApproach": {
@@ -51,21 +58,85 @@
     },
 
     "codingQuestions": {
-        "questionArrowImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/45ea1bd7-4b08-4994-850e-3e0110cb9201.svg",
-        "questionArrowImageAlt": "questionArrowImage",
         "questionsTickURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/dbf631d4-8ce5-4738-838e-58cf219de2e2.svg",
         "questionTrueImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/66f08b9c-c7ab-4f89-927c-92b923fa0995.svg",
         "questionTrueImageAlt": "questionTrueImageLogo",
         "questionFalseImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/218ca15f-ff4d-415d-b8b8-051c24a0c3ca.svg",
-        "questionFalseImageAlt": "questionFalseImageLogo",
+        "questionFalseImageAlt": "questionFalseImageLogo"
+    },
+
+    "McqCodingButton": {
+        "MCQ": "MCQs List",
+        "Coding": "Coding Questions List"
+    },
+
+    "RenderCodingQuestionsStrings": {
+        "Export": "Export",
+        "Status": "Status",
+        "StatusValue": "STATUS",
+        "InProcessValue": "IN PROCESS",
+        "InProcess": "In Process",
+        "YettobeReveiwedValue": "YET TO BE REVEIWED",
+        "YettobeReveiwed": "Yet to be Reveiwed",
+        "CompletedValue": "COMPLETED",
+        "Completed": "Completed",
+        "Sort": "Sort",
+        "Filter": "Filter",
+        "SelectAll": "SelectAll",
+        "Questions": "Questions",
+        "RoughSolution": "ROUGH SOLUTION",
+        "TestCases": "TEST CASES",
+        "PrefilledCode": "PREFILLED CODE",
+        "SolutionApproach": "SOLUTION AAPPROACH",
+        "CleanSolution": "CLEAN SOLUTION",
         "searchImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/825647ee-122d-4dbf-b131-e29f63474bb2.svg",
         "sortImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/3a385d25-f481-4fbe-a112-9b7e13d5ff95.svg",
-        "filterImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/58938ef2-9539-43f7-93bc-b96b3906fb72.svg"
+        "filterImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/58938ef2-9539-43f7-93bc-b96b3906fb72.svg",
+        "questionArrowImageURL": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/45ea1bd7-4b08-4994-850e-3e0110cb9201.svg",
+        "questionArrowImageAlt": "questionArrowImage"
+    },
+
+    "createCodingQuestions": {
+        "ProblemStatement": "Problem Statement",
+        "RoughSolution": "Rough Solution",
+        "TestCases": "Test Cases",
+        "PrefilledCode": "Prefilled Code",
+        "SolutionApproach": "Solution Approach",
+        "CleanSolution": "Clean Solution",
+        "Hints": "Hints"
+    },
+
+    "tabBar": {
+        "ProblemStatement": "Problem Statement",
+        "Statement": "Statement",
+        "statementTestId": "Problem-statement",
+        "RoughSolution": "Rough Solution",
+        "roughSolutionTestId": "Rough-Solution",
+        "PrefilledCode": "Prefilled Code",
+        "prefilledCodeTestId": "Prefilled-Code",
+        "TestCases": "Test Cases",
+        "testCasesTestId": "Test-Cases",
+        "SolutionApproach": "Solution Approach",
+        "solutionApproachTestId": "Solution-Approach",
+        "CleanSolution": "Clean Solution",
+        "cleanSolutionTestId": "Clean-Solution",
+        "Hints": "Hints",
+        "hintsTestId": "Hints"
+    },
+
+    "problemStatement": {
+        "ShortTextErrorMessage": "Please enter shortText",
+        "ProblemDescriptionErrorMessage": "Please enter problemDescription",
+        "iframeSrc": "demo_iframe_srcdoc.htm",
+        "HTMLPreviewMessage": "Your browser does not support iframes.",
+        "Type": "text",
+        "shortTextTestId": "Short-text-input"
     },
 
     "goBack": {
         "backArrowImg": "https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/eeab89d1-4929-482b-84ba-406ffdb282e6.svg",
-        "goBack": "GoBack"
+        "goBack": "GoBack",
+        "BackToList": "Back To List"
     },
 
     "problemStatement": {
@@ -73,6 +144,10 @@
         "problemDescription": "PROBLEM DESCRIPTION",
         "shortTextPlaceholder": "Control loops and Nested loops",
         "problemDescriptionPlaceHolder": "create a new conversation by writing your message here nested loops"
+    },
+
+    "cleanSolution": {
+        "Headertestid": "select-solution-language"
     },
 
     "login": {

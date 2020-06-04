@@ -35,7 +35,9 @@ class ContentManagementStores {
 
     @observable postCleanSolutionDataAPIStatus;
     @observable postCleanSolutionDataAPIError;
+
     @observable searchText;
+    @observable sortBy;
 
 
     constructor(ContentManagementAPI) {
@@ -74,6 +76,7 @@ class ContentManagementStores {
 
         this.selectedTask = 'Problem Statement';
         this.searchText = '';
+        this.sortBy = 'Status';
     }
 
     changeSelectedTask = (selectedTask) => {
@@ -93,13 +96,16 @@ class ContentManagementStores {
     }
 
     @action.bound
-    filterTitles(title) {
-        console.log("1", title);
-        console.log(title.toLowerCase().includes(this.searchText.toLowerCase()));
-        return title.toLowerCase().includes(this.searchText.toLowerCase());
+    onChangeSortBy(changedFormat) {
+        console.log(changedFormat);
+        this.sortBy = changedFormat;
     }
 
-
+    @action.bound
+    filterTitles(title) {
+        console.log("1", title);
+        return title.toLowerCase().includes(this.searchText.toLowerCase());
+    }
 
     //CodingQuestionDetails
 
@@ -166,7 +172,7 @@ class ContentManagementStores {
 
     @computed
     get sortedAndFilteredQuestions() {
-        const { codingQuestionsList, filterTitles, searchText } = this;
+        const { codingQuestionsList, filterTitles, searchText, } = this;
         let data = [...codingQuestionsList.values()];
         console.log(data);
         data = data.filter(question => filterTitles(question.questions));
@@ -244,6 +250,8 @@ class ContentManagementStores {
     setPostSolutionDataAPIResponse(apiResponse) {
         console.log(apiResponse);
     }
+
+    //Test Cases
 
     //Prefilled CODE
 

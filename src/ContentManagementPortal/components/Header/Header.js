@@ -1,5 +1,11 @@
 import React from 'react'
-import { TopBar, SignOutbutton, Notification, HeaderNotify } from './HeaderStyle';
+import {
+   TopBar,
+   SignOutbutton,
+   Notification,
+   HeaderNotify
+}
+from './HeaderStyle';
 import { header } from '../../../CommonModule/i18n/strings';
 
 class Header extends React.Component {

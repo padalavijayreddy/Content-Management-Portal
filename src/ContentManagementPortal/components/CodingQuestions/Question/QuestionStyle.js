@@ -1,11 +1,12 @@
 import tw from 'tailwind.macro'
 import styled from '@emotion/styled'
-import { colors } from '../../../../CommonModule/components/common/themes/colors'
-import { Typo14SteelHKGroteskRegular } from '../../../../CommonModule/components/common/styleGuide/Typos';
+import { colors } from '../../../../CommonModule/components/themes/colors'
+import { Typo14SteelHKGroteskRegular } from '../../../../CommonModule/components/styleGuide/Typos';
 
 export const QuestionStyle = styled(Typo14SteelHKGroteskRegular)
 `
 `,
+
 QuestionsView = styled.div `
     display:flex;
     justify-content:center;
@@ -13,6 +14,7 @@ QuestionsView = styled.div `
     width: 1128px;
     height: 64px;
     border: solid 1px ${colors.lightBlueGrey};
+    ${tw`hover:bg-indigo-300`}
 `,
     CircleTick = styled.img `
     width: 16px;

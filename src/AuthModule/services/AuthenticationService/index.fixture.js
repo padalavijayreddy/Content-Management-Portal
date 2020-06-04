@@ -5,7 +5,7 @@ class SignInFixtureService {
     signInAPI() {
         console.log(SignInResponse);
         return new Promise((resolve, reject) => {
-            resolve(SignInResponse);
+            setTimeout(() => resolve(SignInResponse), 2000);
         });
     }
 }

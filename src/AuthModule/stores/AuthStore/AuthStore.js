@@ -8,6 +8,7 @@ import {
    ACCESS_TOKEN
 }
 from '../../utils/StorageUtils';
+import { getUserDisplayableErrorMessage } from '../../../CommonModule/utils/APIUtils';
 
 class AuthStore {
    @observable getUserSignInAPIStatus
@@ -33,7 +34,7 @@ class AuthStore {
    @action.bound
    userSignIn(requestObject, onSuccess, onFailure) {
       this.userData = requestObject;
-      const signInPromise = this.authAPI.signInAPI();
+      const signInPromise = this.authAPI.signInAPI(this.userData);
       return bindPromiseWithOnSuccess(signInPromise)
          .to(this.setGetUserSignInAPIStatus, response => {
             this.setUserSignInAPIResponse(response);
@@ -52,14 +53,13 @@ class AuthStore {
 
    @action.bound
    setGetUserSignInAPIError(apiError) {
-      this.getUserSignInAPIError = apiError;
+      this.getUserSignInAPIError = getUserDisplayableErrorMessage(apiError);
    }
 
    @action.bound
    setUserSignInAPIResponse(signInResponse) {
-      const { username, password } = this.userData;
-      signInResponse.forEach(token => setAccessToken(token.access_token));
-      console.log(getAccessToken(ACCESS_TOKEN));
+      console.log(signInResponse);
+      setAccessToken(signInResponse.access_token);
    }
 
    @action.bound

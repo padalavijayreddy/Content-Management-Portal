@@ -11,7 +11,7 @@ import "ace-builds/src-noconflict/theme-github";
 @observer
 class Editor extends React.Component {
     render() {
-        const { onChangeEditor, problemDescription } = this.props;
+        const { onChangeEditor, selectedMode, problemDescription } = this.props;
         const mystyle = {
             width: "630px",
             height: "100%",
@@ -22,15 +22,22 @@ class Editor extends React.Component {
         return (
             <EditorView>    
                 <AceEditor
-                    value={problemDescription}
-                    data-testid='Editor'
                     style ={mystyle}
-                    mode="java"
-                    theme="github"
-                    highlightActiveLine={true}
+                    placeholder="Lets Code Here..."
+                    mode={selectedMode}
+                    theme="textmate"
+                    name="blah2"
+                    data-testid='Editor'
                     onChange={onChangeEditor}
-                    name="UNIQUE_ID_OF_DIV"
-                    editorProps={{ $blockScrolling: true }}/>
+                    fontSize={16}
+                    showPrintMargin={true}
+                    showGutter={true}
+                    highlightActiveLine={true}
+                    value={problemDescription}
+                    setOptions={{
+                        showLineNumbers: true,
+                        tabSize: 2,
+                    }}/>
             </EditorView>
         );
     }

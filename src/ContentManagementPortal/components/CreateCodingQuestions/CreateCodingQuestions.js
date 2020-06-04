@@ -14,8 +14,9 @@ import { CleanSolution } from '../CleanSolution';
 import { Header } from '../Header';
 import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigation';
 import { withRouter } from 'react-router-dom';
-import Loader from "../../../CommonModule/components/common/Icons/Loader";
-import LoadingWrapperWithFailure from '../../../CommonModule/components/common/LoadingWrapperWithFailure';
+import Loader from "../../../CommonModule/components/Icons/Loader";
+import LoadingWrapperWithFailure from '../../../CommonModule/components/LoadingWrapperWithFailure';
+import { createCodingQuestions } from '../../../CommonModule/i18n/strings';
 
 import {
    API_SUCCESS,
@@ -78,28 +79,27 @@ class CreateCodingQuestions extends React.Component {
       } = contentManagementStore;
       return (
          <CreateCodingQuestionsView>
-                     <Header signOut={signOut} />
-                     <GoBack addCodingQuestion={addCodingQuestion} selectedTask={selectedTask} />
-                     <TabBar
-                        selectedTask={selectedTask}
-                        changeSelectedTask={changeSelectedTask}
-                     />
-                     {selectedTask === 'Problem Statement' ? (
-                     <ProblemStatement statement={statement} selectedTask={selectedTask} postUserDataAPIError={postUserDataAPIError} changeSelectedTask={changeSelectedTask} saveUserData={saveUserData} />
-                     ) : selectedTask === 'Rough Solution' ? (
-                     <RoughSolution roughSolutions={roughSolutions} selectedTask={selectedTask} saveRoughSolutionList={saveRoughSolutionList} changeSelectedTask={changeSelectedTask}/>
-                     ) : selectedTask === 'Test Cases' ? (
-                     <TestCases />
-                     ) : selectedTask === 'Prefilled Code' ? (
-                     <PrefilledCode prefilledCode={prefilledCode} savePreFilledList={savePreFilledList} changeSelectedTask={changeSelectedTask}/>
-                     ) : selectedTask === 'Solution Approach' ? (
-                     <SolutionApproach solutionApproach={solutionApproach} saveUserSolution={saveUserSolution} changeSelectedTask={changeSelectedTask}/>
-                     ) : selectedTask === 'Clean Solution' ? (
-                     <CleanSolution cleanSolution={cleanSolution} saveCleanSolutionList={saveCleanSolutionList} changeSelectedTask={changeSelectedTask}/>
-                     ) : selectedTask === 'Hints' ? (
-                     <Hints/>
-                     ) : ''
-                     }
+            <Header signOut={signOut} />
+            <GoBack addCodingQuestion={addCodingQuestion} selectedTask={selectedTask} />
+            <TabBar
+               selectedTask={selectedTask}
+               changeSelectedTask={changeSelectedTask}
+            />
+            {selectedTask === 'Problem Statement' ? (
+            <ProblemStatement statement={statement} selectedTask={selectedTask} postUserDataAPIError={postUserDataAPIError} changeSelectedTask={changeSelectedTask} saveUserData={saveUserData} />
+            ) : selectedTask === 'Rough Solution' ? (
+            <RoughSolution roughSolutions={roughSolutions} selectedTask={selectedTask} saveRoughSolutionList={saveRoughSolutionList} changeSelectedTask={changeSelectedTask}/>
+            ) : selectedTask === 'Test Cases' ? (
+            <TestCases />
+            ) : selectedTask === 'Prefilled Code' ? (
+            <PrefilledCode prefilledCode={prefilledCode} savePreFilledList={savePreFilledList} changeSelectedTask={changeSelectedTask}/>
+            ) : selectedTask === 'Solution Approach' ? (
+            <SolutionApproach solutionApproach={solutionApproach} saveUserSolution={saveUserSolution} changeSelectedTask={changeSelectedTask}/>
+            ) : selectedTask === 'Clean Solution' ? (
+            <CleanSolution cleanSolution={cleanSolution} saveCleanSolutionList={saveCleanSolutionList} changeSelectedTask={changeSelectedTask}/>
+            ) : selectedTask === 'Hints' ? (
+            <Hints/>
+            ) : ''}
          </CreateCodingQuestionsView>
       );
    });

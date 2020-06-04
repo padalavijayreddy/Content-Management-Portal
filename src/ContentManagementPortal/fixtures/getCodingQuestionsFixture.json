@@ -5,7 +5,8 @@
         "testCases": true,
         "prefilledCode": true,
         "solutionApproach": false,
-        "cleanSolution": false
+        "cleanSolution": false,
+        "status": "Completed"
     },
     {
         "id": 2,
@@ -14,7 +15,8 @@
         "testCases": true,
         "prefilledCode": false,
         "solutionApproach": true,
-        "cleanSolution": false
+        "cleanSolution": false,
+        "status": "Yet to be Reveiwed"
     },
     {
         "id": 3,
@@ -23,7 +25,8 @@
         "testCases": false,
         "prefilledCode": true,
         "solutionApproach": true,
-        "cleanSolution": false
+        "cleanSolution": false,
+        "status": "Completed"
     },
     {
         "id": 4,
@@ -32,7 +35,8 @@
         "testCases": false,
         "prefilledCode": false,
         "solutionApproach": true,
-        "cleanSolution": false
+        "cleanSolution": false,
+        "status": "In Process"
     },
     {
         "id": 5,
@@ -41,7 +45,8 @@
         "testCases": false,
         "prefilledCode": true,
         "solutionApproach": true,
-        "cleanSolution": true
+        "cleanSolution": true,
+        "status": "Yet to be Reveiwed"
     },
     {
         "id": 6,
@@ -50,7 +55,8 @@
         "testCases": true,
         "prefilledCode": true,
         "solutionApproach": false,
-        "cleanSolution": false
+        "cleanSolution": false,
+        "status": "In Process"
     },
     {
         "id": 7,
@@ -59,7 +65,8 @@
         "testCases": false,
         "prefilledCode": true,
         "solutionApproach": true,
-        "cleanSolution": false
+        "cleanSolution": false,
+        "status": "Yet to be Reveiwed"
     },
     {
         "id": 7,
@@ -68,7 +75,8 @@
         "testCases": false,
         "prefilledCode": true,
         "solutionApproach": true,
-        "cleanSolution": false
+        "cleanSolution": false,
+        "status": "Yet to be Reveiwed"
     },
     {
         "id": 8,
@@ -77,7 +85,8 @@
         "testCases": false,
         "prefilledCode": true,
         "solutionApproach": true,
-        "cleanSolution": false
+        "cleanSolution": false,
+        "status": "Completed"
     },
     {
         "id": 9,
@@ -86,7 +95,8 @@
         "testCases": false,
         "prefilledCode": true,
         "solutionApproach": true,
-        "cleanSolution": false
+        "cleanSolution": false,
+        "status": "In Process"
     },
     {
         "id": 10,
@@ -95,7 +105,8 @@
         "testCases": false,
         "prefilledCode": true,
         "solutionApproach": true,
-        "cleanSolution": false
+        "cleanSolution": false,
+        "status": "In Process"
     }
 
 ]

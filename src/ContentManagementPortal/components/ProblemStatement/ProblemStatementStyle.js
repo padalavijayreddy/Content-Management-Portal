@@ -1,12 +1,12 @@
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-import { colors } from '../../../CommonModule/components/common/themes/colors';
+import { colors } from '../../../CommonModule/components/themes/colors';
 
 export const ProblemStatementView = styled.div `
      display:flex;
      flex-direction:column;
-     width:1270px;
-     height:1195px;
+     ${tw`w-screen`}
+     height:900px;
      background-color:${colors.white};
      padding-top:50px;
 `,

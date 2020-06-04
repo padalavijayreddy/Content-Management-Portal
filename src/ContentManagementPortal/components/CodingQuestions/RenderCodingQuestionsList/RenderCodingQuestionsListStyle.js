@@ -1,7 +1,7 @@
 import tw from 'tailwind.macro'
 import styled from '@emotion/styled'
-import { colors } from '../../../../CommonModule/components/common/themes/colors'
-import { Typo12SteelHKGroteskSemiBold, TextStyle9 } from '../../../../CommonModule/components/common/styleGuide/Typos';
+import { colors } from '../../../../CommonModule/components/themes/colors'
+import { Typo12SteelHKGroteskSemiBold, TextStyle9, Typo14SteelHKGroteskRegular } from '../../../../CommonModule/components/styleGuide/Typos';
 
 export const Header = styled(Typo12SteelHKGroteskSemiBold)
 `
@@ -19,8 +19,7 @@ SelectAll = styled.div `
     padding-bottom:10px;
 `,
     RenderCodingQuestions = styled.div `
-    width:1440px;
-    height:1275px;
+    ${tw`w-screen h-full`}
     background-color: ${colors.white};
     padding:40px;
 `,
@@ -58,11 +57,10 @@ SelectAll = styled.div `
     justify-content:space-between;
     padding:10px;
     border:1px solid ${colors.lightBlueGrey};
-    width:367px;
-    height:40px;
+    width: 367px;
+    height: 40px;
     margin:10px;
-`,
-    Search = styled.input `
+    ${tw`hover:border-black`}
 `,
     ExportSort = styled.div `
     display:flex;
@@ -76,6 +74,7 @@ SelectAll = styled.div `
     width: 118px;
     height: 40px;
     border: 1px solid ${colors.lightBlueGrey};
+    ${tw`hover:border-black`}
 `,
     Export = styled.div `
     width: 118px;
@@ -87,6 +86,7 @@ SelectAll = styled.div `
     text-align:center;
     self-align:center;
     padding-top:5px;
+    ${tw`hover:border-black`}
 `,
     Sort = styled.div `
     display:flex;
@@ -94,6 +94,17 @@ SelectAll = styled.div `
     height:40px;
     justify-content:space-around;
     align-items:center;
+`,
+    Footer = styled.div `
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:1128px;
+    margin-top:5px;
+`,
+    AddButton = styled.div `
+    display:flex;
+    color:${colors.steel}
 `,
     Sorting = styled.div `
     

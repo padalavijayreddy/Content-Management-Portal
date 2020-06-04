@@ -10,17 +10,19 @@ import {
    InputLabelField,
    InputField,
    ErrorImageIcon,
+   ErrorMessageSpan,
    PasswordFieldContainerDiv,
    SubmitButton,
    Button,
    Footer,
    NoAccount,
    AnchorTag,
-   InputDiv
+   InputDiv,
+   ErrorMessage
 }
 from './LoginPageStyle';
 import { API_FETCHING } from '../../../CommonModule/utils/APIUtils';
-import Loader from '../../../CommonModule/components/common/Icons/Loader';
+import Loader from '../../../CommonModule/components/Icons/Loader';
 import { login } from '../../../CommonModule/i18n/strings';
 
 
@@ -28,7 +30,7 @@ export const SignInButton = ({
    isLoading,
    onSubmit,
    onEnterKeyPress,
-   SignIntext
+   SignIntext,
 }) => {
    return (
       <Button
@@ -64,7 +66,10 @@ class LoginPage extends React.Component {
          password,
          onSubmit,
          isLoading,
-         errorType
+         errorType,
+         usernameErrorMessage,
+         passwordErrorMessage,
+         errorMessage
       } = this.props;
       return (
          <MainDiv>
@@ -74,37 +79,35 @@ class LoginPage extends React.Component {
                <FieldsDiv>
                   <UsernameFieldContainerDiv>
                      <InputLabelField>{login.username}</InputLabelField>
-                     <InputDiv>
+                     <InputDiv isErrorPresent={errorType == login.username}>
                         <InputField
-                           isErrorPresent={errorType == login.username}
+                           placeholder='Username'
                            ref={this.userNameRef}
                            onChange={onChangeUsername}
                            value={username}
                            id={login.username}
                            type='text'
-                           placeholder={login.username}
                            data-testid='username'
-                        />
+                           />
                         {errorType == login.username ? (
                            <ErrorImageIcon src={login.errorIconSrc} />
                         ) : (
                            ''
                         )}
                      </InputDiv>
+                     <ErrorMessageSpan>{usernameErrorMessage}</ErrorMessageSpan>
                   </UsernameFieldContainerDiv>
                   <PasswordFieldContainerDiv>
                      <InputLabelField>{login.password}</InputLabelField>
-                     <InputDiv>
+                     <InputDiv isErrorPresent={errorType == login.password}>
                         <InputField
-                           isErrorPresent={errorType == login.password}
+                           placeholder='Password'
+                           data-testid='password'
                            ref={this.passwordRef}
                            onChange={onChangePassword}
                            value={password}
                            id={login.password}
                            type='password'
-                           placeholder={login.password}
-                           onKeyPress={onEnterKeyPress}
-                           data-testid='password'
                         />
                         {errorType == login.password ? (
                            <ErrorImageIcon src={login.errorIconSrc} />
@@ -112,14 +115,16 @@ class LoginPage extends React.Component {
                            ''
                         )}
                      </InputDiv> 
+                     <ErrorMessageSpan>{passwordErrorMessage}</ErrorMessageSpan>
                   </PasswordFieldContainerDiv>
                </FieldsDiv>
                <SubmitButton>
                   <SignInButton {...{ isLoading, onEnterKeyPress, onSubmit }} />
+                  <ErrorMessage>{errorMessage}</ErrorMessage>
                </SubmitButton>
                <Footer>
                   <NoAccount>Don't have an account?</NoAccount>
-                  <AnchorTag href=''>Signup</AnchorTag>
+                  <AnchorTag href=''>{login.signup}</AnchorTag>
                </Footer>
             </SubDiv>
          </MainDiv>

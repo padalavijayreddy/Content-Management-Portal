@@ -11,7 +11,7 @@ class ShortText extends React.Component {
         return (
             <ShortTextView>
                 <ShortTextLabel>{problemStatement.shortText}</ShortTextLabel>
-                <ShortTextInput data-testid='Short-text-input' onChange={onChangeShortText} value={shortText} placeholder={problemStatement.shortTextPlaceholder}/>
+                <ShortTextInput type={problemStatement.Type} data-testid={problemStatement.shortTextTestId} onChange={onChangeShortText} value={shortText} placeholder={problemStatement.shortTextPlaceholder}/>
             </ShortTextView>
         );
     }

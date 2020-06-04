@@ -34,6 +34,7 @@ class CodingQuestionsListRoute extends React.Component {
          postUserDataAPIError,
          questions, //codingQuestionsList
          onChangeSearchText,
+         onChangeSortBy,
          saveRoughSolutionList,
          savePreFilledList,
          saveUserSolution,
@@ -42,11 +43,13 @@ class CodingQuestionsListRoute extends React.Component {
          changeSelectedTask,
          addButton,
          addCodingQuestion,
+         getCodingQuestionsListAPIStatus,
+         getCodingQuestionsListAPIError,
       } = contentManagementStore;
-      const { signOut } = this;
+      const { signOut, doNetworkCalls } = this;
       return (
          <CodingQuestionsList
-            {...{ signOut,addCodingQuestion,addButton,saveUserSolution,saveCleanSolutionList,saveRoughSolutionList,savePreFilledList,saveUserData,questions,onChangeSearchText,selectedTask, changeSelectedTask,postUserDataAPIError }}
+            {...{ signOut,doNetworkCalls, getCodingQuestionsListAPIStatus, getCodingQuestionsListAPIError,addCodingQuestion,addButton,saveUserSolution,saveCleanSolutionList,saveRoughSolutionList,savePreFilledList,saveUserData,questions,onChangeSearchText,onChangeSortBy,selectedTask, changeSelectedTask,postUserDataAPIError }}
          />
       );
    }

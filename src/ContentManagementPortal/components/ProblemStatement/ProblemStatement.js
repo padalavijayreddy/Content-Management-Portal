@@ -7,6 +7,7 @@ import { ProblemStatementView, ProblemStatementMode, CreateProblemStatement, Rea
 import { ShortText } from './ShortText';
 import { SaveButton } from './SaveButton';
 import "github-markdown-css";
+import { problemStatement } from '../../../CommonModule/i18n/strings';
 
 
 @observer
@@ -64,10 +65,10 @@ class ProblemStatement extends React.Component {
       const { saveUserData } = this.props;
       const { onSuccess, onFailure } = this;
       if (this.shortText.trim().length === 0) {
-         this.errorMessage = 'Please enter shortText';
+         this.errorMessage = "Please enter shortText";
       }
       else if (this.problemDescription.trim().length === 0) {
-         this.errorMessage = 'Please enter problemDescription';
+         this.errorMessage = "Please enter problemDescription";
       }
       else {
          console.log(this.shortText, this.problemDescription);
@@ -80,8 +81,6 @@ class ProblemStatement extends React.Component {
          };
          console.log(postData);
          saveUserData(postData, onSuccess, onFailure);
-         this.shortText = '';
-         this.problemDescription = '';
       }
    }
 
@@ -97,8 +96,8 @@ class ProblemStatement extends React.Component {
                </CreateProblemStatement>
                <CreatePreviewProblemStatement>
                   {(selectedMode === 'HTML') ?
-                  <iframe srcDoc={this.problemDescription} src="demo_iframe_srcdoc.htm">
-                        <p>Your browser does not support iframes.</p>
+                  <iframe srcDoc={this.problemDescription} src={problemStatement.iframeSrc}>
+                        <p>{problemStatement.HTMLPreviewMessage}</p>
                   </iframe> :
                   <ReactWrap className="markdown-body">
                      <ReactMarkdown source={this.problemDescription}/>

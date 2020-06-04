@@ -56,6 +56,7 @@ class SolutionApproach extends React.Component {
    }
 
    onChangeTitle = (event) => {
+      console.log(event.target.value);
       this.title = event.target.value;
    }
 
@@ -84,7 +85,7 @@ class SolutionApproach extends React.Component {
       }
 
       else if (this.description.trim().length === 0) {
-         this.errorMessage = 'Please enter problemDescription';
+         this.errorMessage = 'Please enter description';
       }
 
       else if (this.complexityAnalysis.trim().length === 0) {
@@ -93,7 +94,7 @@ class SolutionApproach extends React.Component {
       else {
          console.log(this.title, this.description, this.complexityAnalysis);
          const postData = {
-            "title": this.shortText,
+            "title": this.title,
             "description": {
                "content_type": this.selectedMode,
                "content": this.description
