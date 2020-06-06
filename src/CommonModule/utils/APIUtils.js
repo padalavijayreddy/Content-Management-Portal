@@ -2,7 +2,7 @@ import getData from '@ib/api'
 
 import { apiMethods } from '../constants/APIConstants'
 
-export const networkCallWithApisauce = async (
+export const networkCallWithApisauce = async(
    api,
    url,
    requestObject,
@@ -11,7 +11,8 @@ export const networkCallWithApisauce = async (
    let response = null
    try {
       response = await getData(api, url, requestObject, type)
-   } catch (error) {
+   }
+   catch (error) {
       throw error
    }
    return response
@@ -23,6 +24,7 @@ export const getUserDisplayableErrorMessage = error => {
       if (error && error.message) {
          return JSON.parse(error).originalError.message
       }
-   } catch (exception) {}
+   }
+   catch (exception) {}
    return defaultMessage
 }

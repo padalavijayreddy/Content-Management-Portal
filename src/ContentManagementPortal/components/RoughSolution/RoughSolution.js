@@ -7,6 +7,7 @@ import { SaveButton } from './SaveButton';
 import { AddButton } from './AddButton';
 import RoughSolutionModel from '../../models/RoughSolutionModel';
 
+
 @observer
 class RoughSolution extends React.Component {
 
@@ -24,7 +25,7 @@ class RoughSolution extends React.Component {
          console.log("roughSolutionList", [...this.roughSolutionList.values()]);
          roughSolutions.map(eachRoughSolution => {
             this.roughSolutionList.set(eachRoughSolution.id, {
-               id: eachRoughSolution.id,
+               roughsolution_id: eachRoughSolution.id,
                fileName: eachRoughSolution.fileName,
                languageType: eachRoughSolution.languageType,
                content: eachRoughSolution.content,
@@ -45,15 +46,17 @@ class RoughSolution extends React.Component {
    addCodeEditor = () => {
       console.log("Added");
       const editorObject = {
-         roughsolution_id: Math.random().toString(),
+         roughsolution_id: null,
          code_type: '',
          code: '',
-         filename: ''
+         filename: '',
+         delete_id: Math.random().toString()
       };
       this.roughSolutionList.set(editorObject.roughsolution_id, new RoughSolutionModel(editorObject));
    }
 
    onChangeFileName = (value, id) => {
+      console.log(value, id);
       const { roughSolutionList } = this;
       const roughSolutionListOfArray = [...roughSolutionList.values()];
       roughSolutionListOfArray.map(eachEditor => {
@@ -139,19 +142,20 @@ class RoughSolution extends React.Component {
          const { saveRoughSolutionList } = this.props;
          const { onSuccess, onFailure } = this;
          const roughSolutionListOfArray = [...this.roughSolutionList.values()];
-         const solutionPostDataList = [];
+         const roughSolutionData = {
+            roughsolution: []
+         };
          roughSolutionListOfArray.map(eachEditorBox => {
-            solutionPostDataList.push({
-               roughSolution: [{
-                  "roughsolution_id": eachEditorBox.id,
-                  "code_type": eachEditorBox.languageType,
-                  "code": eachEditorBox.content,
-                  "filename": eachEditorBox.fileName
-               }]
-            });
+            roughSolutionData.roughsolution.push({
+               "roughsolution_id": eachEditorBox.roughsolution_id,
+               "code_type": eachEditorBox.languageType,
+               "code": eachEditorBox.content,
+               "filename": eachEditorBox.fileName
+            })
          });
-         console.log(solutionPostDataList);
-         saveRoughSolutionList(solutionPostDataList, onSuccess, onFailure);
+
+         console.log(roughSolutionData);
+         saveRoughSolutionList(roughSolutionData, onSuccess, onFailure);
       }
    }
 

@@ -1,0 +1,1 @@
+export { IdButton } from './IdButton';

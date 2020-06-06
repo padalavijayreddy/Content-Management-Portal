@@ -7,10 +7,11 @@ class RoughSolutionModel {
     @observable content;
 
     constructor(data) {
-        this.id = data.roughsolution_id;
+        this.roughsolution_id = data.roughsolution_id;
         this.languageType = data.code_type;
         this.content = data.code;
         this.fileName = data.filename;
+        this.id = data.delete_id;
     }
 }
 

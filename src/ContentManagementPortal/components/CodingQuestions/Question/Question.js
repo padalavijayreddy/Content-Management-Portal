@@ -5,12 +5,11 @@ import { QuestionsView, CircleTick, CircleField, QuestionsField, QuestionStyle, 
 import { codingQuestions } from '../../../../CommonModule/i18n/strings';
 import { withRouter } from 'react-router-dom';
 
-
 @observer
 class Question extends React.Component {
 
     navigateToQuestionDetailsPage = () => {
-        this.props.history.push(`/Content-Management-Portal/coding-question/${this.props.questionItem.id}`);
+        this.props.history.push(`/Content-Management-Portal/coding-question/${this.props.questionItem.question_id}`);
     }
 
     render() {
@@ -21,35 +20,35 @@ class Question extends React.Component {
                     <CircleTick src={codingQuestions.questionsTickURL}></CircleTick>
                 </CircleField>
                 <QuestionsField>
-                    <QuestionStyle>{questionItem.questions}</QuestionStyle>
+                    <QuestionStyle>{questionItem.short_title}</QuestionStyle>
                 </QuestionsField>
                 <AllFields>
                 <Field>
-                    {(questionItem.roughSolution)?
+                    {(questionItem.roughsolution)?
                         <img src={codingQuestions.questionTrueImageURL} alt={codingQuestions.questionTrueImageLogo}/>:
                         <img src={codingQuestions.questionFalseImageURL} alt={codingQuestions.questionFalseImageLogo}/>
                     }
                 </Field>
                 <Field>
-                    {(questionItem.testCases)?
+                    {(questionItem.testcase)?
                         <img src={codingQuestions.questionTrueImageURL} alt={codingQuestions.questionTrueImageLogo}/>:
                         <img src={codingQuestions.questionFalseImageURL} alt={codingQuestions.questionFalseImageLogo}/>
                     }
                 </Field>
                 <Field>
-                    {(questionItem.prefilledCode)?
+                    {(questionItem.prefilledcode)?
                         <img src={codingQuestions.questionTrueImageURL} alt={codingQuestions.questionTrueImageLogo}/>:
                         <img src={codingQuestions.questionFalseImageURL} alt={codingQuestions.questionFalseImageLogo}/>
                     }
                 </Field>
                 <Field>
-                    {(questionItem.cleanSolution)?
+                    {(questionItem.cleansolution)?
                         <img src={codingQuestions.questionTrueImageURL} alt={codingQuestions.questionTrueImageLogo}/>:
                         <img src={codingQuestions.questionFalseImageURL} alt={codingQuestions.questionFalseImageLogo}/>
                     }
                 </Field>
                 <Field>
-                    {(questionItem.solutionApproach)?
+                    {(questionItem.solutionapproach)?
                         <img src={codingQuestions.questionTrueImageURL} alt={codingQuestions.questionTrueImageLogo}/>:
                         <img src={codingQuestions.questionFalseImageURL} alt={codingQuestions.questionFalseImageLogo}/>
                     }

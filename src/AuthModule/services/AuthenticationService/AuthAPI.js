@@ -6,7 +6,7 @@ class AuthAPI {
    api
    constructor() {
       this.api = create({
-         baseURL: 'https://d96f8da1772c.ngrok.io/api/content_management_portal/'
+         baseURL: 'https://160cf92c69e1.ngrok.io/api/content_management_portal/'
       });
    }
 

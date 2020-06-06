@@ -11,13 +11,14 @@ class CodingQuestionsModel {
 
 
     constructor(data) {
-        this.id = data.id;
-        this.questions = data.questions;
-        this.roughSolution = data.roughSolution;
-        this.testCases = data.testCases;
-        this.prefilledCode = data.prefilledCode;
-        this.solutionApproach = data.solutionApproach;
-        this.cleanSolution = data.cleanSolution;
+        this.question_id = data.question_id;
+        this.short_title = data.short_title;
+        this.roughsolution = data.roughsolution;
+        this.testcase = data.testcase;
+        this.prefilledcode = data.prefilledcode;
+        this.solutionapproach = data.solutionapproach;
+        this.cleansolution = data.cleansolution;
+        this.hint = data.hint;
     }
 }
 

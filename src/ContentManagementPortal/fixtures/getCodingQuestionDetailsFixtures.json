@@ -1,5 +1,6 @@
 {
-    "problemStatement": {
+    "question_details": {
+        "question_id":0,
         "short_title": "Write",
         "problem_description": {
             "content_type": "HTML",

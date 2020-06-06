@@ -24,7 +24,7 @@ class PrefilledCode extends React.Component {
          console.log("PrefilledCodeList", [...this.PrefilledCodeList.values()]);
          prefilledCode.map(eachPrefilledCode => {
             this.PrefilledCodeList.set(eachPrefilledCode.id, {
-               id: eachPrefilledCode.id,
+               prefilledcode_id: eachPrefilledCode.id,
                fileName: eachPrefilledCode.fileName,
                languageType: eachPrefilledCode.languageType,
                content: eachPrefilledCode.content,
@@ -46,10 +46,11 @@ class PrefilledCode extends React.Component {
    addCodeEditor = () => {
       console.log("Added");
       const editorObject = {
-         prefilledcode_id: Math.random().toString(),
+         prefilledcode_id: null,
          code_type: '',
          code: '',
-         filename: ''
+         filename: '',
+         delete_id: Math.random().toString()
       };
       this.PrefilledCodeList.set(editorObject.prefilledcode_id, new PrefilledCodeModel(editorObject));
    }
@@ -136,15 +137,15 @@ class PrefilledCode extends React.Component {
          const { savePreFilledList } = this.props;
          const { onSuccess, onFailure } = this;
          const PrefilledCodeListOfArray = [...this.PrefilledCodeList.values()];
-         const filledPostDataList = [];
+         const filledPostDataList = {
+            prefilledcode_details: []
+         };
          PrefilledCodeListOfArray.map(eachEditorBox => {
-            filledPostDataList.push({
-               prefilledcode: [{
-                  "prefilledcode_id": eachEditorBox.id,
-                  "code_type": eachEditorBox.languageType,
-                  "code": eachEditorBox.content,
-                  "filename": eachEditorBox.fileName
-               }]
+            filledPostDataList.prefilledcode_details.push({
+               "prefilledcode_id": eachEditorBox.prefilledcode_id,
+               "code_type": eachEditorBox.languageType,
+               "code": eachEditorBox.content,
+               "filename": eachEditorBox.fileName
             });
          });
          console.log(filledPostDataList);

@@ -25,15 +25,13 @@ class Header extends React.Component {
     }
 
     onChangeValue = (event) => {
-        const { onChangeFileName } = this.props;
-        const id = event.target.id;
+        const { onChangeFileName, id } = this.props;
         this.fileName = event.target.value;
         onChangeFileName(this.fileName, id);
     }
 
     onChangeLanguageValue = (event) => {
-        const { onChangeLanguageType } = this.props;
-        const id = event.target.id;
+        const { onChangeLanguageType, id } = this.props;
         this.selectLanguage = event.target.value;
         onChangeLanguageType(this.selectLanguage, id);
     }

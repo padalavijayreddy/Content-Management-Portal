@@ -24,7 +24,7 @@ class CleanSolution extends React.Component {
             console.log("cleanSolutionList", [...this.cleanSolutionList.values()]);
             cleanSolution.map(eachCleanSolution => {
                 this.cleanSolutionList.set(eachCleanSolution.id, {
-                    id: eachCleanSolution.id,
+                    cleansolution_id: eachCleanSolution.id,
                     fileName: eachCleanSolution.fileName,
                     languageType: eachCleanSolution.languageType,
                     content: eachCleanSolution.content,
@@ -46,10 +46,11 @@ class CleanSolution extends React.Component {
     addCodeEditor = () => {
         console.log("Added");
         const editorObject = {
-            cleansolution_id: Math.random().toString(),
+            cleansolution_id: null,
             code_type: '',
             code: '',
-            filename: ''
+            filename: '',
+            delete_id: Math.random().toString()
         };
         this.cleanSolutionList.set(editorObject.cleansolution_id, new CleanSolutionModel(editorObject));
     }
@@ -136,15 +137,15 @@ class CleanSolution extends React.Component {
             const { saveCleanSolutionList } = this.props;
             const { onSuccess, onFailure } = this;
             const cleanSolutionListOfArray = [...this.cleanSolutionList.values()];
-            const filledCleanSolutionList = [];
+            const filledCleanSolutionList = {
+                cleansolution_details: []
+            };
             cleanSolutionListOfArray.map(eachEditorBox => {
-                filledCleanSolutionList.push({
-                    cleansolution: [{
-                        "cleansolution_id": eachEditorBox.id,
-                        "code_type": eachEditorBox.languageType,
-                        "code": eachEditorBox.content,
-                        "filename": eachEditorBox.fileName
-                    }]
+                filledCleanSolutionList.cleansolution_details.push({
+                    "cleansolution_id": eachEditorBox.cleansolution_id,
+                    "code_type": eachEditorBox.languageType,
+                    "code": eachEditorBox.content,
+                    "filename": eachEditorBox.fileName
                 });
             });
             console.log(filledCleanSolutionList);

@@ -39,10 +39,10 @@
         "editorIconAlt": "EditorIcon",
         "Text": "Text",
         "HTML": "HTML",
-        "MarkDown": "MarkDown",
+        "MarkDown": "MARKDOWN",
         "Headertestid": "select-language",
         "C": "C",
-        "Python": "Python",
+        "Python": "PYTHON",
         "Language": "Language"
     },
 

@@ -14,9 +14,11 @@ function setCookie(key, value) {
 }
 
 export function getAccessToken() {
+   console.log("getting");
    return getCookie(ACCESS_TOKEN)
 }
 export function setAccessToken(accessToken) {
+   console.log('setting');
    setCookie(ACCESS_TOKEN, accessToken)
 }
 

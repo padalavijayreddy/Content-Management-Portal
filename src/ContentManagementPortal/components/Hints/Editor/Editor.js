@@ -11,16 +11,15 @@ import "ace-builds/src-noconflict/theme-github";
 @observer
 class Editor extends React.Component {
 
-    @observable inputContent;
+    @observable description;
 
     componentDidMount() {
         const { editorBox } = this.props;
-        console.log("editorBoxInEditor", editorBox);
         if (editorBox) {
-            this.inputContent = editorBox.input;
+            this.description = editorBox.description;
         }
         else {
-            this.inputContent = '';
+            this.description = '';
         }
     }
 
@@ -41,7 +40,7 @@ class Editor extends React.Component {
         return (
             <EditorView>    
                 <AceEditor
-                    value ={this.inputContent}
+                    value ={this.description}
                     style ={mystyle}
                     placeholder="Write Solution Description"
                     mode="java"

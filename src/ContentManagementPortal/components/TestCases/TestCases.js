@@ -29,7 +29,15 @@ class TestCases extends React.Component {
       const testCasesListOfArray = [...this.testCasesList.values()];
       return testCasesListOfArray.map(eachTestcase => {
          console.log("testcase", testCasesListOfArray);
-         if (eachTestcase.isActive) { return <EditorBox key={eachTestcase} eachTestcase={eachTestcase} /> }
+         if (eachTestcase.isActive) { return <EditorBox 
+         key={eachTestcase} 
+         id={eachTestcase.id}
+         eachTestcase={eachTestcase} 
+         onChangeInputContent={this.onChangeInputContent}
+         onChangeOutputContent={this.onChangeOutputContent}
+         onChangeScore={this.onChangeScore}
+         onChangeIsHidden = {this.onChangeIsHidden}
+         /> }
          return null;
       });
    }
@@ -38,7 +46,7 @@ class TestCases extends React.Component {
       const { makeActiveItem, deleteId } = this;
       const testCasesListOfArray = [...this.testCasesList.values()];
       return testCasesListOfArray.map((eachTestcase, index) => {
-         return <IdButton key={eachTestcase} index={index} eachTestcase={eachTestcase} makeActiveItem={makeActiveItem} deleteId={deleteId}/>;
+         return <IdButton key={eachTestcase} id={eachTestcase.id} index={index} eachTestcase={eachTestcase} makeActiveItem={makeActiveItem} deleteId={deleteId}/>;
       });
    }
 
@@ -49,8 +57,8 @@ class TestCases extends React.Component {
          testcases_id: Math.random().toString(),
          input: '',
          output: '',
-         score: '',
-         isHidden: '',
+         score: 0,
+         isHidden: false,
          isActive: true
       };
       testCasesListOfArray.forEach((eachTestcase) => {
@@ -88,6 +96,62 @@ class TestCases extends React.Component {
       });
       console.log(testCasesListOfArray);
    };
+
+   onChangeInputContent = (value, id) => {
+      console.log("onChangeInputContent");
+      const { testCasesList } = this;
+      const testCasesListOfArray = [...testCasesList.values()];
+      testCasesListOfArray.map(eachEditor => {
+         if (eachEditor.id === id) {
+            eachEditor.input = value;
+         }
+      });
+      testCasesListOfArray.map(eachEditor => {
+         console.log('Finalcontent', eachEditor.id, eachEditor.input);
+      });
+   }
+
+   onChangeOutputContent = (value, id) => {
+      console.log("onChangeOutputContent");
+      const { testCasesList } = this;
+      const testCasesListOfArray = [...testCasesList.values()];
+      testCasesListOfArray.map(eachEditor => {
+         if (eachEditor.id === id) {
+            eachEditor.output = value;
+         }
+      });
+      testCasesListOfArray.map(eachEditor => {
+         console.log('Finalcontent', eachEditor.id, eachEditor.output);
+      });
+   }
+
+   onChangeScore = (score, id) => {
+      console.log("onChangeScore", score, id);
+      const { testCasesList } = this;
+      const testCasesListOfArray = [...testCasesList.values()];
+      testCasesListOfArray.map(eachEditor => {
+         if (eachEditor.id === id) {
+            eachEditor.score = score;
+         }
+      });
+      testCasesListOfArray.map(eachEditor => {
+         console.log('Finalcontent', eachEditor.id, eachEditor.score);
+      });
+   }
+
+   onChangeIsHidden = (isHidden, id) => {
+      console.log("OnchangeIshidden", isHidden, id);
+      const { testCasesList } = this;
+      const testCasesListOfArray = [...testCasesList.values()];
+      testCasesListOfArray.map(eachEditor => {
+         if (eachEditor.id === id) {
+            eachEditor.isHidden = isHidden;
+         }
+      });
+      testCasesListOfArray.map(eachEditor => {
+         console.log('FinalIsHidden', eachEditor.id, eachEditor.isHidden);
+      });
+   }
 
    render() {
       return (

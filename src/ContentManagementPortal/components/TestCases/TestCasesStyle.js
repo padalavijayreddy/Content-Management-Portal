@@ -11,10 +11,10 @@ export const TestCasesComponent = styled.div `
     padding:40px;
 `,
     TestCasesView = styled.div `
-    width: 1260 px;
-    height: 100%;
+    width: 1260px;
+    height:1000px;
     background-color: #ffffff;
-    padding:40px;
+    margin-top:20px;
 `,
     SaveButtonField = styled.div `
     display:flex;

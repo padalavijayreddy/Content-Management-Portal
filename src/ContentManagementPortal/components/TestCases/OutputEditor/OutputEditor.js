@@ -3,34 +3,34 @@ import { render } from "react-dom";
 import { observer } from 'mobx-react';
 import { observable, action } from 'mobx';
 import AceEditor from "react-ace";
-import { EditorView } from './EditorStyle';
+import { EditorView } from './OutputEditorStyle';
 
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 
 @observer
-class Editor extends React.Component {
+class OutputEditor extends React.Component {
 
-    @observable inputContent;
+    @observable outputContent;
 
     componentDidMount() {
         const { editorBox } = this.props;
         console.log("editorBoxInEditor", editorBox);
         if (editorBox) {
-            this.inputContent = editorBox.input;
+            this.outputContent = editorBox.output;
         }
         else {
-            this.inputContent = '';
+            this.outputContent = '';
         }
     }
 
     onChangeEditor = (newValue) => {
-        const { onChangeInputContent, id } = this.props;
-        onChangeInputContent(newValue, id);
+        const { onChangeOutputContent, id } = this.props;
+        onChangeOutputContent(newValue, id);
     }
 
     render() {
-        const { id, mode } = this.props;
+        const { id, outputValue } = this.props;
         const mystyle = {
             color: "black",
             width: "100%",
@@ -41,7 +41,7 @@ class Editor extends React.Component {
         return (
             <EditorView>    
                 <AceEditor
-                    value ={this.inputContent}
+                    value={this.outputContent}
                     style ={mystyle}
                     placeholder="Write Solution Description"
                     mode="java"
@@ -62,4 +62,4 @@ class Editor extends React.Component {
     }
 }
 
-export { Editor };
+export { OutputEditor };

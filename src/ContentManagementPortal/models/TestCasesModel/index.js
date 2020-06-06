@@ -11,9 +11,10 @@ class TestCasesModel {
         this.id = data.testcases_id;
         this.input = data.input;
         this.output = data.output;
+        this.isHidden = data.is_Hidden;
         this.score = data.score;
-        this.isHidden = data.isHidden;
-        this.isActive = data.isActive
+        this.order_id = data.order_id;
+        this.isActive = data.isActive;
     }
 }
 

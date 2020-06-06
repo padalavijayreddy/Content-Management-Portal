@@ -4,9 +4,9 @@ import { save } from '../../../../CommonModule/i18n/strings';
 
 class SaveButton extends React.Component {
     render() {
-        const { saveTheTestCases } = this.props;
+        const { saveTheHints } = this.props;
         return (
-            <Save onClick={ saveTheTestCases }>
+            <Save onClick={ saveTheHints }>
                 <Button>{save.saveButton}</Button>
             </Save>
         );

@@ -11,8 +11,8 @@ QuestionsView = styled.div `
     display:flex;
     justify-content:center;
     align-items:center;
-    width: 1128px;
-    height: 64px;
+    width:1128px;
+    height:64px;
     border: solid 1px ${colors.lightBlueGrey};
     ${tw`hover:bg-indigo-300`}
 `,

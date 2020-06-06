@@ -7,10 +7,11 @@ class PrefilledCodeModel {
     @observable content;
 
     constructor(data) {
-        this.id = data.prefilledcode_id;
+        this.prefilledcode_id = data.prefilledcode_id;
         this.languageType = data.code_type;
         this.content = data.code;
         this.fileName = data.filename;
+        this.id = data.delete_id;
     }
 }
 

@@ -8,7 +8,12 @@ import { ShortText } from './ShortText';
 import { SaveButton } from './SaveButton';
 import "github-markdown-css";
 import { problemStatement } from '../../../CommonModule/i18n/strings';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure({
+   position: 'bottom-center'
+});
 
 @observer
 class ProblemStatement extends React.Component {
@@ -19,12 +24,12 @@ class ProblemStatement extends React.Component {
 
    componentDidMount() {
       const { statement } = this.props;
-      console.log("statement", statement);
       if (statement) {
          this.shortText = statement.shortTitle;
          this.selectedMode = statement.contentType;
          this.problemDescription = statement.problemDescription;
       }
+
       else {
          this.shortText = '';
          this.problemDescription = '';
@@ -52,6 +57,7 @@ class ProblemStatement extends React.Component {
       console.log("success");
       const { changeSelectedTask } = this.props;
       changeSelectedTask('Rough Solution');
+      toast.warn('Successfully Saved the Question');
    }
 
    onFailure = () => {
@@ -86,7 +92,6 @@ class ProblemStatement extends React.Component {
 
    render() {
       const { handleChangeState, problemDescription, selectedMode, shortText, onChangeEditor, onChangeShortText, onRemoveEditorBox, saveTheProblem, errorMessage } = this;
-      console.log("shortText", shortText);
       return (
          <ProblemStatementView>
             <ProblemStatementMode>

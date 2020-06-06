@@ -8,11 +8,12 @@ class SolutionApproachModel {
     @observable complexityAnalysisContent;
 
     constructor(data) {
+        this.id = data.solutionapproach_id;
         this.title = data.title;
-        this.descriptionContentType = data.description.content_type;
-        this.descriptionContent = data.description.content;
-        this.complexityAnalysisContentType = data.complexityAnalysis.content_type;
-        this.complexityAnalysisContent = data.complexityAnalysis.content;
+        this.descriptionContentType = data.description_content_type;
+        this.descriptionContent = data.description_content;
+        this.complexityAnalysisContentType = data.complexity_analysis_content_type;
+        this.complexityAnalysisContent = data.complexity_analysis_content;
     }
 }
 

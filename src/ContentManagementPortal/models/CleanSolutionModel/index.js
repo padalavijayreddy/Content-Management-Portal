@@ -7,10 +7,11 @@ class CleanSolutionModel {
     @observable content;
 
     constructor(data) {
-        this.id = data.cleansolution_id;
+        this.cleansolution_id = data.cleansolution_id;
         this.languageType = data.code_type;
         this.content = data.code;
         this.fileName = data.filename;
+        this.id = data.delete_id;
     }
 }
 

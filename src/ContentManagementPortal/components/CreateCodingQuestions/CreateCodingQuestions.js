@@ -34,7 +34,7 @@ class CreateCodingQuestions extends React.Component {
    componentDidMount() {
       this.questionId = this.props.match.params.questionId;
       if (this.questionId) {
-         this.doNetworkCalls();
+         this.doNetworkCalls(this.questionId);
       }
    }
 
@@ -42,9 +42,9 @@ class CreateCodingQuestions extends React.Component {
       this.props.contentManagementStore.codingQuestionDetails = undefined;
    }
 
-   doNetworkCalls = () => {
+   doNetworkCalls = (questionId) => {
       const { contentManagementStore } = this.props;
-      contentManagementStore.getCodingQuestionDetails();
+      contentManagementStore.getCodingQuestionDetails(questionId);
    }
 
    signOut = () => {

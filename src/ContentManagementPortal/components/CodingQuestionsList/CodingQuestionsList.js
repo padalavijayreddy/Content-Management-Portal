@@ -14,11 +14,24 @@ import { Redirect } from 'react-router-dom';
 class CodingQuestionsList extends React.Component {
 
     render() {
-        const { signOut, doNetworkCalls, getCodingQuestionsListAPIStatus, getCodingQuestionsListAPIError, codingQuestionsList, onChangeSearchText, onChangeSortBy, questions } = this.props;
+        const {
+            signOut,
+            doNetworkCalls,
+            getCodingQuestionsListAPIStatus,
+            getCodingQuestionsListAPIError,
+            codingQuestionsList,
+            onChangeSearchText,
+            onChangeSortBy,
+            questions,
+            currentPagePositionIncrementor,
+            currentPagePositionDecrementor,
+            currentPagePosition,
+            totalCountOfPages
+        } = this.props;
         return (
             <CodingQuestionsListView>
                 <Header signOut={signOut} />
-                <CodingQuestions doNetworkCalls={doNetworkCalls} getCodingQuestionsListAPIStatus={getCodingQuestionsListAPIStatus} getCodingQuestionsListAPIError={getCodingQuestionsListAPIError} onChangeSortBy={onChangeSortBy} onChangeSearchText={onChangeSearchText} codingQuestionsList={questions} />
+                <CodingQuestions doNetworkCalls={doNetworkCalls} currentPagePositionIncrementor={currentPagePositionIncrementor} currentPagePositionDecrementor={currentPagePositionDecrementor} currentPagePosition={currentPagePosition} totalCountOfPages={totalCountOfPages} getCodingQuestionsListAPIStatus={getCodingQuestionsListAPIStatus} getCodingQuestionsListAPIError={getCodingQuestionsListAPIError} onChangeSortBy={onChangeSortBy} onChangeSearchText={onChangeSearchText} codingQuestionsList={questions} />
             </CodingQuestionsListView>
         );
     }

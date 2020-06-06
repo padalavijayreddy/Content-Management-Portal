@@ -94,14 +94,12 @@ class SolutionApproach extends React.Component {
       else {
          console.log(this.title, this.description, this.complexityAnalysis);
          const postData = {
-            "title": this.title,
-            "description": {
-               "content_type": this.selectedMode,
-               "content": this.description
-            },
-            "complexity_analysis": {
-               "content_type": this.complexitySelectedMode,
-               "content": this.complexityAnalysis
+            "solution_approach_details": {
+               "title": this.title,
+               "description_content_type": this.selectedMode,
+               "description_content": this.description,
+               "complexity_analysis_content_type": this.complexitySelectedMode,
+               "complexity_analysis_content": this.complexityAnalysis
             }
          };
          console.log(postData);
