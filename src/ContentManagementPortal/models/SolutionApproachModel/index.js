@@ -1,6 +1,7 @@
 import { observable, action } from 'mobx';
 
 class SolutionApproachModel {
+    @observable id;
     @observable title;
     @observable descriptionContentType;
     @observable descriptionContent;

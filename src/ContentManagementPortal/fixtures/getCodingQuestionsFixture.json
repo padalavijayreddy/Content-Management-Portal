@@ -1,112 +1,114 @@
-[{
-        "id": 1,
-        "questions": "Nested Lops And Coding Questions",
-        "roughSolution": true,
-        "testCases": true,
-        "prefilledCode": true,
-        "solutionApproach": false,
-        "cleanSolution": false,
-        "status": "Completed"
-    },
-    {
-        "id": 2,
-        "questions": "observable Loops And Coing Questions",
-        "roughSolution": false,
-        "testCases": true,
-        "prefilledCode": false,
-        "solutionApproach": true,
-        "cleanSolution": false,
-        "status": "Yet to be Reveiwed"
-    },
-    {
-        "id": 3,
-        "questions": "Anbb Lops And Coding Questions",
-        "roughSolution": false,
-        "testCases": false,
-        "prefilledCode": true,
-        "solutionApproach": true,
-        "cleanSolution": false,
-        "status": "Completed"
-    },
-    {
-        "id": 4,
-        "questions": "constants ested Loops Ad Coding Questions",
-        "roughSolution": true,
-        "testCases": false,
-        "prefilledCode": false,
-        "solutionApproach": true,
-        "cleanSolution": false,
-        "status": "In Process"
-    },
-    {
-        "id": 5,
-        "questions": "kjkhg Loops And Coding Questions",
-        "roughSolution": true,
-        "testCases": false,
-        "prefilledCode": true,
-        "solutionApproach": true,
-        "cleanSolution": true,
-        "status": "Yet to be Reveiwed"
-    },
-    {
-        "id": 6,
-        "questions": "saveUserSolution Loops And Coding Questions",
-        "roughSolution": true,
-        "testCases": true,
-        "prefilledCode": true,
-        "solutionApproach": false,
-        "cleanSolution": false,
-        "status": "In Process"
-    },
-    {
-        "id": 7,
-        "questions": "jatf Loops And Codng Questions",
-        "roughSolution": true,
-        "testCases": false,
-        "prefilledCode": true,
-        "solutionApproach": true,
-        "cleanSolution": false,
-        "status": "Yet to be Reveiwed"
-    },
-    {
-        "id": 7,
-        "questions": "log Loops nd Coding Questions",
-        "roughSolution": true,
-        "testCases": false,
-        "prefilledCode": true,
-        "solutionApproach": true,
-        "cleanSolution": false,
-        "status": "Yet to be Reveiwed"
-    },
-    {
-        "id": 8,
-        "questions": "Hi Lops And Coding Questions",
-        "roughSolution": true,
-        "testCases": false,
-        "prefilledCode": true,
-        "solutionApproach": true,
-        "cleanSolution": false,
-        "status": "Completed"
-    },
-    {
-        "id": 9,
-        "questions": "userData Loops And Coding Questons",
-        "roughSolution": true,
-        "testCases": false,
-        "prefilledCode": true,
-        "solutionApproach": true,
-        "cleanSolution": false,
-        "status": "In Process"
-    },
-    {
-        "id": 10,
-        "questions": "Map Loops And Codin Questions",
-        "roughSolution": true,
-        "testCases": false,
-        "prefilledCode": true,
-        "solutionApproach": true,
-        "cleanSolution": false,
-        "status": "In Process"
-    }
-
-]
+{
+    "total_coding_questions": 0,
+    "question_details": [{
+            "question_id": 0,
+            "short_title": "string1",
+            "roughsolution": true,
+            "testcase": true,
+            "prefilledcode": true,
+            "solutionapproach": true,
+            "cleansolution": true,
+            "hint": true
+        },
+        {
+            "question_id": 1,
+            "short_title": "string2",
+            "roughsolution": true,
+            "testcase": true,
+            "prefilledcode": true,
+            "solutionapproach": true,
+            "cleansolution": true,
+            "hint": true
+        },
+        {
+            "question_id": 2,
+            "short_title": "string3",
+            "roughsolution": true,
+            "testcase": true,
+            "prefilledcode": true,
+            "solutionapproach": true,
+            "cleansolution": true,
+            "hint": true
+        },
+        {
+            "question_id": 3,
+            "short_title": "string4",
+            "roughsolution": true,
+            "testcase": true,
+            "prefilledcode": true,
+            "solutionapproach": true,
+            "cleansolution": true,
+            "hint": true
+        },
+        {
+            "question_id": 4,
+            "short_title": "string5",
+            "roughsolution": true,
+            "testcase": true,
+            "prefilledcode": true,
+            "solutionapproach": true,
+            "cleansolution": true,
+            "hint": true
+        },
+        {
+            "question_id": 5,
+            "short_title": "string6",
+            "roughsolution": true,
+            "testcase": true,
+            "prefilledcode": true,
+            "solutionapproach": true,
+            "cleansolution": true,
+            "hint": true
+        },
+        {
+            "question_id": 6,
+            "short_title": "string7",
+            "roughsolution": true,
+            "testcase": true,
+            "prefilledcode": true,
+            "solutionapproach": true,
+            "cleansolution": true,
+            "hint": true
+        },
+        {
+            "question_id": 7,
+            "short_title": "string8",
+            "roughsolution": true,
+            "testcase": true,
+            "prefilledcode": true,
+            "solutionapproach": true,
+            "cleansolution": true,
+            "hint": true
+        },
+        {
+            "question_id": 8,
+            "short_title": "string9",
+            "roughsolution": true,
+            "testcase": true,
+            "prefilledcode": true,
+            "solutionapproach": true,
+            "cleansolution": true,
+            "hint": true
+        },
+        {
+            "question_id": 9,
+            "short_title": "string10",
+            "roughsolution": true,
+            "testcase": true,
+            "prefilledcode": true,
+            "solutionapproach": true,
+            "cleansolution": true,
+            "hint": true
+        },
+        {
+            "question_id": 10,
+            "short_title": "string",
+            "roughsolution": true,
+            "testcase": true,
+            "prefilledcode": true,
+            "solutionapproach": true,
+            "cleansolution": true,
+            "hint": true
+        }
+    ]
+}

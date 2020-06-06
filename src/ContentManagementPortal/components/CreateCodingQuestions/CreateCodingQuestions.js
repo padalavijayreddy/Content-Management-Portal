@@ -36,6 +36,9 @@ class CreateCodingQuestions extends React.Component {
       if (this.questionId) {
          this.doNetworkCalls(this.questionId);
       }
+      const { contentManagementStore } = this.props;
+      const { changeSelectedTask } = contentManagementStore;
+      changeSelectedTask('Problem Statement');
    }
 
    componentWillUnmount() {

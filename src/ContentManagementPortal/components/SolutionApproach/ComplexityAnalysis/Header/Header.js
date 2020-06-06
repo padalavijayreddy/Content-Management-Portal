@@ -15,7 +15,7 @@ class Header extends React.Component {
                     <LanguageSelect data-testid='select-language' value={complexitySelectedMode} onChange={handleChangeAnalysisState}>
                         <option>Text</option>
                         <option>HTML</option>
-                        <option>MarkDown</option>
+                        <option>MARKDOWN</option>
                     </LanguageSelect>
                     <DeleteIcon src={roughSolution.deleteIconURL} alt={roughSolution.deleteIconAlt}></DeleteIcon>
                     <EditorIcon src={roughSolution.editorIconURL} alt={roughSolution.editorIconAlt}></EditorIcon>

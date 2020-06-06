@@ -44,7 +44,7 @@ class Header extends React.Component {
                     <FileName id={id} value={this.fileName} onChange={this.onChangeValue} placeholder={roughSolution.fileNameIncludeExtension}/>
                 </FileNameBox>
                 <SelectFields>
-                    <LanguageSelect data-testid={roughSolution.Headertestid} id={id} value={this.selectLanguage} onChange={this.onChangeLanguageValue}>
+                    <LanguageSelect data-testid='select-language' id={id} value={this.selectLanguage} onChange={this.onChangeLanguageValue}>
                         <option>{roughSolution.Language}</option>
                         <option>{roughSolution.C}</option>
                         <option>{roughSolution.Python}</option>

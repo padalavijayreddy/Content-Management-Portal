@@ -6,7 +6,7 @@ class ContentManagementAPI {
     api
     constructor() {
         this.api = create({
-            baseURL: 'https://160cf92c69e1.ngrok.io/api/content_management_portal/'
+            baseURL: 'https://34b482475a80.ngrok.io/api/content_management_portal/'
         });
     }
 

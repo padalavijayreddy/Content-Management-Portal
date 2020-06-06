@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { colors } from '../../../../CommonModule/components/themes/colors';
 
 export const EditorView = styled.div `
-    width: 764px;
+    width: 690px;
     height: 270px;
     border: solid 1px ${colors.lightBlueGrey};
     background-color: #ffffff;

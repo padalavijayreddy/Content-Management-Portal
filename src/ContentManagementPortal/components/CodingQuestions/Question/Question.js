@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
-import { QuestionsView, CircleTick, CircleField, QuestionsField, QuestionStyle, Field, AllFields } from './QuestionStyle';
+import { QuestionsView, Card, CircleTick, CircleField, QuestionsField, QuestionStyle, Field, AllFields } from './QuestionStyle';
 import { codingQuestions } from '../../../../CommonModule/i18n/strings';
 import { withRouter } from 'react-router-dom';
 
@@ -15,6 +15,7 @@ class Question extends React.Component {
     render() {
         const { questionItem } = this.props;
         return (
+            <div className="flex">
             <QuestionsView onClick={this.navigateToQuestionDetailsPage}>
                 <CircleField>
                     <CircleTick src={codingQuestions.questionsTickURL}></CircleTick>
@@ -55,6 +56,8 @@ class Question extends React.Component {
                 </Field> 
                 </AllFields>
             </QuestionsView>
+            <img className="m-2" src="https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/4f6eaf64-210a-46de-90de-acaf9e7f8102.svg"/>
+            </div>
         );
     }
 }

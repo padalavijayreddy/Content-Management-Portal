@@ -48,4 +48,7 @@ QuestionsView = styled.div `
     height: 48px;
     display:flex;
     align-items:center;
+`,
+    Card = styled.div `
+    ${tw ``}
 `;

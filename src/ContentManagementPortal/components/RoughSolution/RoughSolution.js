@@ -6,7 +6,12 @@ import { EditorBox } from './EditorBox';
 import { SaveButton } from './SaveButton';
 import { AddButton } from './AddButton';
 import RoughSolutionModel from '../../models/RoughSolutionModel';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure({
+   position: 'bottom-center'
+});
 
 @observer
 class RoughSolution extends React.Component {
@@ -34,6 +39,7 @@ class RoughSolution extends React.Component {
       }
       else {
          this.addCodeEditor();
+         this.addCodeEditor();
       }
    }
 
@@ -52,7 +58,7 @@ class RoughSolution extends React.Component {
          filename: '',
          delete_id: Math.random().toString()
       };
-      this.roughSolutionList.set(editorObject.roughsolution_id, new RoughSolutionModel(editorObject));
+      this.roughSolutionList.set(editorObject.delete_id, new RoughSolutionModel(editorObject));
    }
 
    onChangeFileName = (value, id) => {
@@ -70,6 +76,7 @@ class RoughSolution extends React.Component {
    }
 
    onChangeLanguageType = (value, id) => {
+      console.log(value, id);
       const { roughSolutionList } = this;
       const roughSolutionListOfArray = [...roughSolutionList.values()];
       roughSolutionListOfArray.map(eachEditor => {
@@ -83,6 +90,7 @@ class RoughSolution extends React.Component {
    }
 
    onChangeContent = (value, id) => {
+      console.log(value, id);
       const { roughSolutionList } = this;
       const roughSolutionListOfArray = [...roughSolutionList.values()];
       roughSolutionListOfArray.map(eachEditor => {
@@ -120,8 +128,9 @@ class RoughSolution extends React.Component {
 
    onSuccess = () => {
       console.log("success");
-      const { changeSelectedTask } = this.props;
-      changeSelectedTask('Test Cases');
+      toast.warn('Successfully, You have Saved the Rough Solution');
+      toast.success('If you want to add another Rough Solution, please click on the Add button');
+      this.roughSolutionList = new Map();
    }
 
    onFailure = () => {
@@ -134,6 +143,7 @@ class RoughSolution extends React.Component {
 
    saveTheRoughSolution = () => {
       if ([...this.roughSolutionList.values()].length === 0) {
+         toast.error('Please Add atleast One Rough Solution to Save the data');
          this.errorMessage = 'Please enter Text';
       }
       else {
@@ -151,7 +161,7 @@ class RoughSolution extends React.Component {
                "code_type": eachEditorBox.languageType,
                "code": eachEditorBox.content,
                "filename": eachEditorBox.fileName
-            })
+            });
          });
 
          console.log(roughSolutionData);

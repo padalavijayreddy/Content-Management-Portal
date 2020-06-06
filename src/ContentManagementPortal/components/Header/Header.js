@@ -16,7 +16,7 @@ class Header extends React.Component {
             <img src={header.ibhubsLogoURL}></img>
             <HeaderNotify>
                <Notification src={header.notificationURL}></Notification>
-               <SignOutbutton data-testid={header.dataTextid} src={header.profileImageURL} alt={header.profileImageAlt} onClick={signOut}></SignOutbutton>
+               <SignOutbutton data-testid={header.dataTextid} src={header.profileImageURL} alt={header.profileImageAlt} onClick={signOut} title="Sign Out"></SignOutbutton>
             </HeaderNotify>   
          </TopBar>
       );

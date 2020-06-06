@@ -86,14 +86,12 @@ class ContentManagementStores {
 
         this.totalCountOfPages = 0;
         this.totalQuestions = 0;
-        this.questionsLimit = 4;
+        this.questionsLimit = 50;
         this.currentPagePosition = 1;
     }
 
     changeSelectedTask = (selectedTask) => {
-        if (window.confirm("Do you really want to leave?")) {
-            this.selectedTask = selectedTask;
-        }
+        this.selectedTask = selectedTask;
         console.log(this.selectedTask);
     }
 
@@ -120,14 +118,13 @@ class ContentManagementStores {
         return title.toLowerCase().includes(this.searchText.toLowerCase());
     }
 
-
     //CodingQuestionsList 
 
     @action.bound
     getCodingQuestionsList() {
         const { questionsLimit: limit } = this;
         const offset = this.currentPagePosition - 1;
-        //console.log("api called");
+        console.log("offset", "limit", offset, limit);
         const CodingListPromise = this.contentManagementAPI.codingQuestionsListApi(offset, limit);
         return bindPromiseWithOnSuccess(CodingListPromise)
             .to(this.setGetCodingQuestionsListAPIStatus, response => {
@@ -146,7 +143,7 @@ class ContentManagementStores {
     @action.bound
     setGetCodingQuestionsListAPIError(apiError) {
         this.getCodingQuestionsListAPIError = apiError;
-        alert(apiError)
+        alert(apiError);
     }
 
     @action.bound
@@ -160,6 +157,8 @@ class ContentManagementStores {
         console.log("list", this.codingQuestionsList);
         this.totalQuestions = total_coding_questions;
         this.totalCountOfPages = Math.ceil(total_coding_questions / this.questionsLimit);
+        console.log("questions", this.totalQuestions);
+        console.log("pages", this.totalCountOfPages);
     }
 
     @action.bound
@@ -196,10 +195,13 @@ class ContentManagementStores {
     }
 
 
+
     //CodingQuestionDetails
 
     @action.bound
     getCodingQuestionDetails(question_id) {
+        console.log("question details", question_id);
+        this.question_id = question_id;
         const CodingQuestionDetailPromise = this.contentManagementAPI.getCodingQuestionDetailsApi(question_id);
         return bindPromiseWithOnSuccess(CodingQuestionDetailPromise)
             .to(this.setGetCodingQuestionDetailsAPIStatus, response => {
@@ -222,9 +224,9 @@ class ContentManagementStores {
 
     @action.bound
     setGetCodingQuestionDetailsAPIResponse(apiResponse) {
+        console.log("codingQuestionDetails", apiResponse);
         this.codingQuestionDetails = new CodingQuestionDetailsModel(apiResponse);
     }
-
 
 
     //Problem Statement
@@ -268,6 +270,7 @@ class ContentManagementStores {
     @action.bound
     saveRoughSolutionList(postRoughSolutionData, onSuccess, onFailure) {
         this.roughSolutionData = postRoughSolutionData;
+        console.log("QuestionId", this.question_id);
         const roughSolutionPromise = this.contentManagementAPI.postRoughSolutionApi(this.question_id, this.roughSolutionData);
         return bindPromiseWithOnSuccess(roughSolutionPromise)
             .to(this.setpostSolutionDataAPIStatus, response => {
@@ -358,9 +361,8 @@ class ContentManagementStores {
 
     @action.bound
     setPostSolutionApproachDataAPIResponse(apiResponse) {
-        console.log(apiResponse);
+        console.log("solution approach", apiResponse);
     }
-
 
     //Clean Solution
 

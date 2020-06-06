@@ -9,6 +9,7 @@ export const ProblemStatementView = styled.div `
      height:900px;
      background-color:${colors.white};
      padding-top:50px;
+     padding:20px;
 `,
     ProblemStatementMode = styled.div `
     display:flex;

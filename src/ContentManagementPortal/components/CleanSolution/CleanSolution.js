@@ -6,6 +6,13 @@ import { EditorBox } from './EditorBox';
 import { SaveButton } from './SaveButton';
 import { AddButton } from './AddButton';
 import CleanSolutionModel from '../../models/CleanSolutionModel';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure({
+    position: 'bottom-center',
+    hideProgressBar: true,
+});
 
 @observer
 class CleanSolution extends React.Component {
@@ -52,7 +59,7 @@ class CleanSolution extends React.Component {
             filename: '',
             delete_id: Math.random().toString()
         };
-        this.cleanSolutionList.set(editorObject.cleansolution_id, new CleanSolutionModel(editorObject));
+        this.cleanSolutionList.set(editorObject.delete_id, new CleanSolutionModel(editorObject));
     }
 
     onChangeFileName = (value, id) => {
@@ -116,7 +123,9 @@ class CleanSolution extends React.Component {
     onSuccess = () => {
         console.log("success");
         const { changeSelectedTask } = this.props;
-        changeSelectedTask('Hints');
+        toast.warn('Successfully, You have Saved the Clean Solution Code');
+        toast.success('If you want to add another Clean solution, please click on the Add button');
+        this.cleanSolutionList = new Map();
     }
 
     onFailure = () => {
@@ -129,6 +138,7 @@ class CleanSolution extends React.Component {
 
     saveTheCleanSolution = () => {
         if ([...this.cleanSolutionList.values()].length === 0) {
+            toast.error('Please Add atleast one Clean Code to save the data');
             this.errorMessage = 'Please enter Text';
         }
         else {

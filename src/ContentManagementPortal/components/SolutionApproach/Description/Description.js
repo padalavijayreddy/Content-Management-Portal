@@ -8,7 +8,7 @@ import { EditorBox } from '../EditorBox';
 @observer
 class Description extends React.Component {
     render() {
-        const { handleChangeState, description = { description }, selectedMode, onRemoveEditorBox, onChangeEditor } = this.props;
+        const { handleChangeState, description, selectedMode, onRemoveEditorBox, onChangeEditor } = this.props;
         return (
             <DescriptionView>
                 <DescriptionLabel>{SolutionApproach.description}</DescriptionLabel>

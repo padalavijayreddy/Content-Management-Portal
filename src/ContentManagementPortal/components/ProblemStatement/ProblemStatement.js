@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure({
+   background: 'white',
    position: 'bottom-center'
 });
 
@@ -43,21 +44,25 @@ class ProblemStatement extends React.Component {
 
    onChangeEditor = (newValue) => {
       this.problemDescription = newValue;
+      this.errorMessage = (this.problemDescription.length > 1) ? '' : this.errorMessage;
    }
 
    onChangeShortText = (event) => {
       this.shortText = event.target.value;
+      this.errorMessage = (this.shortText.length > 1) ? '' : this.errorMessage;
    }
 
    onRemoveEditorBox = () => {
-      this.problemDescription = ' ';
+      this.problemDescription = '';
    }
 
    onSuccess = () => {
       console.log("success");
       const { changeSelectedTask } = this.props;
-      changeSelectedTask('Rough Solution');
-      toast.warn('Successfully Saved the Question');
+      toast.info('Successfully,You Saved the Question');
+      this.shortText = '';
+      this.problemDescription = '';
+      this.selectedMode = '';
    }
 
    onFailure = () => {
@@ -72,9 +77,11 @@ class ProblemStatement extends React.Component {
       const { onSuccess, onFailure } = this;
       if (this.shortText.trim().length === 0) {
          this.errorMessage = "Please enter shortText";
+         toast.error('Please enter shortText');
       }
       else if (this.problemDescription.trim().length === 0) {
          this.errorMessage = "Please enter problemDescription";
+         toast.error('Please enter problemDescription');
       }
       else {
          console.log(this.shortText, this.problemDescription);

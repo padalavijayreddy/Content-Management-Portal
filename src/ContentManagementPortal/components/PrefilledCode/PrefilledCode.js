@@ -6,6 +6,13 @@ import { EditorBox } from './EditorBox';
 import { SaveButton } from './SaveButton';
 import { AddButton } from './AddButton';
 import PrefilledCodeModel from '../../models/PrefilledCodeModel';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure({
+   position: 'bottom-center',
+   hideProgressBar: true,
+});
 
 @observer
 class PrefilledCode extends React.Component {
@@ -52,7 +59,7 @@ class PrefilledCode extends React.Component {
          filename: '',
          delete_id: Math.random().toString()
       };
-      this.PrefilledCodeList.set(editorObject.prefilledcode_id, new PrefilledCodeModel(editorObject));
+      this.PrefilledCodeList.set(editorObject.delete_id, new PrefilledCodeModel(editorObject));
    }
 
    onChangeFileName = (value, id) => {
@@ -116,7 +123,9 @@ class PrefilledCode extends React.Component {
    onSuccess = () => {
       console.log("success");
       const { changeSelectedTask } = this.props;
-      changeSelectedTask('Solution Approach');
+      toast.warn('Successfully, You have Saved the Prefilled Code');
+      toast.success('If you want to add another Prefilled Code, please click on the Add button');
+      this.PrefilledCodeList = new Map();
    }
 
    onFailure = () => {
@@ -129,6 +138,7 @@ class PrefilledCode extends React.Component {
 
    saveThePrefilledCode = () => {
       if ([...this.PrefilledCodeList.values()].length === 0) {
+         toast.error('Please Add atleast one Prefilled Code to save the data');
          this.errorMessage = 'Please enter Text';
       }
       else {

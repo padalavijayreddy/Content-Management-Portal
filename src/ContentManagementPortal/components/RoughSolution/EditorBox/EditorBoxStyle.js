@@ -5,7 +5,7 @@
  export const RoughSolutionComponent = styled.div `
      display:flex;
      flex-direction:column;
-     width: 764px;
+     width: 690px;
      height: 320px;
      background-color: #ffffff;
      margin:10px;

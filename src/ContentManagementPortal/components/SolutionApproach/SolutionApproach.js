@@ -8,7 +8,13 @@ import { Title } from './Title';
 import { ComplexityAnalysis } from './ComplexityAnalysis';
 import { SaveButton } from './SaveButton';
 import "github-markdown-css";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure({
+   background: 'white',
+   position: 'bottom-center'
+});
 
 @observer
 class SolutionApproach extends React.Component {
@@ -18,10 +24,13 @@ class SolutionApproach extends React.Component {
    @observable title = '';
    @observable selectedMode = '';
    @observable errorMessage = '';
+   @observable solutionapproach_id = null;
 
    componentDidMount() {
       const { solutionApproach } = this.props;
+      console.log("SOLUTION APPROACH", solutionApproach);
       if (solutionApproach) {
+         this.solutionapproach_id = solutionApproach.id;
          this.title = solutionApproach.title;
          this.selectedMode = solutionApproach.descriptionContentType;
          this.description = solutionApproach.descriptionContent;
@@ -29,6 +38,7 @@ class SolutionApproach extends React.Component {
          this.complexityAnalysis = solutionApproach.complexityAnalysisContent;
       }
       else {
+         this.solutionapproach_id = null;
          this.title = '';
          this.description = '';
          this.selectedMode = '';
@@ -67,7 +77,12 @@ class SolutionApproach extends React.Component {
    onSuccess = () => {
       console.log("success");
       const { changeSelectedTask } = this.props;
-      changeSelectedTask('Clean Solution');
+      toast.success('You had Successfully saved the data');
+      this.title = '';
+      this.description = '';
+      this.selectedMode = '';
+      this.complexitySelectedMode = '';
+      this.complexityAnalysis = '';
    }
 
    onFailure = () => {
@@ -82,19 +97,23 @@ class SolutionApproach extends React.Component {
       const { onSuccess, onFailure } = this;
       if (this.title.trim().length === 0) {
          this.errorMessage = 'Please enter title';
+         toast.error('Please enter title');
       }
 
       else if (this.description.trim().length === 0) {
          this.errorMessage = 'Please enter description';
+         toast.error('Please enter description');
       }
 
       else if (this.complexityAnalysis.trim().length === 0) {
          this.errorMessage = 'Please enter complexityAnalysis';
+         toast.error('Please enter complexityAnalysis');
       }
       else {
          console.log(this.title, this.description, this.complexityAnalysis);
          const postData = {
             "solution_approach_details": {
+               "solutionapproach_id": this.solutionapproach_id,
                "title": this.title,
                "description_content_type": this.selectedMode,
                "description_content": this.description,

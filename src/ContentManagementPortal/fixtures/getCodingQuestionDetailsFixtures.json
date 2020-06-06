@@ -1,52 +1,49 @@
 {
     "question_details": {
-        "question_id":0,
+        "question_id": 0,
         "short_title": "Write",
         "problem_description": {
             "content_type": "HTML",
             "content": "<h1>vijay</h1>"
         }
     },
-    "roughSolutionList": [{
-            "roughsolution_id": "1",
-            "code_type": "HTML",
-            "code": "<h2>hjfh</h2>",
-            "filename": "kjhjg"
-        },
-        {
-            "roughsolution_id": "2",
-            "code_type": "HTML",
-            "code": "<h2>hjfnbh</h2>",
-            "filename": "kjhjgjbgvc"
-        }
-    ],
-    "testCasesList": [{
-        "input": [1, 2],
-        "output": 3,
-        "score": 66,
-        "isHidden": true
+    "roughsolutions": [{
+        "roughsolution_id": 0,
+        "code_type": "C",
+        "code": "string",
+        "filename": "string"
     }],
-    "prefilledCodeList": [{
-        "prefilledcode_id": "1",
-        "code_type": "HTML",
-        "code": "hjfh",
-        "filename": "kjhjg"
+    "testcases": [{
+        "input": "string",
+        "output": "string",
+        "is_hidden": true,
+        "score": 0
     }],
-    "solutionApproach": {
-        "title": "Write SOlutionApproach",
-        "description": {
-            "content_type": "HTML",
-            "content": "jhgjhgf"
-        },
-        "complexityAnalysis": {
-            "content_type": "MarkDown",
-            "content": "khjgfd"
-        }
+    "prefilledcodes": [{
+        "prefilledcode_id": 0,
+        "code_type": "C",
+        "code": "string",
+        "filename": "string"
+    }],
+    "solutionapproaches": {
+        "solutionapproach_id": 0,
+        "title": "string",
+        "description_content_type": "MARKDOWN",
+        "description_content": "string",
+        "complexity_analysis_content_type": "MARKDOWN",
+        "complexity_analysis_content": "string"
     },
-    "cleanSolution": [{
-        "cleansolution_id": "1",
-        "code_type": "HTML",
-        "code": "hjfh",
-        "filename": "kjhjg"
+    "cleansolutions": [{
+        "cleansolution_id": 0,
+        "code_type": "C",
+        "code": "string",
+        "filename": "string"
+    }],
+    "hints": [{
+        "hint_id": 0,
+        "title": "string",
+        "content_type": "MARKDOWN",
+        "content": "string",
+        "order_id": 0
     }]
 }

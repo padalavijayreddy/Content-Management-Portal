@@ -25,14 +25,8 @@ class EditorBox extends React.Component {
         onChangeScore(this.score, id);
     }
 
-    saveTheTestCases = () => {
-        console.log("save");
-        this.score = '';
-        this.checked = false;
-    }
-
     render() {
-        const { eachTestcase, id, onChangeScore, onChangeInputContent, onChangeOutputContent, onChangeIsHidden } = this.props;
+        const { eachTestcase, saveTheTestCases, id, onChangeScore, onChangeInputContent, onChangeOutputContent, onChangeIsHidden } = this.props;
         return (
             <TestCasesComponent>
                 <Header>INPUT</Header>
@@ -45,7 +39,7 @@ class EditorBox extends React.Component {
                     <input onChange={this.onChangeCheckbox} checked={this.checked} type="checkbox"/>
                     <IsHidden>Is Hidden</IsHidden>
                 </IsHiddenCheck>
-                <SaveButton saveTheTestCases={this.saveTheTestCases}/>
+                <SaveButton saveTheTestCases={saveTheTestCases}/>
             </TestCasesComponent>
         );
     }

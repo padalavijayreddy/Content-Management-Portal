@@ -37,6 +37,7 @@ class TestCases extends React.Component {
          onChangeOutputContent={this.onChangeOutputContent}
          onChangeScore={this.onChangeScore}
          onChangeIsHidden = {this.onChangeIsHidden}
+         saveTheTestCases = {this.saveTheTestCases}
          /> }
          return null;
       });
@@ -70,7 +71,7 @@ class TestCases extends React.Component {
    deleteId = (event) => {
       console.log("delete", event.target.id);
       const id = event.target.id;
-      const testCasesListOfArray = [...this.testCasesList.values()];
+      const testCasesListOfArray = Array.from(this.testCasesList.values());
       testCasesListOfArray.forEach((eachTestcase, index) => {
          if (eachTestcase.id === id) {
             testCasesListOfArray[index - 1].isActive = true;
