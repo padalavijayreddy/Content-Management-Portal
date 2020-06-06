@@ -43,17 +43,17 @@ class Question extends React.Component {
                     }
                 </Field>
                 <Field>
-                    {(questionItem.cleansolution)?
-                        <img src={codingQuestions.questionTrueImageURL} alt={codingQuestions.questionTrueImageLogo}/>:
-                        <img src={codingQuestions.questionFalseImageURL} alt={codingQuestions.questionFalseImageLogo}/>
-                    }
-                </Field>
-                <Field>
                     {(questionItem.solutionapproach)?
                         <img src={codingQuestions.questionTrueImageURL} alt={codingQuestions.questionTrueImageLogo}/>:
                         <img src={codingQuestions.questionFalseImageURL} alt={codingQuestions.questionFalseImageLogo}/>
                     }
                 </Field> 
+                <Field>
+                    {(questionItem.cleansolution)?
+                        <img src={codingQuestions.questionTrueImageURL} alt={codingQuestions.questionTrueImageLogo}/>:
+                        <img src={codingQuestions.questionFalseImageURL} alt={codingQuestions.questionFalseImageLogo}/>
+                    }
+                </Field>
                 </AllFields>
             </QuestionsView>
             <img className="m-2" src="https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/4f6eaf64-210a-46de-90de-acaf9e7f8102.svg"/>
