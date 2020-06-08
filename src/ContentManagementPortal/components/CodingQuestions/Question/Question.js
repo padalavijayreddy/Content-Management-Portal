@@ -12,6 +12,10 @@ class Question extends React.Component {
         this.props.history.push(`/Content-Management-Portal/coding-question/${this.props.questionItem.question_id}`);
     }
 
+    // deleteQuestion = () => {//     const { questionItem, } = this.props;
+    //     const { question_id } = questionItem;
+    // }
+
     render() {
         const { questionItem } = this.props;
         return (
@@ -56,7 +60,7 @@ class Question extends React.Component {
                 </Field>
                 </AllFields>
             </QuestionsView>
-            <img className="m-2" src="https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/4f6eaf64-210a-46de-90de-acaf9e7f8102.svg"/>
+            <img /*onClick={this.deleteQuestion}*/ className="m-2" src="https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/4f6eaf64-210a-46de-90de-acaf9e7f8102.svg"/>
             </div>
         );
     }

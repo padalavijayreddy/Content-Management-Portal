@@ -1,12 +1,12 @@
-import { create } from 'apisauce'
-import { networkCallWithApisauce } from '../../utils/APIUtils'
-import { apiMethods } from '../../constants/APIConstants'
+import { create } from 'apisauce';
+import { networkCallWithApisauce } from '../../utils/APIUtils';
+import { apiMethods } from '../../constants/APIConstants';
 
 class AuthAPI {
    api
    constructor() {
       this.api = create({
-         baseURL: 'https://34b482475a80.ngrok.io/api/content_management_portal/'
+         baseURL: 'https://75183e2f2111.ngrok.io/api/content_management_portal/'
       });
    }
 

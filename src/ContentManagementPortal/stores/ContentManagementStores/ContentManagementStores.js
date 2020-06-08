@@ -118,6 +118,11 @@ class ContentManagementStores {
         return title.toLowerCase().includes(this.searchText.toLowerCase());
     }
 
+    // @action.bound
+    // deleteCodingQuestion(question_id) {
+    //     const deleteQuestionPromise = this.contentManagementAPI.
+    // }
+
     //CodingQuestionsList 
 
     @action.bound

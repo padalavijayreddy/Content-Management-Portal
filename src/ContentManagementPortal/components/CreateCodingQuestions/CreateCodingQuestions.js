@@ -56,6 +56,7 @@ class CreateCodingQuestions extends React.Component {
       this.props.history.replace(LOGIN_PATH);
    }
 
+   //Here im getting the Id and im using id for the delete id and im sesding the roughsolution_id null and they will return back the some rough solution_id and but im getting here id why ???? i dont get y
 
    renderCodingQuestionUI = observer(({}) => {
       const { signOut } = this;
@@ -63,6 +64,7 @@ class CreateCodingQuestions extends React.Component {
       console.log(contentManagementStore.codingQuestionDetails);
       let statement, roughSolutions, solutionApproach, prefilledCode, cleanSolution;
       if (contentManagementStore.codingQuestionDetails) {
+         console.log("rough solution in create componentDidMount", contentManagementStore.codingQuestionDetails.roughSolution);
          statement = contentManagementStore.codingQuestionDetails.problemStatement;
          roughSolutions = contentManagementStore.codingQuestionDetails.roughSolution;
          prefilledCode = contentManagementStore.codingQuestionDetails.prefilledCode;

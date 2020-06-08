@@ -60,9 +60,9 @@ class ProblemStatement extends React.Component {
       console.log("success");
       const { changeSelectedTask } = this.props;
       toast.info('Successfully,You Saved the Question');
-      this.shortText = '';
-      this.problemDescription = '';
-      this.selectedMode = '';
+      // this.shortText = '';
+      // this.problemDescription = '';
+      // this.selectedMode = '';
    }
 
    onFailure = () => {

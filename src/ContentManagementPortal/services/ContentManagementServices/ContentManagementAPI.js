@@ -1,12 +1,12 @@
-import { create } from 'apisauce'
-import { networkCallWithApisauce } from '../../../AuthModule/utils/APIUtils'
-import { apiMethods } from '../../../CommonModule/constants/APIConstants'
+import { create } from 'apisauce';
+import { networkCallWithApisauce } from '../../../AuthModule/utils/APIUtils';
+import { apiMethods } from '../../../CommonModule/constants/APIConstants';
 
 class ContentManagementAPI {
     api
     constructor() {
         this.api = create({
-            baseURL: 'https://34b482475a80.ngrok.io/api/content_management_portal/'
+            baseURL: 'https://75183e2f2111.ngrok.io/api/content_management_portal/'
         });
     }
 
@@ -37,6 +37,10 @@ class ContentManagementAPI {
     postCleanSolutionApi = (question_id, requestdata) => {
         return networkCallWithApisauce(this.api, `/question/${question_id}/cleansolution/v1/`, requestdata, apiMethods.post);
     }
+
+    // deleteCodingQuestionApi = (question_id) => {
+    //     return networkCallWithApisauce(this.api,'', requestdata, apiMethods.post)
+    // }
 
 }
 
