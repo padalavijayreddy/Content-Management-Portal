@@ -25,12 +25,12 @@ class RoughSolution extends React.Component {
 
    componentDidMount() {
       const { roughSolutions } = this.props;
-      console.log("roughSolutions data getting", roughSolutions);
+      console.log("roughSolutions", roughSolutions);
       if (roughSolutions) {
          console.log("roughSolutionList", [...this.roughSolutionList.values()]);
          roughSolutions.map(eachRoughSolution => {
-            this.roughSolutionList.set(eachRoughSolution.id, {
-               roughsolution_id: eachRoughSolution.roughsolution_id,
+            this.roughSolutionList.set(eachRoughSolution.roughsolution_id, {
+               roughsolution_id: eachRoughSolution.id,
                fileName: eachRoughSolution.fileName,
                languageType: eachRoughSolution.languageType,
                content: eachRoughSolution.content,
@@ -60,8 +60,6 @@ class RoughSolution extends React.Component {
       };
       this.roughSolutionList.set(editorObject.delete_id, new RoughSolutionModel(editorObject));
    }
-
-   //delete_id for deleting id and adding purposes only.
 
    onChangeFileName = (value, id) => {
       console.log(value, id);
@@ -165,7 +163,8 @@ class RoughSolution extends React.Component {
                "filename": eachEditorBox.fileName
             });
          });
-         console.log("data sending", roughSolutionData);
+
+         console.log(roughSolutionData);
          saveRoughSolutionList(roughSolutionData, onSuccess, onFailure);
       }
    }

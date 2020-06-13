@@ -30,7 +30,7 @@ class CleanSolution extends React.Component {
         if (cleanSolution) {
             console.log("cleanSolutionList", [...this.cleanSolutionList.values()]);
             cleanSolution.map(eachCleanSolution => {
-                this.cleanSolutionList.set(eachCleanSolution.id, {
+                this.cleanSolutionList.set(eachCleanSolution.cleansolution_id, {
                     cleansolution_id: eachCleanSolution.id,
                     fileName: eachCleanSolution.fileName,
                     languageType: eachCleanSolution.languageType,

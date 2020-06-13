@@ -30,7 +30,7 @@ class PrefilledCode extends React.Component {
       if (prefilledCode) {
          console.log("PrefilledCodeList", [...this.PrefilledCodeList.values()]);
          prefilledCode.map(eachPrefilledCode => {
-            this.PrefilledCodeList.set(eachPrefilledCode.id, {
+            this.PrefilledCodeList.set(eachPrefilledCode.prefilledcode_id, {
                prefilledcode_id: eachPrefilledCode.id,
                fileName: eachPrefilledCode.fileName,
                languageType: eachPrefilledCode.languageType,
