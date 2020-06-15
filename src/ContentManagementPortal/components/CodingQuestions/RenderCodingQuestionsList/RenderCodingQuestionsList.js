@@ -8,6 +8,7 @@ import { SearchBar } from '../SearchBar';
 import NoDataView from '../../../../CommonModule/components/NoDataView';
 import { RenderCodingQuestionsStrings } from '../../../../CommonModule/i18n/strings';
 import LoadingWrapperWithFailure from '../../../../CommonModule/components/LoadingWrapperWithFailure';
+import { getLoadingStatus } from '@ib/api-utils';
 
 
 @observer
@@ -39,7 +40,18 @@ class RenderCodingQuestionsList extends React.Component {
 
     render() {
         const { addCodingQuestions, renderCodingQuestionsList } = this;
-        const { onChangeSearchText, currentPagePositionIncrementor, currentPagePositionDecrementor, currentPagePosition, totalCountOfPages, doNetworkCalls, codingQuestions, getCodingQuestionsListAPIStatus, getCodingQuestionsListAPIError } = this.props;
+        const {
+            getProjectNameAPIStatus,
+            onChangeSearchText,
+            currentPagePositionIncrementor,
+            currentPagePositionDecrementor,
+            currentPagePosition,
+            totalCountOfPages,
+            doNetworkCalls,
+            codingQuestions,
+            getCodingQuestionsListAPIStatus,
+            getCodingQuestionsListAPIError
+        } = this.props;
         return (
             <RenderCodingQuestions>
                 <SortingFunctions>
@@ -81,7 +93,7 @@ class RenderCodingQuestionsList extends React.Component {
                     <Header>{RenderCodingQuestionsStrings.CleanSolution}</Header>
                 </QuestionRow>
                  <LoadingWrapperWithFailure 
-                        apiStatus={getCodingQuestionsListAPIStatus}
+                        apiStatus={getLoadingStatus(getCodingQuestionsListAPIStatus,getProjectNameAPIStatus)}
                         apiError={getCodingQuestionsListAPIError}
                         onRetryClick = {doNetworkCalls}                             
                         renderSuccessUI = {renderCodingQuestionsList}

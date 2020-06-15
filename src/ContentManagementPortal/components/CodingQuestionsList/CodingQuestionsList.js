@@ -9,6 +9,7 @@ import { GoBack } from '../GoBack';
 import { CodingQuestions } from '../CodingQuestions';
 import { Add_Coding_Questions_Path } from '../../constants/RouteConstants/Navigation';
 import { Redirect } from 'react-router-dom';
+import { PortalName } from './PortalName';
 
 @observer
 class CodingQuestionsList extends React.Component {
@@ -26,12 +27,27 @@ class CodingQuestionsList extends React.Component {
             currentPagePositionIncrementor,
             currentPagePositionDecrementor,
             currentPagePosition,
-            totalCountOfPages
+            totalCountOfPages,
+            projectName,
+            getProjectName,
+            getProjectNameAPIStatus,
         } = this.props;
         return (
             <CodingQuestionsListView>
                 <Header signOut={signOut} />
-                <CodingQuestions doNetworkCalls={doNetworkCalls} currentPagePositionIncrementor={currentPagePositionIncrementor} currentPagePositionDecrementor={currentPagePositionDecrementor} currentPagePosition={currentPagePosition} totalCountOfPages={totalCountOfPages} getCodingQuestionsListAPIStatus={getCodingQuestionsListAPIStatus} getCodingQuestionsListAPIError={getCodingQuestionsListAPIError} onChangeSortBy={onChangeSortBy} onChangeSearchText={onChangeSearchText} codingQuestionsList={questions} />
+                <PortalName projectName={projectName} getProjectName={getProjectName}/>
+                <CodingQuestions
+                getProjectNameAPIStatus={getProjectNameAPIStatus}
+                doNetworkCalls={doNetworkCalls} 
+                currentPagePositionIncrementor={currentPagePositionIncrementor} 
+                currentPagePositionDecrementor={currentPagePositionDecrementor} 
+                currentPagePosition={currentPagePosition} 
+                totalCountOfPages={totalCountOfPages} 
+                getCodingQuestionsListAPIStatus={getCodingQuestionsListAPIStatus} 
+                getCodingQuestionsListAPIError={getCodingQuestionsListAPIError} 
+                onChangeSortBy={onChangeSortBy} 
+                onChangeSearchText={onChangeSearchText} 
+                codingQuestionsList={questions} />
             </CodingQuestionsListView>
         );
     }

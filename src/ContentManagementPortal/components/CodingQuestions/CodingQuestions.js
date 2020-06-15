@@ -7,10 +7,24 @@ import { CodingQuestionsView } from './CodingQuestionsStyle';
 @observer
 class CodingQuestions extends React.Component {
     render() {
-        const { addCodingQuestion, currentPagePositionIncrementor, currentPagePositionDecrementor, currentPagePosition, totalCountOfPages, doNetworkCalls, getCodingQuestionsListAPIStatus, getCodingQuestionsListAPIError, onChangeSortBy, onChangeSearchText, codingQuestionsList } = this.props;
+        const {
+            getProjectNameAPIStatus,
+            addCodingQuestion,
+            currentPagePositionIncrementor,
+            currentPagePositionDecrementor,
+            currentPagePosition,
+            totalCountOfPages,
+            doNetworkCalls,
+            getCodingQuestionsListAPIStatus,
+            getCodingQuestionsListAPIError,
+            onChangeSortBy,
+            onChangeSearchText,
+            codingQuestionsList
+        } = this.props;
         return (
             <CodingQuestionsView>
                 <MCQCodingQuestionListButtons 
+                getProjectNameAPIStatus={getProjectNameAPIStatus}
                 doNetworkCalls={doNetworkCalls} 
                 getCodingQuestionsListAPIStatus={getCodingQuestionsListAPIStatus} 
                 getCodingQuestionsListAPIError={getCodingQuestionsListAPIError} 

@@ -48,12 +48,40 @@ class CodingQuestionsListRoute extends React.Component {
          currentPagePositionIncrementor,
          currentPagePositionDecrementor,
          currentPagePosition,
-         totalCountOfPages
+         totalCountOfPages,
+         projectName,
+         getProjectName,
+         getProjectNameAPIStatus,
       } = contentManagementStore;
       const { signOut, doNetworkCalls } = this;
       return (
          <CodingQuestionsList
-            {...{currentPagePositionIncrementor,currentPagePositionDecrementor,currentPagePosition,totalCountOfPages, signOut,doNetworkCalls, getCodingQuestionsListAPIStatus, getCodingQuestionsListAPIError,addCodingQuestion,addButton,saveUserSolution,saveCleanSolutionList,saveRoughSolutionList,savePreFilledList,saveUserData,questions,onChangeSearchText,onChangeSortBy,selectedTask, changeSelectedTask,postUserDataAPIError }}
+            {...{
+               currentPagePositionIncrementor,
+               getProjectNameAPIStatus,
+               getProjectName,
+               projectName,
+               currentPagePositionDecrementor,
+               currentPagePosition,
+               totalCountOfPages,
+               signOut,
+               doNetworkCalls,
+               getCodingQuestionsListAPIStatus,
+               getCodingQuestionsListAPIError,
+               addCodingQuestion,
+               addButton,
+               saveUserSolution,
+               saveCleanSolutionList,
+               saveRoughSolutionList,
+               savePreFilledList,
+               saveUserData,
+               questions,
+               onChangeSearchText,
+               onChangeSortBy,
+               selectedTask,
+               changeSelectedTask,
+               postUserDataAPIError
+            }}
          />
       );
    }

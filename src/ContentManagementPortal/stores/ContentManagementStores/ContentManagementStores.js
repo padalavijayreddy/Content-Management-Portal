@@ -37,6 +37,10 @@ class ContentManagementStores {
     @observable postCleanSolutionDataAPIStatus;
     @observable postCleanSolutionDataAPIError;
 
+    @observable getProjectNameAPIStatus;
+    @observable getProjectNameAPIError;
+    projectName;
+
     @observable searchText;
     @observable sortBy;
 
@@ -80,6 +84,9 @@ class ContentManagementStores {
         this.postCleanSolutionDataAPIStatus = API_INITIAL;
         this.postCleanSolutionDataAPIError = null;
 
+        this.getProjectNameAPIError = null;
+        this.getProjectNameAPIStatus = API_INITIAL;
+
         this.selectedTask = 'Problem Statement';
         this.searchText = '';
         this.sortBy = 'Status';
@@ -122,6 +129,32 @@ class ContentManagementStores {
     // deleteCodingQuestion(question_id) {
     //     const deleteQuestionPromise = this.contentManagementAPI.
     // }
+
+
+    //PROJECT NAME
+
+    @action.bound
+    getProjectName() {
+        const projectNamePromise = this.contentManagementAPI.getProjectNameApi();
+        return bindPromiseWithOnSuccess(projectNamePromise)
+            .to(this.setGetProjectNameApiStatus, this.setGetProjectNameAPIResponse)
+            .catch(this.setGetProjectNameAPIError, this.setGetProjectNameAPIResponse)
+    }
+
+    @action.bound
+    setGetProjectNameApiStatus(apiStatus) {
+        this.getProjectNameAPIStatus = apiStatus
+    }
+
+    @action.bound
+    setGetProjectNameAPIError(apiError) {
+        this.getProjectNameAPIError = apiError;
+    }
+
+    @action.bound
+    setGetProjectNameAPIResponse(apiResponse) {
+        this.projectName = apiResponse.name;
+    }
 
     //CodingQuestionsList 
 
@@ -186,7 +219,7 @@ class ContentManagementStores {
 
     @computed
     get sortedAndFilteredQuestions() {
-        const { codingQuestionsList, filterTitles, searchText, } = this;
+        const { codingQuestionsList, filterTitles, searchText } = this;
         console.log(this.codingQuestionsList);
         let data = [...codingQuestionsList.values()];
         console.log(data);

@@ -1,0 +1,159 @@
+ELP -
+
+Step:1 : 
+     - Divide into React Components
+     
+     -  Washing Machine Slot Src
+          - AuthenticationModule.
+          - CommonModule
+          - WashingMachineSlotsModule.
+                - Header 
+                    - iBHubsLogo.
+                    - Home.
+                        - index.js
+                        - Home.js      ->   componentDidMount -> if(AvailableSlots)?
+                                                                 "ShowTheList":"ShowTheUnavailableImage"
+                                                                 if(UpcomingSlots)?
+                                                                 "ShowTheUpcomingSlots":"ShowTheUnavailableSlotsImage"
+                                       ->   components -> 
+                                                AvailableSlots Component
+                                                    -> ListOfTimesSlots
+                                                    -> ConfirmButton
+                                                UpcomingSlots Component
+                                                    -> 
+                        - HomeStyle.js
+                        - Home.text
+                    - Requests.
+                        - 
+                    - Report an issue.
+                        - index.js
+                        - ReportAnIssue.js
+                        - ReportAnIssueStyle.js
+                        - ReportAnIssue.text
+                    - Previous Slots.
+                        - index.js
+                        - PreviousSlots.js
+                        - PreviousSlotsStyle.js
+                        - PreviousSlots.text
+                    - UserIcon
+                        - SignOut
+                - NavigationComponent(Links)
+                    - NavigationProps.
+                        - observable SelectedField
+                    - NavigationBar.
+                        - 
+                    - Statement.
+                        - StatementStore
+                            - 
+                            - 
+                    - RoughSolutionFolder.
+                        - RoughSolutionStore
+                            - AddRoughSolution
+                            - RemoveRoughSolution
+                        - RoughSolutionModel
+                            - id,language,editor,edit,delete for every Rough Solution environment
+                            - UpdateTheCoding(Function will be called when the Edit button triggered)
+                        - RoughSolution(Component)
+                            - RenderRoughSolutionList.
+                    - Test Cases.
+                        - TestCasesStore
+                            - AddNewTestCase.
+                            - DeleteTestCase.
+                        - TestCasesModel.
+                            - id,input,output,score,isHidden.
+                        - TestCases(Component)
+                            - RenderTestcasesList.
+                    - PreFilledCodeFolder.
+                        - PreFilledCodeStore
+                            - AddPreFilledCode
+                            - RemovePreFilledCode
+                        - PreFilledCodeModel
+                            - id,language,editor,edit,delete for every PreFilledCode environment
+                            - UpdateTheCoding(Function will be called when the Edit button triggered)
+                        - PreFilledCode(Component)
+                            - PreFilledCodeList.
+                    - SolutionApproachFolder.
+                        -
+                    - CleanSolutionFolder
+                    - HintsFolder
+          
+          
+    ----------------------------------------------
+    
+    Step:2 :
+      - Props - Show data using minimum UI
+      
+    ----------------------------------------------  
+    
+    Step:3 : 
+    
+    Application State 
+    
+    Step:4 :
+       
+       - RestOfTheFunctionality
+       - RestOfTheMethodsForTheComponent
+       - RestOfTheFeatures
+       
+    Step:5 :
+        
+       Clean Code & Optimised Component
+
+----------------------------------------------------------------------------------
+
+SignInPage
+        ---> components
+                  ---> SignInPage
+        ---> fixtures
+                  ---> GetResponse
+        ---> Routes
+                  ---> SignInRoute
+                             ---> Route(Functionality)
+                  ---> index.js(ProtectedRoute,Imported in App.js)
+        ---> Services
+                  ---> API
+                  ---> Fixtures
+        ---> AuthStores
+                  ---> AuthStores(NetworkCalls)                    |
+        ---> index.js(conecting with API)                          |
+                                                                   |---> CommonStore 
+                                                                   |        ---> Index.js(ImportingAllTheStores)
+                                                                   |---> App.js -> Provider(...Stores)
+ContentManagementPortal                                            |
+        ---> components                                            |---> UsesInRespectiveRoutes
+                  ---> CodingQuestionsList                         |
+                  ---> Header                                      |
+                  ---> GoBack
+                  ---> TabBar
+                  ---> ProblemStatement
+                              ---> ProblemDescription
+                              ---> SaveButton
+                              ---> ShortText
+                              ProblemStatement
+                  ---> RoughSolution
+                              ---> AddButton
+                              ---> EditorBox
+                              ---> Editor
+                              ---> Header
+                              RoughSolution
+        
+        ---> Routes
+                  ---> CodingQuestionsListRoute (Functionality)
+                  index.js (ProtectedRoute)
+        
+        ---> services
+                  ---> ProblemStatement
+                              ---> Fixtures
+        ---> Stores
+                  ---> ContentManagementStores
+                              ---> index.js(networkCalls)
+                  ---> index.js(connectingWithApi)
+ 
+
+
+
+
+Doubts -> 
+ 1. If we add in the Rough solution it should be same when we changed the tab also or not.
+ 2. If we click edit button in the Rough Solution it should edit or it already have the Edit feature in the editor.
+ 3.I need to write all the observable variables in the Stores.

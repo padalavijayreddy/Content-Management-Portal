@@ -9,13 +9,33 @@ import { McqCodingButton } from '../../../../CommonModule/i18n/strings';
 class MCQCodingQuestionListButtons extends React.Component {
 
     renderCodingQuestionList = () => {
-        const { codingQuestions, doNetworkCalls, currentPagePositionIncrementor, currentPagePositionDecrementor, currentPagePosition, totalCountOfPages, getCodingQuestionsListAPIStatus, getCodingQuestionsListAPIError, onChangeSortBy, addCodingQuestion, onChangeSearchText } = this.props;
+        const {
+            getProjectNameAPIStatus,
+            codingQuestions,
+            doNetworkCalls,
+            currentPagePositionIncrementor,
+            currentPagePositionDecrementor,
+            currentPagePosition,
+            totalCountOfPages,
+            getCodingQuestionsListAPIStatus,
+            getCodingQuestionsListAPIError,
+            onChangeSortBy,
+            addCodingQuestion,
+            onChangeSearchText
+        } = this.props;
         return <RenderCodingQuestionsList 
-        doNetworkCalls={doNetworkCalls} getCodingQuestionsListAPIStatus={getCodingQuestionsListAPIStatus} 
-        getCodingQuestionsListAPIError={getCodingQuestionsListAPIError} onChangeSortBy={onChangeSortBy} 
-        addCodingQuestion={addCodingQuestion} onChangeSearchText={onChangeSearchText} codingQuestions={codingQuestions} 
-        currentPagePositionIncrementor={currentPagePositionIncrementor} currentPagePositionDecrementor={currentPagePositionDecrementor} 
-        currentPagePosition={currentPagePosition} totalCountOfPages={totalCountOfPages}
+        getProjectNameAPIStatus={getProjectNameAPIStatus}
+        doNetworkCalls={doNetworkCalls} 
+        getCodingQuestionsListAPIStatus={getCodingQuestionsListAPIStatus} 
+        getCodingQuestionsListAPIError={getCodingQuestionsListAPIError} 
+        onChangeSortBy={onChangeSortBy} 
+        addCodingQuestion={addCodingQuestion} 
+        onChangeSearchText={onChangeSearchText} 
+        codingQuestions={codingQuestions} 
+        currentPagePositionIncrementor={currentPagePositionIncrementor} 
+        currentPagePositionDecrementor={currentPagePositionDecrementor} 
+        currentPagePosition={currentPagePosition} 
+        totalCountOfPages={totalCountOfPages}
         />;
     };
 

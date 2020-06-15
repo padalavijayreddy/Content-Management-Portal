@@ -5,8 +5,15 @@ import getPrefilledCodeFixtures from '../../fixtures/getPrefilledCodeFixtures.js
 import getSolutionApproachFixtures from '../../fixtures/getSolutionApproachFixtures.json';
 import getCleanSolutionFixtures from '../../fixtures/getCleanSolutionFixtures.json';
 import getCodingQuestionDetailsFixtures from '../../fixtures/getCodingQuestionDetailsFixtures.json';
+import reactNameFixtures from '../../fixtures/reactNameFixtures.json';
 
 class contentManagementFixtureService {
+
+    getProjectNameApi() {
+        return new Promise((resolve, reject) =>
+            setTimeout(() => resolve(reactNameFixtures), 1000)
+        );
+    }
 
     postDataApi() {
         return new Promise((resolve, reject) => {
@@ -15,9 +22,9 @@ class contentManagementFixtureService {
     }
 
     codingQuestionsListApi = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => resolve(getCodingQuestionsFixture), 4000);
-        });
+        return new Promise((resolve, reject) =>
+            setTimeout(() => resolve(getCodingQuestionsFixture), 4000)
+        );
     }
 
     getCodingQuestionDetailsApi = () => {
