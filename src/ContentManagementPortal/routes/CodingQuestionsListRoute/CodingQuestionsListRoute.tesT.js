@@ -26,8 +26,22 @@ import CodingQuestionsListRoute from ".";
 import { CODING_QUESTIONS_LIST_PATH } from '../../constants/RouteConstants/Navigation';
 import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigation';
 import { header } from '../../../CommonModule/i18n/strings';
+import { AddButton } from '../../components/RoughSolution/AddButton';
 
 
 const LocationDisplay = withRouter(({ location }) => (
     <div data-testid="location-display">{location.pathname}</div>
 ));
+
+describe('ContentManagementPortal Routes', () => {
+    it('should render Add Button', () => {
+        const { getAllByText, getByRole } = render(
+            <Router history={createMemoryHistory()}>
+               <AddButton addCodeEditor={() => {}} />
+         </Router>
+        );
+        const addButton = getByRole("button", { name: "Add" });
+        fireEvent.click(addButton);
+        getAllByText(/Language/i);
+    });
+});

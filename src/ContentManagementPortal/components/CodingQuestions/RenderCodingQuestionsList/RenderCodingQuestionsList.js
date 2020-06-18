@@ -2,18 +2,22 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import { Question } from '../Question';
-import { RenderCodingQuestions, QuestionRow, Footer, AddButton, SelectAllStyle, SelectAll, ExportSort, Select, SearchBart, Export, Sort, Sorting, Search, Questions, Header, SortingFunctions } from './RenderCodingQuestionsListStyle';
+import { RenderCodingQuestions, QuestionRow, Footer, EditButton, AddButton, DeleteButton, SelectAllDiv, DeleteDiv, SelectAllStyle, SelectAll, ExportSort, Select, SearchBart, Export, Sort, Sorting, Search, Questions, Header, SortingFunctions } from './RenderCodingQuestionsListStyle';
 import { withRouter } from 'react-router-dom';
 import { SearchBar } from '../SearchBar';
 import NoDataView from '../../../../CommonModule/components/NoDataView';
 import { RenderCodingQuestionsStrings } from '../../../../CommonModule/i18n/strings';
 import LoadingWrapperWithFailure from '../../../../CommonModule/components/LoadingWrapperWithFailure';
 import { getLoadingStatus } from '@ib/api-utils';
+import ReactPaginate from 'react-paginate';
+import { MdDelete } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
 
 
 @observer
 class RenderCodingQuestionsList extends React.Component {
     @observable selectType = "SELECT";
+    @observable isChecked = false;
 
     onSelectSortBy = (event) => {
         const { value } = event.target;
@@ -22,14 +26,18 @@ class RenderCodingQuestionsList extends React.Component {
         onChangeSortBy(value);
     }
 
+    IsClickedSelectAll = () => {
+        this.isChecked = !this.isChecked;
+    }
+
     renderCodingQuestionsList = observer(({}) => {
-        const { codingQuestions } = this.props;
+        const { codingQuestions, deleteCodingQuestion } = this.props;
         const codingQuestionsList = [...codingQuestions.values()];
         if (codingQuestions.length === 0) {
             return <NoDataView/>;
         }
         else {
-            return codingQuestionsList.map((eachQuestion) => <Question key={eachQuestion.question_id} questionItem={eachQuestion} />);
+            return codingQuestionsList.map((eachQuestion) => <Question key={eachQuestion.question_id} isChecked={this.isChecked} deleteCodingQuestion={deleteCodingQuestion} questionItem={eachQuestion} />);
         }
     });
 
@@ -50,7 +58,9 @@ class RenderCodingQuestionsList extends React.Component {
             doNetworkCalls,
             codingQuestions,
             getCodingQuestionsListAPIStatus,
-            getCodingQuestionsListAPIError
+            getCodingQuestionsListAPIError,
+            onPageChange,
+            onDeleteAll
         } = this.props;
         return (
             <RenderCodingQuestions>
@@ -78,8 +88,14 @@ class RenderCodingQuestionsList extends React.Component {
                     </ExportSort>
                 </SortingFunctions>
                 <SelectAll>
-                    <input type="checkbox"/>
-                    <SelectAllStyle>{RenderCodingQuestionsStrings.SelectAll}</SelectAllStyle>
+                    <SelectAllDiv>
+                        <input checked={this.isChecked} onClick={this.IsClickedSelectAll} type="checkbox"/>
+                        <SelectAllStyle>{RenderCodingQuestionsStrings.SelectAll}</SelectAllStyle>
+                    </SelectAllDiv>
+                    <DeleteDiv>
+                        <EditButton disabled={!this.isChecked} state={this.isChecked}><MdEdit/>Edit</EditButton>
+                        <DeleteButton disabled={!this.isChecked} onClick={onDeleteAll} state={this.isChecked}><MdDelete/> Delete All</DeleteButton>
+                    </DeleteDiv>
                 </SelectAll>
                 <QuestionRow>
                     <Questions>
@@ -91,13 +107,14 @@ class RenderCodingQuestionsList extends React.Component {
                     <Header>{RenderCodingQuestionsStrings.PrefilledCode}</Header>
                     <Header>{RenderCodingQuestionsStrings.SolutionApproach}</Header>
                     <Header>{RenderCodingQuestionsStrings.CleanSolution}</Header>
+                    <Header>EDIT/DELETE</Header>
                 </QuestionRow>
-                 <LoadingWrapperWithFailure 
+                <LoadingWrapperWithFailure 
                         apiStatus={getLoadingStatus(getCodingQuestionsListAPIStatus,getProjectNameAPIStatus)}
                         apiError={getCodingQuestionsListAPIError}
                         onRetryClick = {doNetworkCalls}                             
                         renderSuccessUI = {renderCodingQuestionsList}
-                 />
+                />
                 <Footer>
                     <AddButton>
                         <img src="https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/eb18b1d0-8d6b-4562-90fc-e2279bc744d2.svg"/>
@@ -106,6 +123,19 @@ class RenderCodingQuestionsList extends React.Component {
                     <AddButton>
                         <div>Page {currentPagePosition} of {totalCountOfPages}</div>
                     </AddButton>
+                    {/*<ReactPaginate
+                        previousLabel={<span>&#8249;</span>}
+                        nextLabel={<span>&#8250;</span>}
+                        nextLinkClassName='common-pagination-arrow-buttons'
+                        previousLinkClassName='common-pagination-arrow-buttons'
+                        breakLabel='...'
+                        breakClassName='break-me'
+                        pageCount={totalCountOfPages}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={2}
+                        onPageChange={onPageChange}
+                        forcePage={currentPagePosition}
+                    />*/}
                     <div class="flex justify-end items-center">
                     <button disabled={currentPagePosition===1} onClick={currentPagePositionDecrementor} class="flex items-center justify-center bg-black text-white w-8 h-8 mr-2 focus:outline-none">
                         <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">

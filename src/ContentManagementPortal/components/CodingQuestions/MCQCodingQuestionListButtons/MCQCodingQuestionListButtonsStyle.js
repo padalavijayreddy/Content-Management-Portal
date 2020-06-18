@@ -8,7 +8,7 @@ import { Typo14DarkBlueGreyHKGroteskSemiBold } from '../../../../CommonModule/co
 // `,
 
 export const ButtonsList = styled.div `
-    ${tw`w-screen h-full`}
+    ${tw`w-full h-full`}
     background-color:#ffffff;
     display:flex;
     justify-content:center;

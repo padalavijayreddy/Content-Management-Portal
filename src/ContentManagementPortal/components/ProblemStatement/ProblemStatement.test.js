@@ -43,7 +43,7 @@ describe('ProblemStatement', () => {
         const saveButton = getByRole("button", { name: "Save" });
         fireEvent.click(saveButton);
         getByText(/Please enter shortText/i);
-
+    
     });
 
     it("should render problemDescription empty error message", () => {

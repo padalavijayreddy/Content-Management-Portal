@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { observable, action } from 'mobx';
+import { observable, computed } from 'mobx';
 import { TestCasesView, SaveButtonField, TestCasesComponent, TestCasesIdList, Add } from './TestCasesStyle';
 import { EditorBox } from './EditorBox';
 import { SaveButton } from './SaveButton';
@@ -19,35 +19,34 @@ class TestCases extends React.Component {
 
    init() {
       this.testCasesList = new Map();
-   }
-
-   componentDidMount() {
       this.addButton();
    }
 
-   renderTestCases = () => {
-      const testCasesListOfArray = [...this.testCasesList.values()];
-      return testCasesListOfArray.map(eachTestcase => {
-         console.log("testcase", testCasesListOfArray);
-         if (eachTestcase.isActive) { return <EditorBox 
-         key={eachTestcase} 
-         id={eachTestcase.id}
-         eachTestcase={eachTestcase} 
-         onChangeInputContent={this.onChangeInputContent}
-         onChangeOutputContent={this.onChangeOutputContent}
-         onChangeScore={this.onChangeScore}
-         onChangeIsHidden = {this.onChangeIsHidden}
-         saveTheTestCases = {this.saveTheTestCases}
-         /> }
-         return null;
-      });
+   @computed
+   get renderTestCases() {
+      const testCasesListOfArray = [...this.testCasesList.values()]
+      let testData = testCasesListOfArray.find(eachTestcase => eachTestcase.isActive);
+      testData = (testData === undefined) ? testCasesListOfArray[0] : testData;
+      return (
+         <EditorBox 
+            key = { testData }
+            id={testData.id}
+            eachTestcase={testData} 
+            onChangeInputContent={this.onChangeInputContent}
+            onChangeOutputContent={this.onChangeOutputContent}
+            onChangeScore={this.onChangeScore}
+            onChangeIsHidden = {this.onChangeIsHidden}
+            saveTheTestCases = {this.saveTheTestCases}
+         />
+      );
    }
 
-   renderTestCaseIds = () => {
+   @computed
+   get renderTestCaseIds() {
       const { makeActiveItem, deleteId } = this;
       const testCasesListOfArray = [...this.testCasesList.values()];
       return testCasesListOfArray.map((eachTestcase, index) => {
-         return <IdButton key={eachTestcase} id={eachTestcase.id} index={index} eachTestcase={eachTestcase} makeActiveItem={makeActiveItem} deleteId={deleteId}/>;
+         return <IdButton key={eachTestcase.id} id={eachTestcase.id} index={index} eachTestcase={eachTestcase} makeActiveItem={makeActiveItem} deleteId={deleteId}/>;
       });
    }
 
@@ -62,29 +61,24 @@ class TestCases extends React.Component {
          isHidden: false,
          isActive: true
       };
-      testCasesListOfArray.forEach((eachTestcase) => {
-         eachTestcase.isActive = false;
-      });
+      testCasesListOfArray.forEach((eachTestcase) => eachTestcase.isActive = false);
       this.testCasesList.set(editorObject.testcases_id, new TestCasesModel(editorObject));
    }
 
-   deleteId = (event) => {
-      console.log("delete", event.target.id);
-      const id = event.target.id;
+   deleteId = (id) => {
       const testCasesListOfArray = Array.from(this.testCasesList.values());
-      testCasesListOfArray.forEach((eachTestcase, index) => {
-         if (eachTestcase.id === id) {
-            testCasesListOfArray[index - 1].isActive = true;
-         }
-      });
-      // [...this.testCasesList.values()] = testCasesListOfArray;
-      this.testCasesList.delete(event.target.id);
+      if (testCasesListOfArray.length === 1) return
+      else {
+         testCasesListOfArray.forEach((eachTestcase, index) => {
+            if (eachTestcase.id === id) {
+               testCasesListOfArray[(index === 0) ? index + 1 : index - 1].isActive = true;
+            }
+         });
+         this.testCasesList.delete(id);
+      }
    };
 
-   makeActiveItem = (event) => {
-      let id = event.target.id;
-      console.log(id);
-      console.log("MakeActive");
+   makeActiveItem = (id) => {
       const testCasesListOfArray = [...this.testCasesList.values()];
       console.log("object 1", testCasesListOfArray);
       testCasesListOfArray.forEach((eachTestcase) => {
@@ -95,7 +89,8 @@ class TestCases extends React.Component {
             eachTestcase.isActive = false;
          }
       });
-      console.log(testCasesListOfArray);
+      console.log('item id', id)
+      console.log('Item Active', [...this.testCasesList.values()].find(eachTestcase => eachTestcase.isActive));
    };
 
    onChangeInputContent = (value, id) => {
@@ -158,11 +153,11 @@ class TestCases extends React.Component {
       return (
          <TestCasesComponent>
             <TestCasesIdList>
-               {this.renderTestCaseIds()}
+               {this.renderTestCaseIds}
                <Add onClick={this.addButton} src="https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/e15c2a28-6962-46d9-9835-03d6a61be3f7.svg"/>
             </TestCasesIdList>
             <TestCasesView>
-               {this.renderTestCases()}
+               {this.renderTestCases}
             </TestCasesView>
          </TestCasesComponent>
       );

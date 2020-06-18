@@ -16,6 +16,7 @@ import getProblemStatementFixtures from "../../fixtures/getProblemStatementFixtu
 import getRoughSolutionFixtures from '../../fixtures/getRoughSolutionFixtures.json';
 import getCodingQuestionsFixture from '../../fixtures/getCodingQuestionsFixture.json';
 import getPrefilledCodeFixtures from '../../fixtures/getPrefilledCodeFixtures.json';
+import getCodingQuestionDetailsFixtures from '../../fixtures/getCodingQuestionDetailsFixtures.json';
 
 import { ContentManagementStores } from ".";
 
@@ -30,8 +31,6 @@ describe("ContentManagementStores Tests", () => {
 
 
     //CodingQuestionListTestCases//
-
-
 
     it("should test initialising ContentManagement store", () => {
         expect(contentManagementStores.getCodingQuestionsListAPIStatus).toBe(API_INITIAL);
@@ -82,6 +81,46 @@ describe("ContentManagementStores Tests", () => {
         expect(contentManagementStores.searchText).toBe(searchText);
     });
 
+    //CodingQuestionDetails
+
+    it("should test initialising ContentManagement store", () => {
+        expect(contentManagementStores.getCodingQuestionDetailsAPIStatus).toBe(API_INITIAL);
+        expect(contentManagementStores.getCodingQuestionDetailsAPIError).toBe(null);
+    });
+
+    it("should test contentManagementAPI data fetching state", () => {
+        const mockLoadingPromise = new Promise(function(resolve, reject) {});
+        const mockAPI = jest.fn();
+        mockAPI.mockReturnValue(mockLoadingPromise);
+        contentManagementAPI.getCodingQuestionDetailsApi = mockAPI;
+
+        contentManagementStores.getCodingQuestionDetails();
+        expect(contentManagementStores.getCodingQuestionDetailsAPIStatus).toBe(API_FETCHING);
+    });
+
+    it("should test contentManagementAPI success state", async() => {
+        const mockSuccessPromise = new Promise(function(resolve, reject) {
+            resolve(getCodingQuestionDetailsFixtures);
+        });
+        const mockAPI = jest.fn();
+        mockAPI.mockReturnValue(mockSuccessPromise);
+        contentManagementAPI.getCodingQuestionDetailsApi = mockAPI;
+
+        await contentManagementStores.getCodingQuestionDetails();
+        expect(contentManagementStores.getCodingQuestionDetailsAPIStatus).toBe(API_SUCCESS);
+    });
+
+    it("should test contentManagementAPI failure state", async() => {
+        const mockFailurePromise = new Promise(function(resolve, reject) {
+            reject(new Error("error"));
+        });
+        const mockAPI = jest.fn();
+        mockAPI.mockReturnValue(mockFailurePromise);
+        contentManagementAPI.getCodingQuestionDetailsApi = mockAPI;
+        contentManagementStores = new ContentManagementStores(contentManagementAPI);
+        await contentManagementStores.getCodingQuestionDetails();
+        expect(contentManagementStores.getCodingQuestionDetailsAPIStatus).toBe(API_FAILED);
+    });
 
 
     //ProblemStatementTextCases//

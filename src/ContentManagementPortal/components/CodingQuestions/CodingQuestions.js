@@ -19,11 +19,17 @@ class CodingQuestions extends React.Component {
             getCodingQuestionsListAPIError,
             onChangeSortBy,
             onChangeSearchText,
-            codingQuestionsList
+            codingQuestionsList,
+            deleteCodingQuestion,
+            onPageChange,
+            onDeleteAll
         } = this.props;
         return (
             <CodingQuestionsView>
                 <MCQCodingQuestionListButtons 
+                onDeleteAll={onDeleteAll}
+                onPageChange={onPageChange}
+                deleteCodingQuestion={deleteCodingQuestion}
                 getProjectNameAPIStatus={getProjectNameAPIStatus}
                 doNetworkCalls={doNetworkCalls} 
                 getCodingQuestionsListAPIStatus={getCodingQuestionsListAPIStatus} 

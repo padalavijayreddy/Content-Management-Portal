@@ -21,15 +21,19 @@ class contentManagementFixtureService {
         });
     }
 
-    codingQuestionsListApi = () => {
+    codingQuestionsListApi = ({ offset, limit }) => {
+        const startingDataIndex = offset * limit,
+            endingDataIndex = startingDataIndex + limit,
+            question_details = getCodingQuestionsFixture.question_details.slice(startingDataIndex, endingDataIndex);
+        console.log(offset, limit)
         return new Promise((resolve, reject) =>
-            setTimeout(() => resolve(getCodingQuestionsFixture), 4000)
+            setTimeout(() => resolve({ total_coding_questions: getCodingQuestionsFixture.total_coding_questions, question_details }), 1000)
         );
     }
 
     getCodingQuestionDetailsApi = () => {
         return new Promise((resolve, reject) => {
-            setTimeout(() => resolve(getCodingQuestionDetailsFixtures), 2000);
+            setTimeout(() => resolve(getCodingQuestionDetailsFixtures), 1000);
         });
     }
 

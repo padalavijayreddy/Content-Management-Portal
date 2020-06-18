@@ -5,12 +5,12 @@ import { colors } from '../../../CommonModule/components/themes/colors'
 export const TopBar = styled.div `
       ${tw`flex justify-between`}
       border-bottom: 1px solid lightgrey;
-      ${tw`w-screen`}
+      ${tw`w-full`}
       height:72px;
       background-color: ${colors.white};
 `,
    SignOutbutton = styled.img `
-      ${tw`border-gray-800 m-2 h-12 w-12 p-1 rounded text-xs`}
+      ${tw`border-gray-800 m-2 cursor-pointer h-12 w-12 p-1 rounded text-xs`}
       border-radius:50%;
 `,
    Notification = styled.img `

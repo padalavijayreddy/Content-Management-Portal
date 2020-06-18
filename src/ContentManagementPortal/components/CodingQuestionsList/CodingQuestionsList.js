@@ -9,7 +9,6 @@ import { GoBack } from '../GoBack';
 import { CodingQuestions } from '../CodingQuestions';
 import { Add_Coding_Questions_Path } from '../../constants/RouteConstants/Navigation';
 import { Redirect } from 'react-router-dom';
-import { PortalName } from './PortalName';
 
 @observer
 class CodingQuestionsList extends React.Component {
@@ -31,12 +30,19 @@ class CodingQuestionsList extends React.Component {
             projectName,
             getProjectName,
             getProjectNameAPIStatus,
+            deleteCodingQuestion,
+            onPageChange,
+            onDeleteAll,
+            toggleDisplayCart,
+            shouldDisplayCart
         } = this.props;
         return (
             <CodingQuestionsListView>
-                <Header signOut={signOut} />
-                <PortalName projectName={projectName} getProjectName={getProjectName}/>
+                <Header toggleDisplayCart={toggleDisplayCart} shouldDisplayCart={shouldDisplayCart} signOut={signOut} />
                 <CodingQuestions
+                onDeleteAll = {onDeleteAll}
+                onPageChange = {onPageChange}
+                deleteCodingQuestion={deleteCodingQuestion}
                 getProjectNameAPIStatus={getProjectNameAPIStatus}
                 doNetworkCalls={doNetworkCalls} 
                 currentPagePositionIncrementor={currentPagePositionIncrementor} 

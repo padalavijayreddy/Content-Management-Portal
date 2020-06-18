@@ -2,6 +2,7 @@ import tw from 'tailwind.macro'
 import styled from '@emotion/styled'
 import { colors } from '../../../../CommonModule/components/themes/colors'
 import { Typo12SteelHKGroteskSemiBold, TextStyle9, Typo14SteelHKGroteskRegular } from '../../../../CommonModule/components/styleGuide/Typos';
+const { steel, white, neonRed, neonRed5 } = colors;
 
 export const Header = styled(Typo12SteelHKGroteskSemiBold)
 `
@@ -10,16 +11,50 @@ SelectAllStyle = styled(TextStyle9)
 `
     margin-left:5px;
 `,
-
 SelectAll = styled.div `
     display:flex;
-    width:100px;
+    height:64px;
     align-items:center;
     padding-left:10px;
     padding-bottom:10px;
+    justify-content:space-between
+`,
+    SelectAllDiv = styled.div `
+    display:flex;
+    align-items:center;
+`,
+    DeleteDiv = styled.div `
+    display:flex;
+    align-items:center;
+`,
+    DeleteButton = styled.button `
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border: solid 1px ${props => (props.state ? neonRed : white)};
+    ${tw`hover:bg-red-200 hover:text-black rounded-lg`}
+    color: ${colors.white};
+    background:${props => (props.state? neonRed : "transparent")};
+    pointer-events:${props => (props.state?"auto":"none")};
+    width:120px;
+    height:50px;
+    padding:5px;
+`,
+    EditButton = styled.button `
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border: solid 1px ${props => (props.state ? "green" : white)};
+    ${tw`hover:bg-green-200 hover:text-black m-2 rounded-lg`}
+    color: ${colors.white};
+    background:${props => (props.state? "green" : "transparent")};
+    pointer-events:${props => (props.state?"auto":"none")};
+    width:80px;
+    height:50px;
+    padding:5px;
 `,
     RenderCodingQuestions = styled.div `
-    ${tw`w-screen h-full`}
+    ${tw`w-full min-h-screen flex flex-col`}
     background-color: ${colors.white};
     padding:40px;
 `,
@@ -27,7 +62,6 @@ SelectAll = styled.div `
     display:flex;
     justify-content:space-around;
     align-items:center;
-    width:1128px;
     height:64px;
     border:solid 1px ${ colors.lightBlueGrey };
 `,
@@ -36,6 +70,7 @@ SelectAll = styled.div `
     align-items:center;
     width: 280px;
     height: 48px;
+    padding-left:60px;
     font-family: HKGrotesk;
     font-size: 14px;
     font-weight: normal;
@@ -48,7 +83,6 @@ SelectAll = styled.div `
     SortingFunctions = styled.div `
     display:flex;
     justify-content:space-between;
-    width:1128px;
     height:64px;
     margin-bottom:20px;
 `,
@@ -60,6 +94,7 @@ SelectAll = styled.div `
     width: 367px;
     height: 40px;
     margin:10px;
+    background-color:#fff8e6;
     ${tw`hover:border-black`}
 `,
     ExportSort = styled.div `
@@ -99,7 +134,6 @@ SelectAll = styled.div `
     display:flex;
     justify-content:space-between;
     align-items:center;
-    width:1128px;
     margin-top:5px;
 `,
     AddButton = styled.div `

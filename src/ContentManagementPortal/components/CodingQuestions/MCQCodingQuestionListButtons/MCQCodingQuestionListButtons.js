@@ -10,6 +10,7 @@ class MCQCodingQuestionListButtons extends React.Component {
 
     renderCodingQuestionList = () => {
         const {
+            deleteCodingQuestion,
             getProjectNameAPIStatus,
             codingQuestions,
             doNetworkCalls,
@@ -21,9 +22,14 @@ class MCQCodingQuestionListButtons extends React.Component {
             getCodingQuestionsListAPIError,
             onChangeSortBy,
             addCodingQuestion,
-            onChangeSearchText
+            onChangeSearchText,
+            onPageChange,
+            onDeleteAll
         } = this.props;
         return <RenderCodingQuestionsList 
+        onDeleteAll={onDeleteAll}
+        onPageChange={onPageChange}
+        deleteCodingQuestion={deleteCodingQuestion}
         getProjectNameAPIStatus={getProjectNameAPIStatus}
         doNetworkCalls={doNetworkCalls} 
         getCodingQuestionsListAPIStatus={getCodingQuestionsListAPIStatus} 

@@ -37,10 +37,6 @@ class ContentManagementStores {
     @observable postCleanSolutionDataAPIStatus;
     @observable postCleanSolutionDataAPIError;
 
-    @observable getProjectNameAPIStatus;
-    @observable getProjectNameAPIError;
-    projectName;
-
     @observable searchText;
     @observable sortBy;
 
@@ -66,6 +62,9 @@ class ContentManagementStores {
         this.getCodingQuestionsListAPIStatus = API_INITIAL;
         this.getCodingQuestionsListAPIError = null;
 
+        this.getCodingQuestionDetailsAPIStatus = API_INITIAL;
+        this.getCodingQuestionDetailsAPIError = null;
+
         this.postUserDataAPIStatus = API_INITIAL;
         this.postUserDataAPIError = null;
 
@@ -84,16 +83,13 @@ class ContentManagementStores {
         this.postCleanSolutionDataAPIStatus = API_INITIAL;
         this.postCleanSolutionDataAPIError = null;
 
-        this.getProjectNameAPIError = null;
-        this.getProjectNameAPIStatus = API_INITIAL;
-
         this.selectedTask = 'Problem Statement';
         this.searchText = '';
         this.sortBy = 'Status';
 
         this.totalCountOfPages = 0;
         this.totalQuestions = 0;
-        this.questionsLimit = 50;
+        this.questionsLimit = 9;
         this.currentPagePosition = 1;
     }
 
@@ -125,37 +121,6 @@ class ContentManagementStores {
         return title.toLowerCase().includes(this.searchText.toLowerCase());
     }
 
-    // @action.bound
-    // deleteCodingQuestion(question_id) {
-    //     const deleteQuestionPromise = this.contentManagementAPI.
-    // }
-
-
-    //PROJECT NAME
-
-    @action.bound
-    getProjectName() {
-        const projectNamePromise = this.contentManagementAPI.getProjectNameApi();
-        return bindPromiseWithOnSuccess(projectNamePromise)
-            .to(this.setGetProjectNameApiStatus, this.setGetProjectNameAPIResponse)
-            .catch(this.setGetProjectNameAPIError, this.setGetProjectNameAPIResponse)
-    }
-
-    @action.bound
-    setGetProjectNameApiStatus(apiStatus) {
-        this.getProjectNameAPIStatus = apiStatus
-    }
-
-    @action.bound
-    setGetProjectNameAPIError(apiError) {
-        this.getProjectNameAPIError = apiError;
-    }
-
-    @action.bound
-    setGetProjectNameAPIResponse(apiResponse) {
-        this.projectName = apiResponse.name;
-    }
-
     //CodingQuestionsList 
 
     @action.bound
@@ -163,7 +128,7 @@ class ContentManagementStores {
         const { questionsLimit: limit } = this;
         const offset = this.currentPagePosition - 1;
         console.log("offset", "limit", offset, limit);
-        const CodingListPromise = this.contentManagementAPI.codingQuestionsListApi(offset, limit);
+        const CodingListPromise = this.contentManagementAPI.codingQuestionsListApi({ offset, limit });
         return bindPromiseWithOnSuccess(CodingListPromise)
             .to(this.setGetCodingQuestionsListAPIStatus, response => {
                 this.setGetCodingQuestionsListAPIResponse(response);
@@ -171,6 +136,11 @@ class ContentManagementStores {
             .catch(error => {
                 this.setGetCodingQuestionsListAPIError(error);
             });
+    }
+
+    @action.bound
+    deleteCodingQuestion(question_id) {
+        this.codingQuestionsList.delete(question_id);
     }
 
     @action.bound
@@ -190,7 +160,7 @@ class ContentManagementStores {
         this.codingQuestionsList.clear();
         const { total_coding_questions, question_details } = apiResponse;
         if (!(question_details === undefined || question_details.length <= 0))
-            question_details.forEach((data) => this.codingQuestionsList.set(data.question_id, new CodingQuestionsModel(data)));
+            question_details.forEach((data, index) => this.codingQuestionsList.set(data.question_id, new CodingQuestionsModel({ ...data, index })));
         else this.codingQuestionsList = new Map();
         console.log("list", this.codingQuestionsList);
         this.totalQuestions = total_coding_questions;
@@ -198,6 +168,8 @@ class ContentManagementStores {
         console.log("questions", this.totalQuestions);
         console.log("pages", this.totalCountOfPages);
     }
+
+    currentPagePositionUpdater = (positionNumber) => this.currentPagePosition = positionNumber;
 
     @action.bound
     currentPagePositionIncrementor() {
@@ -212,6 +184,12 @@ class ContentManagementStores {
         (currentPagePosition > 1 && (this.currentPagePosition -= 1) && this.getCodingQuestionsList());
     }
 
+    @action.bound
+    onDeleteAll() {
+        const questionsList = [...this.codingQuestionsList.values()]
+        questionsList.forEach(({ localChecked, question_id }) => localChecked && this.codingQuestionsList.delete(question_id))
+    }
+
     @computed
     get questions() {
         return this.sortedAndFilteredQuestions;
@@ -219,7 +197,7 @@ class ContentManagementStores {
 
     @computed
     get sortedAndFilteredQuestions() {
-        const { codingQuestionsList, filterTitles, searchText } = this;
+        const { codingQuestionsList, filterTitles, searchText, } = this;
         console.log(this.codingQuestionsList);
         let data = [...codingQuestionsList.values()];
         console.log(data);
@@ -231,7 +209,6 @@ class ContentManagementStores {
     get totalNoOfQuestionsDisplayed() {
         return this.questions.length;
     }
-
 
 
     //CodingQuestionDetails

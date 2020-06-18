@@ -7,6 +7,12 @@ import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigat
 @inject('authStore', 'contentManagementStore')
 @observer
 class CodingQuestionsListRoute extends React.Component {
+   @observable shouldDisplayCart;
+
+   constructor(props) {
+      super(props);
+      this.shouldDisplayCart = false;
+   }
 
    componentDidMount() {
       this.doNetworkCalls();
@@ -17,8 +23,17 @@ class CodingQuestionsListRoute extends React.Component {
       contentManagementStore.getCodingQuestionsList();
    }
 
-   constructor(props) {
-      super(props);
+   toggleDisplayCart = () => {
+      {
+         this.shouldDisplayCart = (this.shouldDisplayCart) ? false : true;
+      }
+   }
+
+   onPageChange = (value) => {
+      const { currentPagePositionUpdater, getCodingQuestionsList } = this.props.contentManagementStore;
+      console.log(value.selected);
+      currentPagePositionUpdater(value.selected + 1);
+      getCodingQuestionsList();
    }
 
    signOut = () => {
@@ -52,11 +67,16 @@ class CodingQuestionsListRoute extends React.Component {
          projectName,
          getProjectName,
          getProjectNameAPIStatus,
+         deleteCodingQuestion,
+         onDeleteAll,
       } = contentManagementStore;
-      const { signOut, doNetworkCalls } = this;
+      const { signOut, doNetworkCalls, onPageChange, toggleDisplayCart, shouldDisplayCart } = this;
       return (
          <CodingQuestionsList
             {...{
+               toggleDisplayCart,
+               shouldDisplayCart,
+               onPageChange,
                currentPagePositionIncrementor,
                getProjectNameAPIStatus,
                getProjectName,
@@ -80,7 +100,9 @@ class CodingQuestionsListRoute extends React.Component {
                onChangeSortBy,
                selectedTask,
                changeSelectedTask,
-               postUserDataAPIError
+               postUserDataAPIError,
+               deleteCodingQuestion,
+               onDeleteAll
             }}
          />
       );

@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { colors } from '../../../CommonModule/components/themes/colors'
 
 export const CodingQuestionsListView = styled.div `
-   ${tw`w-screen h-full`}
+   ${tw`w-full min-h-screen`}
    background-color: ${colors.white};
 `,
 

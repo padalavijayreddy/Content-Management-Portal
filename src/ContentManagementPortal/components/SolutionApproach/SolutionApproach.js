@@ -129,7 +129,6 @@ class SolutionApproach extends React.Component {
 
    render() {
       const { handleChangeState, complexityAnalysis, description, handleChangeAnalysisState, complexitySelectedMode, selectedMode, title, onChangeEditor, onChangeAnalysisEditor, onChangeTitle, onRemoveEditorBox, saveTheSolution, errorMessage } = this;
-      console.log(selectedMode);
       return (
          <SolutionApproachView>
             <SolutionApproachMode>

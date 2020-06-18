@@ -163,8 +163,6 @@ class RoughSolution extends React.Component {
                "filename": eachEditorBox.fileName
             });
          });
-
-         console.log(roughSolutionData);
          saveRoughSolutionList(roughSolutionData, onSuccess, onFailure);
       }
    }

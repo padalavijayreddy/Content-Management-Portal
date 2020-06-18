@@ -29,6 +29,7 @@ class EditorBox extends React.Component {
         const { eachTestcase, saveTheTestCases, id, onChangeScore, onChangeInputContent, onChangeOutputContent, onChangeIsHidden } = this.props;
         return (
             <TestCasesComponent>
+                {id}
                 <Header>INPUT</Header>
                 <Editor onChangeInputContent={onChangeInputContent} id={eachTestcase.id} />
                 <Header>OUTPUT</Header>

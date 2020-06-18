@@ -4,7 +4,7 @@
         "short_title": "Write",
         "problem_description": {
             "content_type": "HTML",
-            "content": "<h1>vijay</h1>"
+            "content": "<button>SIGN IN</button>\n<h1>React Learning</h1><span>Click on SignIn</span>"
         }
     },
     "roughsolutions": [{
@@ -42,7 +42,7 @@
         "solutionapproach_id": 0,
         "title": "string",
         "description_content_type": "MARKDOWN",
-        "description_content": "string",
+        "description_content": "# Heading1 \n## Heading2\n### Heading3\n #### Heading4\n ##### Heading5\n ###### Heading6\nThis is really***very***important text.\nThis text is **_really important_**.\n1.First item\n2.Second item\n3. Third item\n\t*Indented item\n\t*Indented item\n4.Fourth item ",
         "complexity_analysis_content_type": "MARKDOWN",
         "complexity_analysis_content": "string"
     },

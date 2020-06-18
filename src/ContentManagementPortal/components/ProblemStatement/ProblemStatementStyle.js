@@ -35,7 +35,6 @@ export const ProblemStatementView = styled.div `
     height:100px;
 `,
     ReactWrap = styled.div `
-	padding: 45px;
 `,
     ErrorMessage = styled.div `
     ${tw` text-red-800 text-xs italic`}

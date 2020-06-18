@@ -1,1 +1,0 @@
-export { PortalName } from './PortalName';
