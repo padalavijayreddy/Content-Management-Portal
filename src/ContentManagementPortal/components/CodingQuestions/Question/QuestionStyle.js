@@ -38,7 +38,7 @@ QuestionsView = styled.div `
     ${tw`hover:bg-indigo-300`}
 `,
     CircleTick = styled.input `
-    ${tw `m-4 cursor-pointer`}
+    ${tw `cursor-pointer`}
     width:16px;
     height:16px;
     padding:2px;
@@ -48,6 +48,7 @@ QuestionsView = styled.div `
     height:54px;
     display:flex;
     align-items:center;
+    padding-right:2px;
 `,
     Field = styled.div `
     width:48px;

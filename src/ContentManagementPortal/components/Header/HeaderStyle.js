@@ -13,7 +13,7 @@ export const TopBar = styled.div `
       ${tw`border-gray-800 m-2 cursor-pointer h-12 w-12 p-1 rounded text-xs`}
       border-radius:50%;
 `,
-   Notification = styled.img `
+   NotificationIcon = styled.img `
    width: 25px;
    height: 25px;
 `,

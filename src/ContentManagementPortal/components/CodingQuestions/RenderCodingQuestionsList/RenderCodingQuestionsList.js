@@ -31,12 +31,13 @@ class RenderCodingQuestionsList extends React.Component {
     }
 
     renderCodingQuestionsList = observer(({}) => {
-        const { codingQuestions, deleteCodingQuestion } = this.props;
+        const { codingQuestions, deleteCodingQuestion, isMcqList } = this.props;
         const codingQuestionsList = [...codingQuestions.values()];
         if (codingQuestions.length === 0) {
             return <NoDataView/>;
         }
         else {
+            if (isMcqList) return (<div>MCQLIST</div>);
             return codingQuestionsList.map((eachQuestion) => <Question key={eachQuestion.question_id} isChecked={this.isChecked} deleteCodingQuestion={deleteCodingQuestion} questionItem={eachQuestion} />);
         }
     });
@@ -116,9 +117,8 @@ class RenderCodingQuestionsList extends React.Component {
                         renderSuccessUI = {renderCodingQuestionsList}
                 />
                 <Footer>
-                    <AddButton>
-                        <img src="https://cdn.zeplin.io/5d0afc9102b7fa56760995cc/assets/eb18b1d0-8d6b-4562-90fc-e2279bc744d2.svg"/>
-                        <button onClick={addCodingQuestions}>Add Coding Questions</button>
+                    <AddButton onClick={addCodingQuestions}>
+                        <button> + Add Coding Questions</button>
                     </AddButton>
                     <AddButton>
                         <div>Page {currentPagePosition} of {totalCountOfPages}</div>

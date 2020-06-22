@@ -8,6 +8,8 @@ import { McqCodingButton } from '../../../../CommonModule/i18n/strings';
 @observer
 class MCQCodingQuestionListButtons extends React.Component {
 
+    @observable isMcqList = false;
+
     renderCodingQuestionList = () => {
         const {
             deleteCodingQuestion,
@@ -42,6 +44,7 @@ class MCQCodingQuestionListButtons extends React.Component {
         currentPagePositionDecrementor={currentPagePositionDecrementor} 
         currentPagePosition={currentPagePosition} 
         totalCountOfPages={totalCountOfPages}
+        isMcqList = {this.isMcqList}
         />;
     };
 
@@ -49,8 +52,8 @@ class MCQCodingQuestionListButtons extends React.Component {
         return (
             <div>
                 <ButtonsList>
-                    <McqButton>{McqCodingButton.MCQ}</McqButton>
-                    <CodingButton>{McqCodingButton.Coding}</CodingButton>
+                    <McqButton onClick={() => this.isMcqList = true}>{McqCodingButton.MCQ}</McqButton>
+                    <CodingButton onClick={()=>this.isMcqList= false}>{McqCodingButton.Coding}</CodingButton>
                 </ButtonsList>
                 <div>{this.renderCodingQuestionList()}</div>
             </div>

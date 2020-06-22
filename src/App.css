@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.notification-toast-container {
+  width: 40%;
+}

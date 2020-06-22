@@ -5,16 +5,18 @@ import { QuestionsView, Card, CircleTick, CircleField, QuestionsField, QuestionS
 import { codingQuestions } from '../../../../CommonModule/i18n/strings';
 import { withRouter } from 'react-router-dom';
 import { AiTwotoneEdit } from "react-icons/ai";
-import { AiTwotoneDelete } from "react-icons/ai";
+import { AiTwotoneDelete, AiFillCaretRight } from "react-icons/ai";
 
 @observer
 class Question extends React.Component {
 
-    @observable isRemoved = false
+    @observable isRemoved = false;
+    @observable isShowCheckBox = false;
 
     disposeCheckedAutorun = autorun(() => {
         const { questionItem: { onToggleCheckedValue }, isChecked } = this.props;
         onToggleCheckedValue(isChecked);
+        this.isShowCheckBox = (isChecked) ? true : false;
     })
 
     navigateToQuestionDetailsPage = (e) => {
@@ -39,10 +41,19 @@ class Question extends React.Component {
         } = this;
         const { localChecked } = this.props.questionItem;
         return (
-            <QuestionsView onAnimationEnd={this.deleteQuestion} isRemoved={this.isRemoved} odd={questionItem.isAlternate} onClick={this.navigateToQuestionDetailsPage}>
+            <QuestionsView 
+                onMouseEnter={() => this.isShowCheckBox = true} 
+                onMouseLeave={() => !localChecked && (this.isShowCheckBox = false)}
+                onAnimationEnd={this.deleteQuestion} 
+                isRemoved={this.isRemoved} 
+                odd={questionItem.isAlternate} 
+                onClick={this.navigateToQuestionDetailsPage}>
+                
+                {(this.isShowCheckBox)?
                 <CircleField onClick={(e)=>e.stopPropagation()}>
                     <CircleTick onClick={circleTick} checked={localChecked} type="checkbox"></CircleTick>
-                </CircleField>
+                </CircleField>:<CircleField><AiFillCaretRight /></CircleField>}
+                
                 <QuestionsField>
                     <QuestionStyle>{questionItem.short_title}</QuestionStyle>
                 </QuestionsField>

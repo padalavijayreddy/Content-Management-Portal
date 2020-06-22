@@ -89,13 +89,14 @@ SelectAll = styled.div `
     SearchBart = styled.div `
     display:flex;
     justify-content:space-between;
+    align-items:center;
     padding:10px;
     border:1px solid ${colors.lightBlueGrey};
     width: 367px;
     height: 40px;
     margin:10px;
-    background-color:#fff8e6;
-    ${tw`hover:border-black`}
+    background-color:${colors.white};
+    ${tw`hover:border-black hover:bg-orange-100`}
 `,
     ExportSort = styled.div `
     display:flex;
