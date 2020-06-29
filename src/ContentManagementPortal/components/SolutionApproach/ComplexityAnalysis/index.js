@@ -1,1 +1,1 @@
-export { ComplexityAnalysis } from './ComplexityAnalysis';
+export { ComplexityAnalysis } from './ComplexityAnalysis'

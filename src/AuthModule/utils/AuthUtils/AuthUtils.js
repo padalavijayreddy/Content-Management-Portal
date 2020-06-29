@@ -1,11 +1,10 @@
 import { getAccessToken } from '../../../CommonModule/utils/StorageUtils'
 
 export const isLoggedIn = () => {
-    return getAccessToken() !== undefined
+   return getAccessToken() !== undefined
 }
 
-
-export const networkCallWithApisauce = async(
+export const networkCallWithApisauce = async (
    api,
    url,
    requestObject,
@@ -15,8 +14,7 @@ export const networkCallWithApisauce = async(
    api.setHeader('Content-Type', 'application/json; charset=UTF-8')
    try {
       response = await getData(api, url, requestObject, type)
-   }
-   catch (error) {
+   } catch (error) {
       throw error
    }
    return response

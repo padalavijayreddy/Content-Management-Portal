@@ -1,1 +1,1 @@
-export { ShortText } from './ShortText';
+export { ShortText } from './ShortText'

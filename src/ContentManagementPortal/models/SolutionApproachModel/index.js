@@ -1,21 +1,21 @@
-import { observable, action } from 'mobx';
+import { observable, action } from 'mobx'
 
 class SolutionApproachModel {
-    @observable id;
-    @observable title;
-    @observable descriptionContentType;
-    @observable descriptionContent;
-    @observable complexityAnalysisContentType;
-    @observable complexityAnalysisContent;
+   @observable id
+   @observable title
+   @observable descriptionContentType
+   @observable descriptionContent
+   @observable complexityAnalysisContentType
+   @observable complexityAnalysisContent
 
-    constructor(data) {
-        this.id = data.solutionapproach_id;
-        this.title = data.title;
-        this.descriptionContentType = data.description_content_type;
-        this.descriptionContent = data.description_content;
-        this.complexityAnalysisContentType = data.complexity_analysis_content_type;
-        this.complexityAnalysisContent = data.complexity_analysis_content;
-    }
+   constructor(data) {
+      this.id = data.solutionapproach_id
+      this.title = data.title
+      this.descriptionContentType = data.description_content_type
+      this.descriptionContent = data.description_content
+      this.complexityAnalysisContentType = data.complexity_analysis_content_type
+      this.complexityAnalysisContent = data.complexity_analysis_content
+   }
 }
 
-export default SolutionApproachModel;
+export default SolutionApproachModel

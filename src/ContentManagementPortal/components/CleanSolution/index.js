@@ -1,1 +1,1 @@
-export { CleanSolution } from './CleanSolution';
+export { CleanSolution } from './CleanSolution'

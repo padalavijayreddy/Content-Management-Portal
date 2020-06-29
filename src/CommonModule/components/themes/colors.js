@@ -15,5 +15,5 @@ export const colors = {
    whiteTwo: '#fbfbfb',
    lightBlueGrey: '#d7dfe9',
    turquoiseBlue: '#00b2ca',
-   lightBlueGrey24: 'rgba(215, 223, 233, 0.24)',
-};
+   lightBlueGrey24: 'rgba(215, 223, 233, 0.24)'
+}

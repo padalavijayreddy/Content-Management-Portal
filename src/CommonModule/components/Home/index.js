@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigation';
-import './Home.css';
+import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigation'
+import './Home.css'
 
 class Home extends React.Component {
    render() {
@@ -10,14 +10,16 @@ class Home extends React.Component {
             <div>
                <Link
                   style={{ color: 'inherit', textDecoration: 'inherit' }}
-                  to={LOGIN_PATH}>
+                  to={LOGIN_PATH}
+               >
                   Content Management Portal
                </Link>
             </div>
             <div>
                <Link
                   style={{ color: 'inherit', textDecoration: 'inherit' }}
-                  to={LOGIN_PATH}>
+                  to={LOGIN_PATH}
+               >
                   Practice Project
                </Link>
             </div>

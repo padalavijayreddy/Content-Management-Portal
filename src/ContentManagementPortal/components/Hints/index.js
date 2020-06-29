@@ -1,1 +1,1 @@
-export { Hints } from './Hints';
+export { Hints } from './Hints'

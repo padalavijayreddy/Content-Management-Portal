@@ -1,1 +1,1 @@
-export { EditorBox } from './EditorBox';
+export { EditorBox } from './EditorBox'

@@ -1,13 +1,13 @@
 import tw from 'tailwind.macro'
 import styled from '@emotion/styled'
-import { colors } from '../../../../CommonModule/components/themes/colors';
+import { colors } from '../../../../CommonModule/components/themes/colors'
 
-export const Search = styled.input `
-    width:317px;
-    height:20px;
-    outline:none;
-    background-color:inherit;
-`;
+export const Search = styled.input`
+   width: 317px;
+   height: 20px;
+   outline: none;
+   background-color: inherit;
+`
 
 // className = "h-auto flex justify-center items-center border border-transparent hover:border-gray-600  w-1/4"
 

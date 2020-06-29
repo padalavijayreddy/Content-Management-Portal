@@ -1,10 +1,15 @@
 import getData from '@ib/api'
 
-import { apiMethods, statusCodes, resStatuses, apiErrorProblems } from '../constants/APIConstants'
+import {
+   apiMethods,
+   statusCodes,
+   resStatuses,
+   apiErrorProblems
+} from '../constants/APIConstants'
 
 import { getAccessToken } from './StorageUtils'
 
-export const networkCallWithApisauce = async(
+export const networkCallWithApisauce = async (
    api,
    url,
    requestObject,
@@ -12,22 +17,21 @@ export const networkCallWithApisauce = async(
 ) => {
    let response = null
    const accessToken = getAccessToken()
-   console.log("accessToken", accessToken);
-   console.log("url", url);
+   console.log('accessToken', accessToken)
+   console.log('url', url)
    if (accessToken) {
       api.setHeader('Authorization', `Bearer ${accessToken}`)
    }
    api.setHeader('Content-Type', 'application/json; charset=UTF-8')
    try {
       response = await getData(api, url, requestObject, type)
-   }
-   catch (error) {
+   } catch (error) {
       throw error
    }
    return response
 }
 
-export const getUserDisplayableErrorMessage = (error) => {
+export const getUserDisplayableErrorMessage = error => {
    const formattedError = getFormattedError(error)
    return formattedError.description
 }
@@ -35,12 +39,12 @@ export const getUserDisplayableErrorMessage = (error) => {
 export function isNetworkError(error) {
    const apiError = JSON.parse(error)
    const { networkError, timeoutError } = apiErrorProblems
-   return apiError.problem === networkError || apiError.problem === timeoutError ?
-      true :
-      false
+   return apiError.problem === networkError || apiError.problem === timeoutError
+      ? true
+      : false
 }
 
-export const getFormattedError = (apiError) => {
+export const getFormattedError = apiError => {
    //TODO: Need to use strings from i18n
    const errorViewTitle = 'Oops! Something Went Wrong'
    const errorViewDescription =
@@ -60,8 +64,7 @@ export const getFormattedError = (apiError) => {
          if (parsedMessage.data === undefined || parsedMessage.data === null) {
             // To handle case when we are directly returning backend error message
             parsedError = parsedMessage
-         }
-         else {
+         } else {
             // To handle case when we are adding all the requests to backend error message
             parsedError = parsedMessage.data
          }
@@ -80,19 +83,17 @@ export const getFormattedError = (apiError) => {
                   const response = JSON.parse(parsedError.response)
                   const {
                      title: errorTitle,
-                     description: errorDescription,
+                     description: errorDescription
                   } = response
                   if (errorTitle) {
                      title = errorTitle
                   }
                   if (errorDescription) {
                      description = errorDescription
-                  }
-                  else {
+                  } else {
                      description = parsedError.response
                   }
-               }
-               catch (e) {
+               } catch (e) {
                   description = parsedError.response
                }
                errorConstant = parsedError.res_status
@@ -113,8 +114,7 @@ export const getFormattedError = (apiError) => {
             title = connectionLost
             description = internetConnection
          }
-      }
-      catch (e) {
+      } catch (e) {
          // console.log('err >><<<', e)
       }
    }
@@ -127,7 +127,7 @@ export const getFormattedError = (apiError) => {
       errorCode,
       title,
       description,
-      errorConstant,
+      errorConstant
    }
    return apiErrorResponse
 }

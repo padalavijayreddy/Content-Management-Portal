@@ -1,2 +1,2 @@
-import RenderCodingQuestionsList from './RenderCodingQuestionsList';
-export { RenderCodingQuestionsList };
+import RenderCodingQuestionsList from './RenderCodingQuestionsList'
+export { RenderCodingQuestionsList }

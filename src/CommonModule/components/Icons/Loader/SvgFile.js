@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 // interface LoaderProps{
 //    width:number
 //    height:number
