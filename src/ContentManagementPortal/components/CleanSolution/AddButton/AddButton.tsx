@@ -1,8 +1,12 @@
 import React from 'react';
 import { Add, Button } from './AddButtonStyle';
-import { Addbutton } from '../../../../CommonModule/i18n/strings';
+import { Addbutton } from '../../../../CommonModule/i18n/strings.json';
 
-class AddButton extends React.Component {
+interface AddButtonProps{
+    addCodeEditor : () => void
+}
+
+class AddButton extends React.Component<AddButtonProps> {
     render() {
         const { addCodeEditor } = this.props;
         return (

@@ -21,15 +21,27 @@ import {
    ErrorMessage
 }
 from './LoginPageStyle';
-import { API_FETCHING } from '../../../CommonModule/utils/APIUtils';
 import Loader from '../../../CommonModule/components/Icons/Loader';
-import { login } from '../../../CommonModule/i18n/strings';
+import { login } from '../../../CommonModule/i18n/strings.json';
+import { observable } from "mobx";
+
+interface LoginProps{
+   onChangeUsername : (e:any) => void
+   onChangePassword : (e:any) => void
+   username: string
+   password:string
+   onSubmit:(event: any) => Promise<void>
+   isLoading:boolean
+   errorType:string
+   usernameErrorMessage:string|null
+   passwordErrorMessage:string|null
+   errorMessage:string
+}
 
 
 export const SignInButton = ({
    isLoading,
    onSubmit,
-   onEnterKeyPress,
    SignIntext,
 }) => {
    return (
@@ -37,8 +49,7 @@ export const SignInButton = ({
          disabled={isLoading}
          data-testid='sign-in-button'
          onClick={onSubmit}
-         type='button'
-         onKeyPress={onEnterKeyPress}>
+         type='button'>
          {isLoading ? (
             <Loader fill='white' height={25} width={25} />
          ) : (
@@ -48,20 +59,21 @@ export const SignInButton = ({
    );
 };
 
+
 SignInButton.defaultProps = {
    SignIntext: 'LOGIN'
 };
 
 
 @observer
-class LoginPage extends React.Component {
-   userNameRef = React.createRef()
-   passwordRef = React.createRef()
+class LoginPage extends React.Component<LoginProps> {
+   userNameRef = React.createRef<HTMLInputElement>()
+   passwordRef = React.createRef<HTMLInputElement>()
+   @observable isErrorPresent:boolean = false
    render() {
       const {
          onChangeUsername,
          onChangePassword,
-         onEnterKeyPress,
          username,
          password,
          onSubmit,
@@ -119,7 +131,7 @@ class LoginPage extends React.Component {
                   </PasswordFieldContainerDiv>
                </FieldsDiv>
                <SubmitButton>
-                  <SignInButton {...{ isLoading, onEnterKeyPress, onSubmit }} />
+                  <SignInButton {...{ isLoading, onSubmit }} />
                   <ErrorMessage>{errorMessage}</ErrorMessage>
                </SubmitButton>
                <Footer>
@@ -131,4 +143,5 @@ class LoginPage extends React.Component {
       );
    }
 }
+
 export { LoginPage };

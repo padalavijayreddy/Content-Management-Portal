@@ -6,20 +6,19 @@ import PrefilledCodeModel from '../PrefilledCodeModel';
 import SolutionApproachModel from '../SolutionApproachModel';
 import CleanSolutionModel from '../CleanSolutionModel';
 import HintsModel from '../HintsModel';
+import {CodingQuestionDetails} from '../../stores/types'
 
 class CodingQuestionDetailsModel {
-    @observable problemStatement = {};
-    @observable roughSolution = [];
-    @observable testCases = [];
-    @observable prefilledCode = [];
-    @observable solutionApproach = {};
-    @observable cleanSolution = [];
-    @observable hints = [];
+    @observable problemStatement:object = {};
+    @observable roughSolution:Array<object> = [];
+    @observable testCases:Array<object> = [];
+    @observable prefilledCode:Array<object> = [];
+    @observable solutionApproach:object = {};
+    @observable cleanSolution:Array<object> = [];
+    @observable hints:Array<object> = [];
 
-    constructor(data) {
-        console.log("original data from back end coming", data.roughsolutions);
+    constructor(data:CodingQuestionDetails) {
         this.problemStatement = new ProblemStatementQuestionDetailsModel(data.question_details);
-        data.roughsolutions.map(eachRoughSolution => console.log("rough solution original", eachRoughSolution));
         data.roughsolutions.map(eachRoughSolution => this.roughSolution.push(new RoughSolutionModel(eachRoughSolution)));
         data.testcases.map(eachTestCase => this.testCases.push(new TestCasesModel(eachTestCase)));
         data.prefilledcodes.map(eachPrefilledCode => this.prefilledCode.push(new PrefilledCodeModel(eachPrefilledCode)));

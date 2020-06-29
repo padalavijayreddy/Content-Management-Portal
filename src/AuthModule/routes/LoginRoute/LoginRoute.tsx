@@ -1,25 +1,30 @@
 import React, { Component, createRef } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect ,history} from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 import { observable, action } from 'mobx';
 import { API_FETCHING } from '@ib/api-constants';
 import { LoginPage } from '../../components/LoginPage';
 import { isLoggedIn } from '../../utils/AuthUtils';
 import { CODING_QUESTIONS_LIST_PATH } from '../../../ContentManagementPortal/constants/RouteConstants/Navigation';
-import { login } from '../../../CommonModule/i18n/strings';
+import { login } from '../../../CommonModule/i18n/strings.json';
+import { AuthStore } from '../../stores/AuthStore';
+
+type historyProps={
+    history:history
+    authStore:AuthStore
+}
 
 @inject('authStore')
 @observer
-class LoginRoute extends React.Component {
-   @observable status;
-   @observable username;
-   @observable password;
-   @observable passwordErrorMessage;
-   @observable usernameErrorMessage;
-   @observable errorType;
-   @observable errorMessage;
-   loginPageRef;
-
+class LoginRoute extends React.Component<historyProps> {
+   @observable username:string='';
+   @observable password:string='';
+   @observable passwordErrorMessage:string|null='';
+   @observable usernameErrorMessage:string|null='';
+   @observable errorType:string='';
+   @observable errorMessage:string='';
+   loginPageRef:React.RefObject<LoginPage>= React.createRef<LoginPage>();
+   
    constructor(props) {
       super(props);
       this.init();
@@ -27,7 +32,6 @@ class LoginRoute extends React.Component {
 
    @action.bound
    init() {
-      this.loginPageRef = React.createRef();
       this.password = '';
       this.username = '';
       this.usernameErrorMessage = '';
@@ -37,9 +41,13 @@ class LoginRoute extends React.Component {
    }
 
    componentDidMount() {
-      if (this.loginPageRef.current !== null) {
-         this.loginPageRef.current.userNameRef.current.focus();
-      }
+      // const {current} = this.loginPageRef
+      // if (current!== null) {
+      //    const {userNameRef:{current:currentRef}} = current as LoginPage
+      //    const {focus} = currentRef as HTMLInputElement
+      //    focus();
+      // }
+      this.loginPageRef.current?.userNameRef.current?.focus();
    }
 
    @action.bound
@@ -69,22 +77,22 @@ class LoginRoute extends React.Component {
          this.errorMessage = apiError;
       }
    }
-
    @action.bound
    async onSubmit(event) {
       const { username, password } = this;
       if (username.trim().length === 0) {
-         this.usernameErrorMessage = [login.invalidUsername];
-         this.errorType = [login.username];
-         this.loginPageRef.current.userNameRef.current.focus();
+         this.usernameErrorMessage = login.invalidUsername;
+         this.errorType = login.username;
+         
+      this.loginPageRef.current?.userNameRef.current?.focus();;
       }
       else if (password.trim().length === 0) {
-         this.passwordErrorMessage = [login.invalidPassword];
-         this.errorType = [login.password];
-         this.loginPageRef.current.passwordRef.current.focus();
+         this.passwordErrorMessage = login.invalidPassword;
+         this.errorType = login.password;
+         
+      this.loginPageRef.current?.passwordRef.current?.focus();
       }
       else {
-
          const userData = {
             "username": this.username,
             "password": this.password
@@ -109,7 +117,6 @@ class LoginRoute extends React.Component {
          props: {},
          onChangeUsername,
          onChangePassword,
-         onEnterKeyPress,
          username,
          password,
          onSubmit,
@@ -126,7 +133,6 @@ class LoginRoute extends React.Component {
             {...{
                onChangeUsername,
                onChangePassword,
-               onEnterKeyPress,
                username,
                password,
                onSubmit,

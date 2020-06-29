@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { LoginPage } from '.';
-import { login } from '../../../CommonModule/i18n/strings';
+import { login } from '../../../CommonModule/i18n/strings.json';
 
 describe('Loginform', () => {
    it("should render typed username", () => {

@@ -3,6 +3,10 @@ import styled from '@emotion/styled';
 import { colors } from '../../../CommonModule/components/themes/colors';
 const { steel, white, neonRed, neonRed5 } = colors;
 
+type InputProps={
+   isErrorPresent:boolean
+}
+
 export const MainDiv = styled.div `
       ${tw`w-screen h-screen`}
       display:flex;
@@ -76,8 +80,8 @@ export const MainDiv = styled.div `
       border-radius: 2px;
       width: 270px;
       height: 30px;
-      border: solid 1px ${props => (props.isErrorPresent ? neonRed : steel)};
-      background-color: ${props => (props.isErrorPresent ? neonRed5 : white)};
+      border: solid 1px ${(props:any):string => (props.isErrorPresent ? neonRed : steel)};
+      background-color: ${(props:any):string => (props.isErrorPresent ? neonRed5 : white)};
 `,
    InputField = styled.input `
       width:90%;

@@ -11,7 +11,7 @@ import {
 }
 from "@ib/api-constants";
 
-import { ContentManagementAPI } from "../../services/ContentManagementServices/ContentManagementAPI";
+import { ContentManagementAPI } from "../../services/ContentManagementServices/ContentManagementAPI.api";
 import getProblemStatementFixtures from "../../fixtures/getProblemStatementFixtures.json";
 import getRoughSolutionFixtures from '../../fixtures/getRoughSolutionFixtures.json';
 import getCodingQuestionsFixture from '../../fixtures/getCodingQuestionsFixture.json';

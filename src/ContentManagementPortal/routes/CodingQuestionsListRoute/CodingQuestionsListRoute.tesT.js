@@ -18,7 +18,7 @@ import { render, fireEvent, waitFor } from "@testing-library/react";
 import { Router, Route, withRouter } from "react-router-dom";
 import { Provider } from "mobx-react";
 import { createMemoryHistory } from "history";
-import { ContentManagementAPI } from "../../services/ContentManagementServices/ContentManagementAPI";
+import { ContentManagementAPI } from "../../services/ContentManagementServices/ContentManagementAPI.api";
 import { ContentManagementStores } from '../../stores/ContentManagementStores';
 import CodingQuestionsListRoute from ".";
 

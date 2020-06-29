@@ -1,49 +1,73 @@
-import React from 'react';
-import { observable, action } from 'mobx';
-import { observer, inject } from 'mobx-react';
-import { CodingQuestionsList } from '../../components/CodingQuestionsList';
-import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigation';
+import React from 'react'
+import { observable, action } from 'mobx'
+import { observer, inject } from 'mobx-react'
+import { CodingQuestionsList } from '../../components/CodingQuestionsList'
+import { LOGIN_PATH } from '../../../AuthModule/constants/RouteConstants/Navigation'
+import { AuthStore } from '../../../AuthModule/stores/AuthStore'
+import { ContentManagementStores } from '../../stores/ContentManagementStores'
+import { History } from 'history'
+
+interface CodingQuestionRouteProps {
+   history: History
+}
+
+interface InjectedProps extends CodingQuestionRouteProps {
+   authStore: AuthStore
+   contentManagementStore: ContentManagementStores
+}
 
 @inject('authStore', 'contentManagementStore')
 @observer
-class CodingQuestionsListRoute extends React.Component {
-   @observable shouldDisplayCart;
+class CodingQuestionsListRoute extends React.Component<
+   CodingQuestionRouteProps
+> {
+   @observable shouldDisplayCart
 
    constructor(props) {
-      super(props);
-      this.shouldDisplayCart = false;
+      super(props)
+      this.shouldDisplayCart = false
    }
 
    componentDidMount() {
-      this.doNetworkCalls();
+      this.doNetworkCalls()
+   }
+
+   getInjectedProps = (): InjectedProps => this.props as InjectedProps
+
+   getContentManagementStore = () => {
+      return this.getInjectedProps().contentManagementStore
+   }
+
+   getAuthStore = () => {
+      return this.getInjectedProps().authStore
    }
 
    doNetworkCalls = () => {
-      const { contentManagementStore } = this.props;
-      contentManagementStore.getCodingQuestionsList();
+      this.getContentManagementStore().getCodingQuestionsList()
    }
 
    toggleDisplayCart = () => {
       {
-         this.shouldDisplayCart = (this.shouldDisplayCart) ? false : true;
+         this.shouldDisplayCart = this.shouldDisplayCart ? false : true
       }
    }
 
-   onPageChange = (value) => {
-      const { currentPagePositionUpdater, getCodingQuestionsList } = this.props.contentManagementStore;
-      console.log(value.selected);
-      currentPagePositionUpdater(value.selected + 1);
-      getCodingQuestionsList();
+   onPageChange = value => {
+      const {
+         currentPagePositionUpdater,
+         getCodingQuestionsList
+      } = this.getContentManagementStore()
+      console.log(value.selected)
+      currentPagePositionUpdater(value.selected + 1)
+      getCodingQuestionsList()
    }
 
    signOut = () => {
-      const { authStore } = this.props;
-      authStore.userSignOut();
-      this.props.history.replace(LOGIN_PATH);
+      this.getAuthStore().userSignOut()
+      this.props.history.replace(LOGIN_PATH)
    }
 
    render() {
-      const { contentManagementStore } = this.props;
       const {
          saveUserData,
          postUserDataAPIError,
@@ -64,13 +88,16 @@ class CodingQuestionsListRoute extends React.Component {
          currentPagePositionDecrementor,
          currentPagePosition,
          totalCountOfPages,
-         projectName,
-         getProjectName,
-         getProjectNameAPIStatus,
          deleteCodingQuestion,
-         onDeleteAll,
-      } = contentManagementStore;
-      const { signOut, doNetworkCalls, onPageChange, toggleDisplayCart, shouldDisplayCart } = this;
+         onDeleteAll
+      } = this.getContentManagementStore()
+      const {
+         signOut,
+         doNetworkCalls,
+         onPageChange,
+         toggleDisplayCart,
+         shouldDisplayCart
+      } = this
       return (
          <CodingQuestionsList
             {...{
@@ -78,9 +105,6 @@ class CodingQuestionsListRoute extends React.Component {
                shouldDisplayCart,
                onPageChange,
                currentPagePositionIncrementor,
-               getProjectNameAPIStatus,
-               getProjectName,
-               projectName,
                currentPagePositionDecrementor,
                currentPagePosition,
                totalCountOfPages,
@@ -105,8 +129,8 @@ class CodingQuestionsListRoute extends React.Component {
                onDeleteAll
             }}
          />
-      );
+      )
    }
 }
 
-export { CodingQuestionsListRoute };
+export { CodingQuestionsListRoute }
