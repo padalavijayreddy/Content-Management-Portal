@@ -44,7 +44,7 @@ class Profile extends React.Component {
                   <ProfileImage src={header.profileImageURL}></ProfileImage>
                   <AccountCenter>
                      <AccountCenterP>Account Center</AccountCenterP>
-                     <EmailId>@vijayReddyPadala</EmailId>
+                     <EmailId> @vijayReddyPadala </EmailId>
                   </AccountCenter>
                </AccountCenterDiv>
                <UserOptions>
