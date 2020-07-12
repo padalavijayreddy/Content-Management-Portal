@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { observer, Provider } from 'mobx-react'
+import { I18nextProvider } from 'react-i18next'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import stores from './CommonModule/stores'
@@ -9,22 +10,27 @@ import {
    CodingQuestionsListRoutes,
    CodingQuestionDetails
 } from './ContentManagementPortal/routes'
+import i18n from './i18n'
 
 @observer
 class App extends React.Component {
    render() {
       return (
          <Provider {...stores}>
-            <Router basename={process.env.PUBLIC_URL}>
-               <Switch>
-                  {AuthRoutes}
-                  {CodingQuestionsListRoutes}
-                  {CodingQuestionDetails}
-                  <Route path='/'>
-                     <Home />
-                  </Route>
-               </Switch>
-            </Router>
+            <I18nextProvider i18n={i18n}>
+               <Suspense fallback={<div />}>
+                  <Router basename={process.env.PUBLIC_URL}>
+                     <Switch>
+                        {AuthRoutes}
+                        {CodingQuestionsListRoutes}
+                        {CodingQuestionDetails}
+                        <Route path='/'>
+                           <Home />
+                        </Route>
+                     </Switch>
+                  </Router>
+               </Suspense>
+            </I18nextProvider>
          </Provider>
       )
    }

@@ -1,0 +1,14 @@
+{
+   "hiTherelogin": "Hi there,\nlogin",
+   "username": "USER NAME",
+   "password": "PASSWORD",
+   "usernameAlreadyExits": "username already exits",
+   "invalidUsername": "Invalid Username",
+   "invalidPassword": "Invalid password",
+   "passwordDoesntMatch": "Password doesn't Match",
+   "dontHaveAnAccount": "Don’t have an account?",
+   "signup": "Signup",
+   "login": "LOGIN",
+   "english": "English",
+   "telugu": "తెలుగు"
+}

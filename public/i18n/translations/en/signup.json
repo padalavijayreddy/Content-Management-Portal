@@ -1,0 +1,14 @@
+{
+  "useCases": {
+    "normal": "Normal",
+    "plural": "Plural",
+    "parametrized": "Parametrized"
+  },
+  "addTodo": "AdD ToDo",
+  "addCurrentTodo": "Add cUrReNt Todo",
+  "todosLeft": "Todo Left : {{count}}",
+  "todosLeft_plural": "{{count}} Todos Left",
+  "todosLeftParameter": "Still {{count}} Todo Left",
+  "todosLeftParameter_plural": "Still {{count}} Todos Left",
+  "todoWithParameter": "Todo - {{todoText}}"
+}

@@ -1,0 +1,14 @@
+{
+   "hiTherelogin": "హాయ్, లాగిన్",
+   "username": "వినియోగదారు పేరు",
+   "password": "పాస్వర్డ్",
+   "usernameAlreadyExits": "వినియోగదారు పేరు ఇప్పటికే నిష్క్రమించింది",
+   "invalidUsername": "చెల్లని వాడుకపేరు",
+   "invalidPassword": "చెల్లని పాస్వర్డ్",
+   "passwordDoesntMatch": "పాస్‌వర్డ్ సరిపోలలేదు",
+   "dontHaveAnAccount": "ఖాతా లేదా?",
+   "signup": "చేరడం",
+   "login": "ప్రవేశించండి",
+   "english": "English",
+   "telugu": "తెలుగు"
+}

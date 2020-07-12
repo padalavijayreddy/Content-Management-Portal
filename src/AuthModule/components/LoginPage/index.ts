@@ -1,1 +1,3 @@
-export { LoginPage, SignInButton } from './LoginPage';
+import LoginPage from './LoginPage'
+export { SignInButton } from './LoginPage'
+export { LoginPage }

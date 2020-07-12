@@ -1,1 +1,2 @@
-export { LoginRoute } from './LoginRoute'
+import LoginRoute from './LoginRoute'
+export { LoginRoute }
